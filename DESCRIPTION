@@ -33,3 +33,5 @@ Suggests:
     showtext,
     sysfonts
 VignetteBuilder: knitr
+URL: https://github.com/caldwellst/gghdx
+BugReports: https://github.com/caldwellst/gghdx/issues
