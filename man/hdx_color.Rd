@@ -3,22 +3,39 @@
 \name{hdx_colors}
 \alias{hdx_colors}
 \alias{hdx_colours}
+\alias{hdx_hex}
+\alias{hdx_colors_names}
+\alias{hdx_colours_names}
 \title{Hex values for HDX colors}
 \usage{
 hdx_colors(colors = c("sapphire", "mint", "tomato", "gray"))
 
 hdx_colours(colors = c("sapphire", "mint", "tomato", "gray"))
+
+hdx_hex(color_names)
+
+hdx_colors_names()
+
+hdx_colours_names()
 }
 \arguments{
 \item{colors}{Specified color ramps to return. Some set of "sapphire",
 "mint", "tomato", and "gray. By default returns all colors.}
+
+\item{color_names}{Vector of color names. Valid values are all available}
 }
 \value{
 Named vector of hex values.
 }
 \description{
 \code{hdx_colors()} conveniently returns a vector of hex values for specified
-color ramps. Full values can be found in \link{hdx_color_list}.
+color ramps. Full values can be found in \link{hdx_color_list}. If you
+know the name of the color you want, such as "sapphire-hdx", you can use
+\code{hdx_hex(c("sapphire-hdx"))} to directly access the hex code.
+}
+\details{
+All valid color names are in the named vector returned by \code{hdx_colors()} or
+accessible in the convenient \code{hdx_colors_names()}.
 }
 \seealso{
 Other color hdx: 
