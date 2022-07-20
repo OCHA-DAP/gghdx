@@ -3,5 +3,6 @@
 ^\.Rproj\.user$
 ^\.github$
 ^\.pre-commit-config\.yaml$
+^codecov\.yml$
 ^data-raw$
 ^gghdx\.Rproj$

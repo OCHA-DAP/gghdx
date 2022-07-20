@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/caldwellst/gghdx/branch/main/graph/badge.svg)](https://app.codecov.io/gh/caldwellst/gghdx?branch=main)
 <!-- badges: end -->
 
 The goal of gghdx is to make it as simple as possible to follow the HDX visual
