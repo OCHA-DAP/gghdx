@@ -4,6 +4,8 @@
 # gghdx
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of gghdx is to make it as simple as possible to follow the HDX
