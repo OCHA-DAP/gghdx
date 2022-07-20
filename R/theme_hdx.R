@@ -115,7 +115,7 @@ theme_hdx <- function(base_size = 10,
       ),
       plot.title = element_text(
         size = rel(1.5),
-        hjust = 0.1,
+        hjust = 0,
         face = "bold",
         color = base_colors["gray-black"],
         margin = margin(b = rel(4), unit = "pt")
@@ -123,7 +123,7 @@ theme_hdx <- function(base_size = 10,
       plot.title.position = "plot",
       plot.subtitle = element_text(
         size = rel(1.1),
-        hjust = 0.1,
+        hjust = 0,
         face = "bold"
       ),
       plot.margin = unit(c(6, 5, 6, 5) * 2, "points"),
