@@ -1,0 +1,35 @@
+Package: gghdx
+Title: HDX Theme, Scales, and Other Conveniences for 'ggplot2'
+Version: 0.0.1
+Authors@R: 
+    person(
+      given = "Seth",
+      family = "Caldwell", 
+      email = "caldwellst@gmail.com",
+      role = c("aut", "cre")
+    )
+Description: An HDX theme, color palettes, and scales for 'ggplot2' to allow
+    users to easily follow the HDX visual design guide. Also provides other
+    convenience for loading and using the Source Sans Pro font.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: 
+    dplyr,
+    ggplot2,
+    ggthemes,
+    magrittr,
+    purrr,
+    tibble
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    here,
+    knitr,
+    rmarkdown,
+    scales,
+    showtext,
+    sysfonts
+VignetteBuilder: knitr

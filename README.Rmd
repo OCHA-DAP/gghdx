@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# gghdx
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of gghdx is to make it as simple as possible to follow the HDX visual
+guidelines when creating graphs using ggplot2. While most of the functionality
+is in allowing easy application of the HDX color ramps, the package also
+streamlines some of the other recommendations and best practices regarding
+plotted text, axis gridlines, and other visual features.
+
+## Installation
+
+You can install gghdx directly from GitHub:
+
+```r
+## install.packages("remotes")
+remotes::install_github("caldwellst/gghdx")
+```
+
+The package is not currently available on CRAN. Since gghdx utilizes the
+showtext and sysfonts packages to cleanly import and use the Source Sans Pro
+font, it is recommended to install them as well. Simply just install showtext
+and sysfonts will also be installed.
+
+```r
+install.packages("showtext")
+```
+
+The package is designed so the user just has to run `gghdx()` once a session
+and mainly forget about it. This will automatically set your ggplot2 defaults
+to use the HDX theme, palettes, fonts, and more. If you want more control or
+want to better understand how the package works, please see the details below!
+
+```{r child="vignettes/gghdx.Rmd"}
+```

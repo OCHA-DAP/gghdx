@@ -1,0 +1,21 @@
+tomato:
+- {name: "dark", value: "#C25048"}
+- {name: "hdx", value: "#F2645A"}
+- {name: "light", value: "#F7A29C"}
+- {name: "ultra-light", value: "#FCE0DE"}
+sapphire:
+- {name: "dark", value: "#0063B3"}
+- {name: "hdx", value: "#007CE0"}
+- {name: "light", value: "#66B0EC"}
+- {name: "ultra-light", value: "#CCE5F9"}
+mint:
+- {name: "dark", value: "#18998F"}
+- {name: "hdx", value: "#1EBFB3"}
+- {name: "light", value: "#78D9D1"}
+- {name: "ultra-light", value: "#D2F2F0"}
+gray:
+- {name: "black", value: "#000000"}
+- {name: "dark", value: "#888888"}
+- {name: "medium", value: "#CCCCCC"}
+- {name: "light", value: "#EEEEEE"}
+- {name: "white", value: "#FFFFFF"}
