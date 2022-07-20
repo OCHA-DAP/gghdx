@@ -12,7 +12,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.showtext = TRUE,
-  warning = FALSE
+  warning = FALSE,
+  dpi = 300,
+  fig.retina = 1,
+  fig.align = "center"
 )
 ```
 
@@ -21,7 +24,7 @@ knitr::opts_chunk$set(
 A quick and simple example would be plotting the `iris` dataset included in
 base R.
 
-```{r intro-plot, fig.width = 7, fig.height = 4}
+```{r intro-plot, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 library(ggplot2)
 
 p <- ggplot(
@@ -46,7 +49,7 @@ This output using the base ggplot style doesn't look particularly bad, but we
 can use `theme_hdx()` to quickly adjust some of the styling to fit the style
 guide.
 
-```{r intro-hdx, fig.width = 6, fig.height = 4}
+```{r intro-hdx, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 library(gghdx)
 
 p + theme_hdx()
@@ -63,7 +66,7 @@ can use one of the many `scale_...hdx()` functions to use HDX colors. Let's just
 use the primary discrete color scale that will align each species with one of
 the 3 non-gray colorramps (sapphire, mint, and tomato).
 
-```{r intro-ramp, fig.width = 6, fig.height = 4}
+```{r intro-ramp, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 p + theme_hdx() + scale_color_hdx()
 ```
 
@@ -85,7 +88,7 @@ locally and can run into other issues, such as
 
 Below, I use the showtext package because it's simpler.
 
-```{r extrafont, fig.width = 6, fig.height = 4}
+```{r extrafont, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 library(showtext)
 
 font_add_google("Source Sans Pro")
@@ -114,7 +117,7 @@ current session.
 You just have to run `gghdx()` once a session, and then our plots will already
 be where we would like!
 
-```{r gghdx, fig.width = 6, fig.height = 4}
+```{r gghdx, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 gghdx()
 p
 ```
@@ -139,7 +142,7 @@ knitr::include_graphics(
 The inbuilt data `gghdx::df_covid` has aggregated COVID data we can use to
 mirror this plot.
 
-```{r covid-match, fig.height = 5, fig.width = 6, out.width = "45%", fig.show = "hold"}
+```{r covid-match, fig.height = 5, fig.width = 6, out.width = "45%", fig.show = "hold", fig.align = "default"}
 p_blue <- ggplot(
   df_covid,
   aes(

@@ -63,7 +63,7 @@ p <- ggplot(
 p
 ```
 
-<img src="man/figures/README-intro-plot-1.png" width="100%" />
+<img src="man/figures/README-intro-plot-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
 
 This output using the base ggplot style doesn’t look particularly bad,
 but we can use `theme_hdx()` to quickly adjust some of the styling to
@@ -75,7 +75,7 @@ library(gghdx)
 p + theme_hdx()
 ```
 
-<img src="man/figures/README-intro-hdx-1.png" width="100%" />
+<img src="man/figures/README-intro-hdx-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
 
 Now, axis lines have been cleaned up and the plot better resembles
 recommendations from the visual guide with just that single line of
@@ -93,7 +93,7 @@ mint, and tomato).
 p + theme_hdx() + scale_color_hdx()
 ```
 
-<img src="man/figures/README-intro-ramp-1.png" width="100%" />
+<img src="man/figures/README-intro-ramp-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
 
 You can check the documentation of any of the `scale_...hdx()` functions
 to see all available scales, or directly access the colors using
@@ -126,7 +126,7 @@ showtext_auto()
 p + theme_hdx() + scale_color_hdx()
 ```
 
-<img src="man/figures/README-extrafont-1.png" width="100%" />
+<img src="man/figures/README-extrafont-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
 
 ### Streamlined plotting
 
@@ -146,14 +146,15 @@ to call these every time we make a new plot. So, to make life simpler,
 -   loads the Source Sans Pro font from Google and activates its usage
     for the current session.
 
-You just have to run `gghdx()` once a session. We can
+You just have to run `gghdx()` once a session, and then our plots will
+already be where we would like!
 
 ``` r
 gghdx()
 p
 ```
 
-<img src="man/figures/README-gghdx-1.png" width="100%" />
+<img src="man/figures/README-gghdx-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
 
 And voíla, we have our graph without specifying the theme or color
 scale.
@@ -161,7 +162,7 @@ scale.
 ### COVID plots
 
 As a final example, we can closely match the COVID plots referenced in
-the visual guide.
+the visual guide using the theme and color scales in the package.
 
 <img src="man/figures/covid_blue.png" width="45%" height="20%" /><img src="man/figures/covid_red.png" width="45%" height="20%" />
 
