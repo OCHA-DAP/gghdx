@@ -37,9 +37,9 @@ install.packages("showtext")
 
 The package is designed so the user just has to run `gghdx()` once a
 session and mainly forget about it. This will automatically set your
-ggplot2 defaults to use the HDX theme, palettes, fonts, and more. If you
-want more control or want to better understand how the package works,
-please see the details below!
+ggplot2 to use the HDX theme, palettes, fonts, and more by default. If
+you want more control or want to better understand how the package
+works, please see the details below!
 
 ### Using the theme
 
@@ -184,7 +184,7 @@ p_blue <- ggplot(
   geom_bar(
     stat = "identity",
     width = 6,
-    fill = hdx_colors()["sapphire-hdx"] # use sapphire for fill
+    fill = hdx_hex("sapphire-hdx") # use sapphire for fill
   ) +
   scale_y_continuous(
     labels = scales::label_number(
