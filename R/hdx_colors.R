@@ -6,7 +6,7 @@
 #' `hdx_hex(c("sapphire-hdx"))` to directly access the hex code.
 #'
 #' All valid color names are in the named vector returned by `hdx_colors()` or
-#' accessible in the convenient `hdx_colors_names()`.
+#' accessible in the convenient `hdx_color_names()`.
 #'
 #' @param colors Specified color ramps to return. Some set of "sapphire",
 #'     "mint", "tomato", and "gray. By default returns all colors.
@@ -16,10 +16,16 @@
 #' @rdname hdx_color
 #' @export
 hdx_colors <- function(colors = c("sapphire", "mint", "tomato", "gray")) {
+  # return NA if input is NA
+  ln <- length(colors)
+  if (all(is.na(colors)) && ln == 1) {
+    return(NA_character_)
+  }
+
   defaults <- eval(formals()$colors)
-  if (!all(colors %in% defaults) || length(colors) == 0) {
+  if (!all(colors %in% defaults) || ln == 0) {
     stop(
-      "`colors` must specify some set of 'sapphire', 'mint', 'tomato', and",
+      "`colors` must specify some set of 'sapphire', 'mint', 'tomato', and ",
       "'gray' in a character vector.",
       call. = FALSE
     )
@@ -43,12 +49,18 @@ hdx_colours <- hdx_colors
 
 #' @rdname hdx_color
 #' @param color_names Vector of color names. Valid values are all available
+#'     using `hdx_colors`
 #'
 #' @export
 hdx_hex <- function(color_names) {
-  if (!all(color_names %in% hdx_colors_names())) {
+  ln <- length(color_names)
+  if (all(is.na(color_names)) && ln == 1) {
+    return(NA_character_)
+  }
+
+  if (!all(color_names %in% hdx_color_names()) || ln == 0) {
     stop(
-      "Not all color names are valid. Check `hdx_colors_names()` for",
+      "Not all color names are valid. Check `hdx_color_names()` for ",
       "all valid values.",
       call. = FALSE
     )
@@ -58,10 +70,10 @@ hdx_hex <- function(color_names) {
 
 #' @rdname hdx_color
 #' @export
-hdx_colors_names <- function() {
+hdx_color_names <- function() {
   unname(names(hdx_colors()))
 }
 
 #' @rdname hdx_color
 #' @export
-hdx_colours_names <- hdx_colors_names
+hdx_colour_names <- hdx_color_names

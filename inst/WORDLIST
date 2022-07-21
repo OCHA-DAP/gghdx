@@ -7,6 +7,7 @@ CCE
 CMD
 Codecov
 colorramps
+Config
 copyrightable
 COVID
 covr
@@ -49,6 +50,7 @@ showtext
 sublicenses
 Sublicensing
 sysfonts
+testthat
 tibble
 VignetteBuilder
 voíla

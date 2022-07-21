@@ -1,3 +1,4 @@
+^.lintr
 ^LICENSE\.md$
 ^README\.Rmd$
 ^\.Rproj\.user$

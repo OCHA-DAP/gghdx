@@ -2,10 +2,10 @@
 
 export("%>%")
 export(gghdx)
+export(hdx_color_names)
 export(hdx_colors)
-export(hdx_colors_names)
+export(hdx_colour_names)
 export(hdx_colours)
-export(hdx_colours_names)
 export(hdx_hex)
 export(hdx_pal)
 export(hdx_pal_mint)

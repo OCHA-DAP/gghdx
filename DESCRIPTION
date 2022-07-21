@@ -32,7 +32,9 @@ Suggests:
     rmarkdown,
     scales,
     showtext,
-    sysfonts
+    sysfonts,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://github.com/caldwellst/gghdx
 BugReports: https://github.com/caldwellst/gghdx/issues
+Config/testthat/edition: 3

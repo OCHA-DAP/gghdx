@@ -107,7 +107,7 @@ hdx_pal_general <- function(colors) {
     } else if (n == 2L) {
       i <- c(4, 2)
     } else if (n >= 3L) {
-      i <- seq(4, 5 - min(n, max_n), 1)
+      i <- seq(4, 5 - min(n, max_n), -1)
     }
     unname(colors[i])
   }
