@@ -153,7 +153,7 @@ p_blue <- ggplot(
   geom_bar(
     stat = "identity",
     width = 6,
-    fill = hdx_colors()["sapphire-hdx"] # use sapphire for fill
+    fill = hdx_hex("sapphire-hdx") # use sapphire for fill
   ) +
   scale_y_continuous(
     labels = scales::label_number(
