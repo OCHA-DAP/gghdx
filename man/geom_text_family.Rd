@@ -26,12 +26,15 @@ geom_label_hdx(
   stat = "identity",
   position = "identity",
   ...,
+  fill = hdx_hex("gray-dark"),
+  color = "white",
+  fontface = "bold",
   parse = FALSE,
   nudge_x = 0,
   nudge_y = 0,
   label.padding = unit(0.25, "lines"),
   label.r = unit(0.15, "lines"),
-  label.size = 0.25,
+  label.size = 0,
   na.rm = FALSE,
   show.legend = NA,
   inherit.aes = TRUE
@@ -97,6 +100,12 @@ rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 
+\item{fill}{Fill color for label box. Defaults to dark gray.}
+
+\item{color}{Font color. Defaults to white.}
+
+\item{fontface}{Font emphasis. Defaults to bold.}
+
 \item{label.padding}{Amount of padding around label. Defaults to 0.25 lines.}
 
 \item{label.r}{Radius of rounded corners. Defaults to 0.15 lines.}
@@ -109,7 +118,8 @@ scatterplots or in combination with other geoms, for example, for labeling
 points or for annotating the height of bars. \code{geom_text_hdx()} adds only
 text to the plot. \code{geom_label_hdx()} draws a rectangle behind the text,
 making it easier to read. The only difference with the base \code{geom_text()}
-and \code{geom_label()} is that the default font family is Source Sans Pro.
+is that the default font family is Source Sans Pro. \code{geom_label_hdx()} also
+incorporates a default dark gray background, white text, and no borders.
 }
 \details{
 Note that when you resize a plot, text labels stay the same size, even
