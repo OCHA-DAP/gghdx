@@ -82,14 +82,7 @@ geom_defaults <- function() {
     list(geom = "line", new = list(color = colors["sapphire-hdx"])),
 
     # using dark grey for text
-    list(geom = "text", new = list(
-      color = colors["gray-dark"],
-      family = "Source Sans Pro"
-    )),
-    list(geom = "text_repel", new = list(
-      color = colors["gray-dark"],
-      family = "Source Sans Pro"
-    )),
+    list(geom = "text", new = list(color = colors["gray-dark"])),
 
     # geoms where we just need default fill
     # using mint fill here since sapphire quite intense and contrasts with color

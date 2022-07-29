@@ -1,5 +1,6 @@
 Affero
 aut
+behaviour
 BugReports
 caldwellst
 CCCCCC
@@ -21,8 +22,10 @@ extrafont
 FCE
 FFFFFF
 fsf
+geoms
 gghdx
 ggplot
+ggrepel
 ggthemes
 ghostscript
 github
@@ -31,6 +34,7 @@ gridlines
 hdx
 HDX
 http
+jointy
 knitr
 LazyData
 lgpl
