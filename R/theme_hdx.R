@@ -111,6 +111,9 @@ theme_hdx <- function(base_size = 10,
         color = base_colors["gray-black"],
         face = "bold"
       ),
+      strip.text.x = element_text(
+        margin = margin(b = rel(5))
+      ),
       strip.text.y = element_text(angle = -90),
       plot.background = element_rect(
         fill = base_colors["gray-white"],
