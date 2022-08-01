@@ -140,7 +140,8 @@ knitr::include_graphics(
 ```
 
 The inbuilt data `gghdx::df_covid` has aggregated COVID data we can use to
-mirror this plot.
+mirror this plot. To make the data start at the y-axis, we can use
+`scale_y_continuous_hdx()` which sets `expand = c(0, 0)` by default.
 
 ```{r covid-match, fig.height = 5, fig.width = 6, out.width = "45%", fig.show = "hold", fig.align = "default"}
 p_blue <- ggplot(
@@ -155,7 +156,7 @@ p_blue <- ggplot(
     width = 6,
     fill = hdx_hex("sapphire-hdx") # use sapphire for fill
   ) +
-  scale_y_continuous(
+  scale_y_continuous_hdx(
     labels = scales::label_number(
       accuracy = 1,
       scale = 1 / 1000000,
