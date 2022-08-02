@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# gghdx <a href='https://github.com/caldwellst/gghdx'><img src='man/figures/logo.png' align="right" height="194">
+# gghdx <a href='https://github.com/caldwellst/gghdx'><img src='man/figures/logo.png' align="right" height="139">
 
 <!-- badges: start -->
 
@@ -10,12 +10,27 @@
 coverage](https://codecov.io/gh/caldwellst/gghdx/branch/main/graph/badge.svg)](https://app.codecov.io/gh/caldwellst/gghdx?branch=main)
 <!-- badges: end -->
 
+## Overview
+
 The goal of gghdx is to make it as simple as possible to follow the HDX
 visual guidelines when creating graphs using ggplot2. While most of the
 functionality is in allowing easy application of the HDX color ramps,
 the package also streamlines some of the other recommendations and best
 practices regarding plotted text, axis gridlines, and other visual
-features.
+features. The key functionalities are:
+
+-   `theme_hdx()` for a ggplot theme for general plot aesthetics
+-   `scale_color_hdx()` and `scale_fill_hdx()` are convenient scale
+    functions using the relevant palettes
+-   `hdx_colors()`, `hdx_hex()`, and `hdx_pal()` provide easy user
+    access to the HDX color template
+-   `geom_text_hdx()` and `geom_label_hdx()` have HDX aesthetics for
+    default text overlays to plots
+-   `scale_y_continuous_hdx()` wraps `scale_y_continuous()` so y plot
+    data starts from the y-axis by default
+-   `gghdx()` ensures plot for the session use HDX defaults for color
+    and fill scales, uses `theme_hdx()` for all plots, and applies
+    `scale_color_hdx()` and `scale_fill_hdx()`
 
 ## Installation
 
