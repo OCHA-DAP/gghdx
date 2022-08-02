@@ -19,7 +19,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-### Using the theme
+## Using the package
+
+### Theme
 
 A quick and simple example would be plotting the `iris` dataset included in
 base R.

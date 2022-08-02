@@ -56,7 +56,9 @@ ggplot2 to use the HDX theme, palettes, fonts, and more by default. If
 you want more control or want to better understand how the package
 works, please see the details below!
 
-### Using the theme
+## Using the package
+
+### Theme
 
 A quick and simple example would be plotting the `iris` dataset included
 in base R.
