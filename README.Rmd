@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# gghdx
+# gghdx <a href='https://github.com/caldwellst/gghdx'><img src='man/figures/logo.png' align="right" height="194">
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml)
