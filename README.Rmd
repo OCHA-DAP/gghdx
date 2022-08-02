@@ -29,14 +29,15 @@ streamlines some of the other recommendations and best practices regarding
 plotted text, axis gridlines, and other visual features. The key functionalities
 are:
 
-* `theme_hdx()` for a ggplot theme for general plot aesthetics
-* `scale_color_hdx()` and `scale_fill_hdx()` are convenient scale functions
-using the relevant palettes
+* `theme_hdx()` is the general package theme.
+* `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color scale to
+the relevant aesthetics.
 * `hdx_colors()`, `hdx_hex()`, and `hdx_pal()` provide easy user access to the
-HDX color template
-* `geom_text_hdx()` and `geom_label_hdx()` have HDX aesthetics for default text overlays to plots
-* `scale_y_continuous_hdx()` wraps `scale_y_continuous()` so y plot data
-starts from the y-axis by default
+HDX color template.
+* `geom_text_hdx()` and `geom_label_hdx()` wrap the respective base functions
+to plot text using HDX fonts and aesthetics.
+* `scale_y_continuous_hdx()` wraps `scale_y_continuous()` to plot data directly
+starting from the y-axis.
 * `gghdx()` ensures plot for the session use HDX defaults for color and fill
 scales, uses `theme_hdx()` for all plots, and applies `scale_color_hdx()` and
 `scale_fill_hdx()`
