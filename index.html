@@ -75,11 +75,30 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="gghdx-">gghdx <a href="https://github.com/caldwellst/gghdx" class="external-link"><img src="reference/figures/logo.png" align="right" height="194"></a>
+<div class="page-header"><h1 id="gghdx-">gghdx <a href="https://github.com/caldwellst/gghdx" class="external-link"><img src="reference/figures/logo.png" align="right" height="139"></a>
 <a class="anchor" aria-label="anchor" href="#gghdx-"></a>
 </h1></div>
 <!-- badges: start -->
-<p>The goal of gghdx is to make it as simple as possible to follow the HDX visual guidelines when creating graphs using ggplot2. While most of the functionality is in allowing easy application of the HDX color ramps, the package also streamlines some of the other recommendations and best practices regarding plotted text, axis gridlines, and other visual features.</p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p>The goal of gghdx is to make it as simple as possible to follow the HDX visual guidelines when creating graphs using ggplot2. While most of the functionality is in allowing easy application of the HDX color ramps, the package also streamlines some of the other recommendations and best practices regarding plotted text, axis gridlines, and other visual features. The key functionalities are:</p>
+<ul>
+<li>
+<code><a href="reference/theme_hdx.html">theme_hdx()</a></code> for a ggplot theme for general plot aesthetics</li>
+<li>
+<code><a href="reference/scale_hdx.html">scale_color_hdx()</a></code> and <code><a href="reference/scale_hdx.html">scale_fill_hdx()</a></code> are convenient scale functions using the relevant palettes</li>
+<li>
+<code><a href="reference/hdx_color.html">hdx_colors()</a></code>, <code><a href="reference/hdx_color.html">hdx_hex()</a></code>, and <code><a href="reference/pal_general.html">hdx_pal()</a></code> provide easy user access to the HDX color template</li>
+<li>
+<code><a href="reference/geom_text_family.html">geom_text_hdx()</a></code> and <code><a href="reference/geom_text_family.html">geom_label_hdx()</a></code> have HDX aesthetics for default text overlays to plots</li>
+<li>
+<code><a href="reference/scale_y_hdx.html">scale_y_continuous_hdx()</a></code> wraps <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous()</a></code> so y plot data starts from the y-axis by default</li>
+<li>
+<code><a href="reference/gghdx.html">gghdx()</a></code> ensures plot for the session use HDX defaults for color and fill scales, uses <code><a href="reference/theme_hdx.html">theme_hdx()</a></code> for all plots, and applies <code><a href="reference/scale_hdx.html">scale_color_hdx()</a></code> and <code><a href="reference/scale_hdx.html">scale_fill_hdx()</a></code>
+</li>
+</ul>
+</div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
