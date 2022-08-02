@@ -67,6 +67,7 @@ linearGradient
 linecap
 linejoin
 magrittr
+md
 MERCHANTABILITY
 miterlimit
 namedview
@@ -83,6 +84,7 @@ png
 pts
 purrr
 px
+README
 rect
 relicensing
 repos
