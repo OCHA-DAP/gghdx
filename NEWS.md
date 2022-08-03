@@ -1,3 +1,7 @@
+# gghdx 0.0.2
+
+* Cleaned `df_covid` for consistent days between dates on x-axis plots.
+
 # gghdx 0.0.1
 
 * Added a `NEWS.md` file to track changes to the package.
