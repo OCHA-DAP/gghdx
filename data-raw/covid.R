@@ -30,7 +30,7 @@ df_covid <- read_csv("https://covid19.who.int/WHO-COVID-19-global-data.csv") %>%
     )
   ) %>%
   filter(
-    day(Date_reported) %in% c(1, 10, 20),
+    yday(Date_reported) %% 10 == 0,
     year(Date_reported) == 2020,
     month(Date_reported) < 10
   ) %>%
