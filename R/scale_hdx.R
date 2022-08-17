@@ -12,7 +12,13 @@
 #' @rdname scale_hdx
 #' @export
 scale_color_hdx <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -22,7 +28,13 @@ scale_colour_hdx <- scale_color_hdx
 #' @rdname scale_hdx
 #' @export
 scale_color_hdx_mint <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal_mint(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_mint(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -32,7 +44,13 @@ scale_colour_hdx_mint <- scale_color_hdx_mint
 #' @rdname scale_hdx
 #' @export
 scale_color_hdx_sapphire <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal_sapphire(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_sapphire(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -42,7 +60,13 @@ scale_colour_hdx_sapphire <- scale_color_hdx_sapphire
 #' @rdname scale_hdx
 #' @export
 scale_color_hdx_tomato <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal_tomato(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_tomato(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -52,25 +76,49 @@ scale_colour_hdx_tomato <- scale_color_hdx_tomato
 #' @rdname scale_hdx
 #' @export
 scale_fill_hdx <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
 #' @export
 scale_fill_hdx_mint <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal_mint(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_mint(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
 #' @export
 scale_fill_hdx_sapphire <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal_sapphire(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_sapphire(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
 #' @export
 scale_fill_hdx_tomato <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal_tomato(), na.value = hdx_hex("gray-light"), ...)
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_tomato(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
