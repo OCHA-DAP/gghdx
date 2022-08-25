@@ -1,4 +1,6 @@
-# gghdx 0.0.3
+# Development
+
+## gghdx 0.0.2.1
 
 * Overwriting NA value legend colors from white to gray, preventing mixing with the white background.
 
