@@ -1,8 +1,12 @@
 # Development
 
+## gghdx 0.0.2.2
+
+* Right adjusting y-axis labels in `theme_hdx()`. 
+
 ## gghdx 0.0.2.1
 
-* Overwriting NA value legend colors from white to gray, preventing mixing with the white background.
+* Changing `NA` colors from white to gray.
 
 # gghdx 0.0.2
 

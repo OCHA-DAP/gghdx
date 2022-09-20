@@ -68,7 +68,7 @@ theme_hdx <- function(base_size = 10,
         margin = ggplot2::margin(b = rel(1), unit = "pt")
       ),
       axis.text.y = ggplot2::element_text(
-        hjust = 0,
+        hjust = 0.95,
         margin = margin(r = rel(1), unit = "pt")
       ),
       axis.ticks = element_blank(),
