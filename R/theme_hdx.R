@@ -52,7 +52,7 @@ theme_hdx <- function(base_size = 10,
       ),
       ## Axis
       axis.line = element_line(
-        size = rel(0.8),
+        linewidth = rel(0.8),
         color = base_colors["gray-dark"]
       ),
       axis.line.y = element_blank(),
@@ -97,7 +97,7 @@ theme_hdx <- function(base_size = 10,
       panel.border = element_blank(),
       panel.grid.major = element_line(
         color = base_colors["gray-light"],
-        size = rel(1)
+        linewidth = rel(1)
       ),
       panel.grid.minor = element_blank(),
       panel.spacing = unit(0.25, "lines"),
