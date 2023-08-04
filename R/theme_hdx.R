@@ -1,3 +1,4 @@
+#no lint start
 #' ggplot color theme based on HDX visual design guide
 #'
 #' A theme that approximates the style of the
@@ -26,9 +27,10 @@
 #' @references
 #' \itemize{
 #' \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
-#' \item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro} #nolint
+#' \item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro}
 #' \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 #' }
+# no lint end
 theme_hdx <- function(base_size = 10,
                       base_family = "Source Sans Pro",
                       horizontal = TRUE) {

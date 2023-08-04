@@ -48,7 +48,7 @@ You can install gghdx directly from GitHub:
 
 ```r
 ## install.packages("remotes")
-remotes::install_github("caldwellst/gghdx")
+remotes::install_github("OCHA-DAP/gghdx")
 ```
 
 The package is not currently available on CRAN. Since gghdx utilizes the

@@ -34,7 +34,7 @@ font Source Sans Pro being easily available in R. Use the
 \references{
 \itemize{
 \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
-\item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro} #nolint
+\item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro}
 \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 }
 }

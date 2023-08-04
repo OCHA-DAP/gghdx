@@ -19,18 +19,18 @@ the package also streamlines some of the other recommendations and best
 practices regarding plotted text, axis gridlines, and other visual
 features. The key functionalities are:
 
--   `theme_hdx()` is the general package theme.
--   `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color
-    scale to the relevant aesthetics.
--   `hdx_colors()`, `hdx_hex()`, and `hdx_pal()` provide easy user
-    access to the HDX color template.
--   `geom_text_hdx()` and `geom_label_hdx()` wrap the respective base
-    functions to plot text using HDX fonts and aesthetics.
--   `scale_y_continuous_hdx()` wraps `scale_y_continuous()` to plot data
-    directly starting from the y-axis.
--   `gghdx()` ensures plot for the session use HDX defaults for color
-    and fill scales, uses `theme_hdx()` for all plots, and applies
-    `scale_color_hdx()` and `scale_fill_hdx()`
+- `theme_hdx()` is the general package theme.
+- `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color scale
+  to the relevant aesthetics.
+- `hdx_colors()`, `hdx_hex()`, and `hdx_pal()` provide easy user access
+  to the HDX color template.
+- `geom_text_hdx()` and `geom_label_hdx()` wrap the respective base
+  functions to plot text using HDX fonts and aesthetics.
+- `scale_y_continuous_hdx()` wraps `scale_y_continuous()` to plot data
+  directly starting from the y-axis.
+- `gghdx()` ensures plot for the session use HDX defaults for color and
+  fill scales, uses `theme_hdx()` for all plots, and applies
+  `scale_color_hdx()` and `scale_fill_hdx()`
 
 ## Installation
 
@@ -38,7 +38,7 @@ You can install gghdx directly from GitHub:
 
 ``` r
 ## install.packages("remotes")
-remotes::install_github("caldwellst/gghdx")
+remotes::install_github("OCHA-DAP/gghdx")
 ```
 
 The package is not currently available on CRAN. Since gghdx utilizes the
@@ -156,16 +156,16 @@ to separately call the scale function to adjust our colors. And we have
 to call these every time we make a new plot. So, to make life simpler,
 `gghdx()` is provided as a convenience function that sets ggplot to:
 
--   automatically use the HDX theme by default;
--   use default HDX sapphire for point and line colors and and HDX mint
-    for fill when not an aesthetic;
--   use `scale_fill_hdx()` and `scale_color_hdx()` as the default
-    discrete fill and color respectively;
--   use `scale_fill_gradient_hdx_mint()` and
-    `scale_color_gradient_hdx_sapphire()` as the default continuous fill
-    and color;
--   loads the Source Sans Pro font from Google and activates its usage
-    for the current session.
+- automatically use the HDX theme by default;
+- use default HDX sapphire for point and line colors and and HDX mint
+  for fill when not an aesthetic;
+- use `scale_fill_hdx()` and `scale_color_hdx()` as the default discrete
+  fill and color respectively;
+- use `scale_fill_gradient_hdx_mint()` and
+  `scale_color_gradient_hdx_sapphire()` as the default continuous fill
+  and color;
+- loads the Source Sans Pro font from Google and activates its usage for
+  the current session.
 
 You just have to run `gghdx()` once a session, and then our plots will
 already be where we would like!
