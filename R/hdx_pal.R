@@ -29,57 +29,58 @@ hdx_pal <- function() {
       i <- c("mint-hdx", "sapphire-hdx", "tomato-hdx")
     } else if (n == 4L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light"
       )
     } else if (n == 5L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "tomato-light"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light"
       )
     } else if (n == 6L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "sapphire-light", "mint-light"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light"
       )
     } else if (n == 7L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "sapphire-light", "mint-light",
-        "tomato-light"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark"
       )
     } else if (n == 8L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "sapphire-light", "mint-light",
-        "sapphire-dark", "mint-dark"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark"
       )
     } else if (n == 9L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "sapphire-light", "mint-light",
-        "tomato-hdx", "tomato-ultra-light", "tomato-light"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark"
       )
     } else if (n == 10L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "sapphire-light", "mint-light",
-        "tomato-hdx", "tomato-ultra-light", "tomato-light",
-        "sapphire-dark"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark",
+        "mint-ultra-light"
       )
     } else if (n == 11L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "sapphire-light", "mint-light",
-        "tomato-hdx", "tomato-ultra-light", "tomato-light",
-        "sapphire-dark", "mint-dark"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark",
+        "mint-ultra-light", "sapphire-ultra-light"
       )
     } else if (n >= 12L) {
       i <- c(
-        "sapphire-hdx", "mint-hdx", "sapphire-ultra-light",
-        "mint-ultra-light", "sapphire-light", "mint-light",
-        "tomato-hdx", "tomato-ultra-light", "tomato-light",
-        "sapphire-dark", "mint-dark", "tomato-dark"
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark",
+        "mint-ultra-light", "sapphire-ultra-light",
+        "tomato-ultra-light"
       )
     }
     unname(colors[i])
