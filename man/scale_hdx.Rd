@@ -3,6 +3,10 @@
 \name{scale_color_hdx}
 \alias{scale_color_hdx}
 \alias{scale_colour_hdx}
+\alias{scale_color_hdx_gray}
+\alias{scale_colour_hdx_gray}
+\alias{scale_colour_hdx_grey}
+\alias{scale_color_hdx_grey}
 \alias{scale_color_hdx_mint}
 \alias{scale_colour_hdx_mint}
 \alias{scale_color_hdx_sapphire}
@@ -10,6 +14,8 @@
 \alias{scale_color_hdx_tomato}
 \alias{scale_colour_hdx_tomato}
 \alias{scale_fill_hdx}
+\alias{scale_fill_hdx_gray}
+\alias{scale_fill_hdx_grey}
 \alias{scale_fill_hdx_mint}
 \alias{scale_fill_hdx_sapphire}
 \alias{scale_fill_hdx_tomato}
@@ -34,6 +40,14 @@ scale_color_hdx(...)
 
 scale_colour_hdx(...)
 
+scale_color_hdx_gray(...)
+
+scale_colour_hdx_gray(...)
+
+scale_colour_hdx_grey(...)
+
+scale_color_hdx_grey(...)
+
 scale_color_hdx_mint(...)
 
 scale_colour_hdx_mint(...)
@@ -47,6 +61,10 @@ scale_color_hdx_tomato(...)
 scale_colour_hdx_tomato(...)
 
 scale_fill_hdx(...)
+
+scale_fill_hdx_gray(...)
+
+scale_fill_hdx_grey(...)
 
 scale_fill_hdx_mint(...)
 

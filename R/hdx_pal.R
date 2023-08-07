@@ -2,8 +2,7 @@
 #'
 #' The hues in the HDX palette are sapphire, mint, and tomato.
 #'
-#' `hdx_pal()` utilizes all hues for up to a 12 element discrete scale. The
-#' colors of the scale
+#' `hdx_pal_discrete()` utilizes all hues for up to a 12 element discrete scale.
 #'
 #' `hdx_pal_mint()`, `hdx_pal_tomato()`, and `hdx_pal_sapphire()` allow for a
 #' 4 element discrete scale using only the specified color. These are color
@@ -12,7 +11,7 @@
 #' @family color hdx
 #' @rdname pal_general
 #' @export
-hdx_pal <- function() {
+hdx_pal_discrete <- function() {
   colors <- hdx_colors(c("sapphire", "tomato", "mint"))
 
   max_n <- 12
@@ -97,10 +96,10 @@ hdx_pal <- function() {
 #' `hdx_pal_mint()`, and `hdx_pal_tomato()`.
 #'
 #' @param colors Input of sing
+#' @param max_n Maximum colors in the palette
 #'
 #' @noRd
-hdx_pal_general <- function(colors) {
-  max_n <- 4
+hdx_pal_general <- function(colors, max_n = 4) {
   f <- function(n) {
     check_pal_n(n, max_n)
     if (n == 1L) {
@@ -108,11 +107,11 @@ hdx_pal_general <- function(colors) {
     } else if (n == 2L) {
       i <- c(4, 2)
     } else if (n >= 3L) {
-      i <- seq(4, 5 - min(n, max_n), -1)
+      i <- seq(max_n, max_n + 1 - min(n, max_n), -1)
     }
     unname(colors[i])
   }
-  attr(f, "max_n") <- 4
+  attr(f, "max_n") <- max_n
   f
 }
 
@@ -132,6 +131,12 @@ hdx_pal_tomato <- function() {
 #' @export
 hdx_pal_mint <- function() {
   hdx_pal_general(hdx_colors("mint"))
+}
+
+#' @rdname pal_general
+#' @export
+hdx_pal_gray <- function() {
+  hdx_pal_general(hdx_colors("gray"), 5)
 }
 
 #' Limit palette values

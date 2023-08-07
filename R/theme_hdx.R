@@ -35,6 +35,7 @@ theme_hdx <- function(base_size = 10,
                       base_family = "Source Sans Pro",
                       horizontal = TRUE) {
   base_colors <- hdx_colors("gray")
+  check_font(base_family)
 
   ret <-
     ggthemes::theme_foundation(

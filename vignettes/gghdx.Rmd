@@ -54,7 +54,7 @@ guide.
 ```{r intro-hdx, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 library(gghdx)
 
-p + theme_hdx()
+p + theme_hdx(base_family = "sans")
 ```
 
 Now, axis lines have been cleaned up and the
@@ -69,12 +69,13 @@ use the primary discrete color scale that will align each species with one of
 the 3 non-gray colorramps (sapphire, mint, and tomato).
 
 ```{r intro-ramp, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
-p + theme_hdx() + scale_color_hdx()
+p + theme_hdx(base_family = "sans") + scale_color_hdx()
 ```
 
 You can check the documentation of any of the `scale_...hdx()` functions to see
 all available scales, or directly access the colors using `hdx_colors()` or
-the raw list in `hdx_color_list`.
+the raw list in `hdx_color_list`. The available palettes can be easily
+visualized using `display_hdx_pal()`.
 
 ### Adding fonts
 
@@ -96,7 +97,7 @@ library(showtext)
 font_add_google("Source Sans Pro")
 showtext_auto()
 
-p + theme_hdx() + scale_color_hdx()
+p + theme_hdx(base_family = "Source Sans Pro") + scale_color_hdx()
 ```
 
 ### Streamlined plotting

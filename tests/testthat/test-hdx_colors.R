@@ -27,7 +27,7 @@ test_that("hdx_hex raises errors correctly", {
 })
 
 test_that("hdx_hex output", {
-  expect_out <- c(`sapphire-hdx` = "#007CE0", `tomato-ultra-light` = "#FCE0DE")
+  expect_out <- c("#007CE0", "#FCE0DE")
   expect_identical(hdx_hex(c("sapphire-hdx", "tomato-ultra-light")), expect_out)
 })
 

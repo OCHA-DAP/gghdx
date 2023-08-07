@@ -32,8 +32,8 @@ are:
 * `theme_hdx()` is the general package theme.
 * `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color scale to
 the relevant aesthetics.
-* `hdx_colors()`, `hdx_hex()`, and `hdx_pal()` provide easy user access to the
-HDX color template.
+* `hdx_colors()`, `hdx_hex()`, and `hdx_pal_...()` provide easy user access to the
+HDX color template. You can view the colors
 * `geom_text_hdx()` and `geom_label_hdx()` wrap the respective base functions
 to plot text using HDX fonts and aesthetics.
 * `scale_y_continuous_hdx()` wraps `scale_y_continuous()` to plot data directly

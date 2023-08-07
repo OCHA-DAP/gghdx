@@ -1,6 +1,6 @@
 Package: gghdx
 Title: HDX Theme, Scales, and Other Conveniences for 'ggplot2'
-Version: 0.0.2.2
+Version: 0.1
 Authors@R: 
     person(
       given = "Seth",
@@ -21,6 +21,9 @@ Imports:
     ggthemes,
     magrittr,
     purrr,
+    rlang,
+    showtext,
+    sysfonts,
     tibble
 Depends: 
     R (>= 2.10)
@@ -31,8 +34,6 @@ Suggests:
     knitr,
     rmarkdown,
     scales,
-    showtext,
-    sysfonts,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://github.com/caldwellst/gghdx

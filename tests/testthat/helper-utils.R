@@ -3,7 +3,7 @@
 #' @noRd
 expect_eqNe <- function(...) expect_equal(..., ignore_function_env = FALSE)
 
-#' Validate that hex colors are return
+#' Validate that hex colors are returned
 #'
 #' Regex pattern from SO https://stackoverflow.com/questions/1636350
 #'

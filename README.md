@@ -22,8 +22,8 @@ features. The key functionalities are:
 - `theme_hdx()` is the general package theme.
 - `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color scale
   to the relevant aesthetics.
-- `hdx_colors()`, `hdx_hex()`, and `hdx_pal()` provide easy user access
-  to the HDX color template.
+- `hdx_colors()`, `hdx_hex()`, and `hdx_pal_...()` provide easy user
+  access to the HDX color template. You can view the colors
 - `geom_text_hdx()` and `geom_label_hdx()` wrap the respective base
   functions to plot text using HDX fonts and aesthetics.
 - `scale_y_continuous_hdx()` wraps `scale_y_continuous()` to plot data
@@ -93,7 +93,7 @@ fit the style guide.
 ``` r
 library(gghdx)
 
-p + theme_hdx()
+p + theme_hdx(base_family = "sans")
 ```
 
 <img src="man/figures/README-intro-hdx-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
@@ -111,14 +111,15 @@ align each species with one of the 3 non-gray colorramps (sapphire,
 mint, and tomato).
 
 ``` r
-p + theme_hdx() + scale_color_hdx()
+p + theme_hdx(base_family = "sans") + scale_color_hdx()
 ```
 
 <img src="man/figures/README-intro-ramp-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
 
 You can check the documentation of any of the `scale_...hdx()` functions
 to see all available scales, or directly access the colors using
-`hdx_colors()` or the raw list in `hdx_color_list`.
+`hdx_colors()` or the raw list in `hdx_color_list`. The available
+palettes can be easily visualized using `display_hdx_pal()`.
 
 ### Adding fonts
 
@@ -144,7 +145,7 @@ library(showtext)
 font_add_google("Source Sans Pro")
 showtext_auto()
 
-p + theme_hdx() + scale_color_hdx()
+p + theme_hdx(base_family = "Source Sans Pro") + scale_color_hdx()
 ```
 
 <img src="man/figures/README-extrafont-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
