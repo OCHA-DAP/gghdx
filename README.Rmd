@@ -13,11 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# gghdx <a href='https://github.com/caldwellst/gghdx'><img src='man/figures/logo.png' align="right" height="139">
+# gghdx <a href='https://github.com/OCHA-DAP/gghdx'><img src='man/figures/logo.png' align="right" height="139">
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/caldwellst/gghdx/branch/main/graph/badge.svg)](https://app.codecov.io/gh/caldwellst/gghdx?branch=main)
+[![R-CMD-check](https://github.com/OCHA-DAP/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OCHA-DAP/gghdx/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/OCHA-DAP/gghdx/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OCHA-DAP/gghdx?branch=main)
 <!-- badges: end -->
 
 ## Overview
