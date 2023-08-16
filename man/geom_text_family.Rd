@@ -114,6 +114,11 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 
 \item{label.size}{Size of label border, in mm.}
 }
+\value{
+A ggplot2 text layer.
+
+A ggplot labels layer.
+}
 \description{
 Text geoms are useful for labeling plots. They can be used by themselves as
 scatterplots or in combination with other geoms, for example, for labeling

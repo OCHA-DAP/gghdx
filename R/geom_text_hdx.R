@@ -29,6 +29,8 @@
 #' p + geom_text_hdx()
 #' p + geom_label_hdx()
 #'
+#' @return A ggplot2 text layer.
+#'
 #' @export
 geom_text_hdx <- function(mapping = NULL,
                           data = NULL,
@@ -79,6 +81,8 @@ geom_text_hdx <- function(mapping = NULL,
 #' @param fontface Font emphasis. Defaults to bold.
 #'
 #' @inherit ggplot2::geom_label params
+#'
+#' @return A ggplot labels layer.
 #'
 #' @export
 geom_label_hdx <- function(mapping = NULL,

@@ -5,7 +5,7 @@
 #' from data to the y-axis is reduced to 0, as is common throughout the HDX
 #' data visualization guidelines. This is done by setting `expand = c(0, 0)`.
 #'
-#' @inherit ggplot2::scale_y_continuous details return
+#' @inherit ggplot2::scale_y_continuous details
 #' @param ... Other arguments pass on to [ggplot2::scale_y_continuous()].
 #'
 #' @rdname scale_y_hdx
@@ -26,6 +26,8 @@
 #' # start y axis at 0
 #' p + scale_y_continuous_hdx()
 #' p + scale_y_log10_hdx()
+#'
+#' @return Relevant ggplot2 scaling.
 #'
 #' @export
 scale_y_continuous_hdx <- function(...) {

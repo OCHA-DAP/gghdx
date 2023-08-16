@@ -18,6 +18,9 @@ scale_y_sqrt_hdx(...)
 \arguments{
 \item{...}{Other arguments pass on to \code{\link[ggplot2:scale_continuous]{ggplot2::scale_y_continuous()}}.}
 }
+\value{
+Relevant ggplot2 scaling.
+}
 \description{
 \code{scale_y_continuous_hdx()} and the three variants with different \code{trans}
 arguments are defaults scales for the y axis that ensures the distance

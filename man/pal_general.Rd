@@ -18,6 +18,9 @@ hdx_pal_mint()
 
 hdx_pal_gray()
 }
+\value{
+A palette function.
+}
 \description{
 The hues in the HDX palette are sapphire, mint, and tomato.
 }

@@ -163,6 +163,9 @@ expand the scale by 5\% on each side for continuous variables, and by
     \item{\code{super}}{The super class to use for the constructed scale}
   }}
 }
+\value{
+Relevant ggplot2 scaling.
+}
 \description{
 Color scales using the HDX palette. For discrete color scales, the
 \code{scale_color_hdx_...()} and \code{scale_fill_hdx_...()} family of functions are
@@ -202,4 +205,5 @@ p2
 
 p2 + scale_color_gradient_hdx_mint()
 p2 + scale_color_gradient_hdx_tomato()
+
 }

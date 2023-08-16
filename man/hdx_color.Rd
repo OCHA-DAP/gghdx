@@ -26,7 +26,10 @@ hdx_colour_names()
 using \code{hdx_colors}}
 }
 \value{
-Named vector of hex values.
+\itemize{
+\item \code{hdx_colors()} returns a named vector of hex values.
+\item \code{hdx_color_names()} returns a character vector of color names.
+}
 }
 \description{
 \code{hdx_colors()} conveniently returns a vector of hex values for specified
@@ -39,9 +42,12 @@ All valid color names are in the named vector returned by \code{hdx_colors()} or
 accessible in the convenient \code{hdx_color_names()}.
 }
 \examples{
+# get hex values
 hdx_colors()
 hdx_colors("sapphire")
 
+# get color names
+hdx_color_names()
 
 }
 \seealso{
