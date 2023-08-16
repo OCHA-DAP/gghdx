@@ -11,19 +11,19 @@
 #'
 #' @inheritParams theme_hdx
 #' @param showtext `logical` If `TRUE`, uses the showtext package to add
-#'     the Source Sans Pro font and runs `showtext_auto()` so all future plots
+#'     the Source Sans 3 font and runs `showtext_auto()` so all future plots
 #'     in this session will use the font.
 #'
 #' @export
 gghdx <- function(showtext = TRUE,
                   base_size = 10,
-                  base_family = "Source Sans Pro",
+                  base_family = "Source Sans 3",
                   horizontal = TRUE) {
   colors <- hdx_colors()
 
   # check the fonts are loaded correctly
   if (showtext) {
-    load_source_sans_pro()
+    load_source_sans_3()
   }
 
   check_font(base_family)

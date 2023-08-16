@@ -20,8 +20,8 @@ practices regarding plotted text, axis gridlines, and other visual
 features. The key functionalities are:
 
 - `theme_hdx()` is the general package theme.
-- `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color scale
-  to the relevant aesthetics.
+- `scale_color_hdx_...()` and `scale_fill_hdx_...()` applies the HDX
+  color scale to the relevant aesthetics.
 - `hdx_colors()`, `hdx_hex()`, and `hdx_pal_...()` provide easy user
   access to the HDX color template. You can view the colors
 - `geom_text_hdx()` and `geom_label_hdx()` wrap the respective base
@@ -30,7 +30,7 @@ features. The key functionalities are:
   directly starting from the y-axis.
 - `gghdx()` ensures plot for the session use HDX defaults for color and
   fill scales, uses `theme_hdx()` for all plots, and applies
-  `scale_color_hdx()` and `scale_fill_hdx()`
+  `scale_color_hdx_...()` and `scale_fill_hdx_...()`
 
 ## Installation
 
@@ -43,7 +43,7 @@ remotes::install_github("OCHA-DAP/gghdx")
 
 The package is not currently available on CRAN. Since gghdx utilizes the
 showtext and sysfonts packages to cleanly import and use the Source Sans
-Pro font, it is recommended to install them as well. Simply just install
+3 font, it is recommended to install them as well. Simply just install
 showtext and sysfonts will also be installed.
 
 ``` r
@@ -111,7 +111,7 @@ align each species with one of the 3 non-gray colorramps (sapphire,
 mint, and tomato).
 
 ``` r
-p + theme_hdx(base_family = "sans") + scale_color_hdx()
+p + theme_hdx(base_family = "sans") + scale_color_hdx_discrete()
 ```
 
 <img src="man/figures/README-intro-ramp-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
@@ -119,21 +119,21 @@ p + theme_hdx(base_family = "sans") + scale_color_hdx()
 You can check the documentation of any of the `scale_...hdx()` functions
 to see all available scales, or directly access the colors using
 `hdx_colors()` or the raw list in `hdx_color_list`. The available
-palettes can be easily visualized using `display_hdx_pal()`.
+palettes can be easily visualized using `hdx_display_pal()`.
 
 ### Adding fonts
 
-We also would like to use the HDX font family. Since Source Sans Pro is
-a free Google font, it makes it relatively easy to access in R. You can
-use the
-[sysfonts](https://cran.r-project.org/web/packages/sysfonts/index.html)
-package to load the Google font and then
-[showtext](https://cran.rstudio.com/web/packages/showtext/vignettes/introduction.html)
-to include them in our plot. You can also use the
-[extrafont](https://github.com/wch/extrafont) package as an alternative
-if you have the font installed locally. This requires ghostscript to be
-installed locally and can run into other issues, such as [font
-names](https://github.com/wch/extrafont/issues/32) not being found.
+We also would like to use the HDX font family. Since Source Sans 3 is a
+free Google font, it makes it relatively easy to access in R. gghdx uses
+the [sysfonts](https://CRAN.R-project.org/package=sysfonts) package to
+load the Google font and then
+[showtext](https://CRAN.R-project.org/package=showtext) to include them
+in our plot. You can also use the
+[extrafont](https://CRAN.R-project.org/package=extrafont) package as an
+alternative if you have the font installed locally. This requires
+ghostscript to be installed locally and can run into other issues, such
+as [font names](https://github.com/wch/extrafont/issues/32) not being
+found.
 
 Below, I use the showtext package because it’s simpler.
 
@@ -142,10 +142,10 @@ library(showtext)
 #> Loading required package: sysfonts
 #> Loading required package: showtextdb
 
-font_add_google("Source Sans Pro")
+font_add_google("Source Sans 3")
 showtext_auto()
 
-p + theme_hdx(base_family = "Source Sans Pro") + scale_color_hdx()
+p + theme_hdx(base_family = "Source Sans 3") + scale_color_hdx_discrete()
 ```
 
 <img src="man/figures/README-extrafont-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
@@ -160,12 +160,12 @@ to call these every time we make a new plot. So, to make life simpler,
 - automatically use the HDX theme by default;
 - use default HDX sapphire for point and line colors and and HDX mint
   for fill when not an aesthetic;
-- use `scale_fill_hdx()` and `scale_color_hdx()` as the default discrete
-  fill and color respectively;
+- use `scale_fill_hdx_discrete()` and `scale_color_hdx_discrete()` as
+  the default discrete fill and color respectively;
 - use `scale_fill_gradient_hdx_mint()` and
   `scale_color_gradient_hdx_sapphire()` as the default continuous fill
   and color;
-- loads the Source Sans Pro font from Google and activates its usage for
+- loads the Source Sans 3 font from Google and activates its usage for
   the current session.
 
 You just have to run `gghdx()` once a session, and then our plots will

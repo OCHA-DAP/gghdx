@@ -1,6 +1,6 @@
 Package: gghdx
 Title: HDX Theme, Scales, and Other Conveniences for 'ggplot2'
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(
       given = "Seth",
@@ -36,6 +36,6 @@ Suggests:
     scales,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
-URL: https://github.com/caldwellst/gghdx
-BugReports: https://github.com/caldwellst/gghdx/issues
+URL: https://github.com/OCHA-DAP/gghdx
+BugReports: https://github.com/OCHA-DAP/gghdx/issues
 Config/testthat/edition: 3

@@ -4,7 +4,7 @@
 \alias{theme_hdx}
 \title{ggplot color theme based on HDX visual design guide}
 \usage{
-theme_hdx(base_size = 10, base_family = "Source Sans Pro", horizontal = TRUE)
+theme_hdx(base_size = 10, base_family = "Source Sans 3", horizontal = TRUE)
 }
 \arguments{
 \item{base_size}{base font size, given in pts.}
@@ -28,13 +28,13 @@ visual guide of the HDX platform, as defined in the
 Use \code{\link[=scale_color_hdx_discrete]{scale_color_hdx_discrete()}} with this theme.
 
 \emph{HDX} uses two fonts in its official typography, with the free Google
-font Source Sans Pro being easily available in R. Use the
+font Source Sans 3 being easily available in R. Use the
 \pkg{sysfonts} package to add the Google font easily.
 }
 \references{
 \itemize{
 \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
-\item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro}
+\item \href{https://fonts.google.com/specimen/Source+Sans+3}{Google Fonts, Source Sans 3}
 \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 }
 }

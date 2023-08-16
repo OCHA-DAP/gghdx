@@ -7,13 +7,13 @@
 gghdx(
   showtext = TRUE,
   base_size = 10,
-  base_family = "Source Sans Pro",
+  base_family = "Source Sans 3",
   horizontal = TRUE
 )
 }
 \arguments{
 \item{showtext}{\code{logical} If \code{TRUE}, uses the showtext package to add
-the Source Sans Pro font and runs \code{showtext_auto()} so all future plots
+the Source Sans 3 font and runs \code{showtext_auto()} so all future plots
 in this session will use the font.}
 
 \item{base_size}{base font size, given in pts.}
