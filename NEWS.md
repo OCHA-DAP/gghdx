@@ -2,6 +2,7 @@
 
 * Switched base font family from Source Sans Pro to Source Sans 3.
 * Fixed links flagged in CRAN checks.
+* First CRAN release.
 
 # gghdx 0.1.0
 
