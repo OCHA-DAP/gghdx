@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">gghdx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1</span>
       </span>
     </div>
 
@@ -78,10 +78,11 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="gghdx-">gghdx <a href="https://github.com/caldwellst/gghdx" class="external-link"><img src="reference/figures/logo.png" align="right" height="139"></a>
+<div class="page-header"><h1 id="gghdx-">gghdx <a href="https://github.com/OCHA-DAP/gghdx" class="external-link"><img src="reference/figures/logo.png" align="right" height="139"></a>
 <a class="anchor" aria-label="anchor" href="#gghdx-"></a>
 </h1></div>
 <!-- badges: start -->
+
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
@@ -90,15 +91,15 @@
 <li>
 <code><a href="reference/theme_hdx.html">theme_hdx()</a></code> is the general package theme.</li>
 <li>
-<code><a href="reference/scale_hdx.html">scale_color_hdx()</a></code> and <code><a href="reference/scale_hdx.html">scale_fill_hdx()</a></code> applies the HDX color scale to the relevant aesthetics.</li>
+<code>scale_color_hdx()</code> and <code>scale_fill_hdx()</code> applies the HDX color scale to the relevant aesthetics.</li>
 <li>
-<code><a href="reference/hdx_color.html">hdx_colors()</a></code>, <code><a href="reference/hdx_color.html">hdx_hex()</a></code>, and <code><a href="reference/pal_general.html">hdx_pal()</a></code> provide easy user access to the HDX color template.</li>
+<code><a href="reference/hdx_color.html">hdx_colors()</a></code>, <code><a href="reference/hdx_color.html">hdx_hex()</a></code>, and <code>hdx_pal_...()</code> provide easy user access to the HDX color template. You can view the colors</li>
 <li>
 <code><a href="reference/geom_text_family.html">geom_text_hdx()</a></code> and <code><a href="reference/geom_text_family.html">geom_label_hdx()</a></code> wrap the respective base functions to plot text using HDX fonts and aesthetics.</li>
 <li>
 <code><a href="reference/scale_y_hdx.html">scale_y_continuous_hdx()</a></code> wraps <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous()</a></code> to plot data directly starting from the y-axis.</li>
 <li>
-<code><a href="reference/gghdx.html">gghdx()</a></code> ensures plot for the session use HDX defaults for color and fill scales, uses <code><a href="reference/theme_hdx.html">theme_hdx()</a></code> for all plots, and applies <code><a href="reference/scale_hdx.html">scale_color_hdx()</a></code> and <code><a href="reference/scale_hdx.html">scale_fill_hdx()</a></code>
+<code><a href="reference/gghdx.html">gghdx()</a></code> ensures plot for the session use HDX defaults for color and fill scales, uses <code><a href="reference/theme_hdx.html">theme_hdx()</a></code> for all plots, and applies <code>scale_color_hdx()</code> and <code>scale_fill_hdx()</code>
 </li>
 </ul>
 </div>
@@ -108,7 +109,7 @@
 <p>You can install gghdx directly from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"caldwellst/gghdx"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"OCHA-DAP/gghdx"</span><span class="op">)</span></span></code></pre></div>
 <p>The package is not currently available on CRAN. Since gghdx utilizes the showtext and sysfonts packages to cleanly import and use the Source Sans Pro font, it is recommended to install them as well. Simply just install showtext and sysfonts will also be installed.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"showtext"</span><span class="op">)</span></span></code></pre></div>
@@ -145,7 +146,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/caldwellst/gghdx" class="external-link">gghdx</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-intro-hdx-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
 <p>Now, axis lines have been cleaned up and the plot better resembles recommendations from the visual guide with just that single line of code.</p>
 </div>
@@ -154,9 +155,9 @@
 </h3>
 <p>However, the color palette for the points is still using the base R palette. We can use one of the many <code>scale_...hdx()</code> functions to use HDX colors. Let’s just use the primary discrete color scale that will align each species with one of the 3 non-gray colorramps (sapphire, mint, and tomato).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="reference/scale_hdx.html">scale_color_hdx</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">scale_color_hdx</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-intro-ramp-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
-<p>You can check the documentation of any of the <code>scale_...hdx()</code> functions to see all available scales, or directly access the colors using <code><a href="reference/hdx_color.html">hdx_colors()</a></code> or the raw list in <code>hdx_color_list</code>.</p>
+<p>You can check the documentation of any of the <code>scale_...hdx()</code> functions to see all available scales, or directly access the colors using <code><a href="reference/hdx_color.html">hdx_colors()</a></code> or the raw list in <code>hdx_color_list</code>. The available palettes can be easily visualized using <code>display_hdx_pal()</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="adding-fonts">Adding fonts<a class="anchor" aria-label="anchor" href="#adding-fonts"></a>
@@ -171,7 +172,7 @@
 <span><span class="fu"><a href="https://rdrr.io/pkg/sysfonts/man/font_add_google.html" class="external-link">font_add_google</a></span><span class="op">(</span><span class="st">"Source Sans Pro"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/showtext/man/showtext_auto.html" class="external-link">showtext_auto</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="reference/scale_hdx.html">scale_color_hdx</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"Source Sans Pro"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">scale_color_hdx</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-extrafont-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
@@ -181,7 +182,7 @@
 <ul>
 <li>automatically use the HDX theme by default;</li>
 <li>use default HDX sapphire for point and line colors and and HDX mint for fill when not an aesthetic;</li>
-<li>use <code><a href="reference/scale_hdx.html">scale_fill_hdx()</a></code> and <code><a href="reference/scale_hdx.html">scale_color_hdx()</a></code> as the default discrete fill and color respectively;</li>
+<li>use <code>scale_fill_hdx()</code> and <code>scale_color_hdx()</code> as the default discrete fill and color respectively;</li>
 <li>use <code><a href="reference/scale_hdx.html">scale_fill_gradient_hdx_mint()</a></code> and <code><a href="reference/scale_hdx.html">scale_color_gradient_hdx_sapphire()</a></code> as the default continuous fill and color;</li>
 <li>loads the Source Sans Pro font from Google and activates its usage for the current session.</li>
 </ul>
@@ -289,8 +290,8 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/caldwellst/gghdx?branch=main" class="external-link"><img src="https://codecov.io/gh/caldwellst/gghdx/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/OCHA-DAP/gghdx/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/OCHA-DAP/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/OCHA-DAP/gghdx?branch=main" class="external-link"><img src="https://codecov.io/gh/OCHA-DAP/gghdx/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 
@@ -305,7 +306,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
