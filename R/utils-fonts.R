@@ -1,12 +1,13 @@
-#' Load and use Source Sans Pro
+#' Load and use Source Sans 3
 #'
 #' Simple wrapped for `sysfonts::font_add_google()` and
-#' `showtext::showtext_auto()` to load the Source Sans Pro font and
+#' `showtext::showtext_auto()` to load the
+#' [Source Sans 3 font](https://fonts.google.com/specimen/Source+Sans+3) and
 #' specify all plots to use `showtext` in all plots automatically.
 #'
 #' @export
-load_source_sans_pro <- function() {
-  sysfonts::font_add_google("Source Sans Pro")
+load_source_sans_3 <- function() {
+  sysfonts::font_add_google("Source Sans 3")
   showtext::showtext_auto()
 }
 
@@ -17,10 +18,10 @@ check_font <- function(family) {
   fonts <- sysfonts::font_families()
   # if already in font families, ignore
   if (!(family %in% fonts)) {
-    if (family == "Source Sans Pro") {
+    if (family == "Source Sans 3") {
       stop(
-        "Source Sans Pro not available. Load the font with the sysfonts and ",
-        "showfonts libraries or use `load_source_sans_pro()` to automatically ",
+        "Source Sans 3 not available. Load the font with the sysfonts and ",
+        "showfonts libraries or use `load_source_sans_3()` to automatically ",
         "load the fonts.",
         call. = FALSE
       )

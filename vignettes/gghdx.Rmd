@@ -79,12 +79,12 @@ visualized using `hdx_display_pal()`.
 
 ### Adding fonts
 
-We also would like to use the HDX font family. Since Source Sans Pro is a free
-Google font, it makes it relatively easy to access in R. You can use the
-[sysfonts](https://cran.r-project.org/web/packages/sysfonts/index.html) package
-to load the Google font and then [showtext](https://cran.rstudio.com/web/packages/showtext/vignettes/introduction.html)
+We also would like to use the HDX font family. Since Source Sans 3 is a free
+Google font, it makes it relatively easy to access in R. gghdx uses the
+[sysfonts](https://CRAN.R-project.org/package=sysfonts) package
+to load the Google font and then [showtext](https://CRAN.R-project.org/package=showtext)
 to include them in our plot. You can also use the
-[extrafont](https://github.com/wch/extrafont) package as an alternative if you
+[extrafont](https://CRAN.R-project.org/package=extrafont) package as an alternative if you
 have the font installed locally. This requires ghostscript to be installed
 locally and can run into other issues, such as
 [font names](https://github.com/wch/extrafont/issues/32) not being found.
@@ -94,10 +94,10 @@ Below, I use the showtext package because it's simpler.
 ```{r extrafont, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 library(showtext)
 
-font_add_google("Source Sans Pro")
+font_add_google("Source Sans 3")
 showtext_auto()
 
-p + theme_hdx(base_family = "Source Sans Pro") + scale_color_hdx_discrete()
+p + theme_hdx(base_family = "Source Sans 3") + scale_color_hdx_discrete()
 ```
 
 ### Streamlined plotting
@@ -114,7 +114,7 @@ when not an aesthetic;
 and color respectively;
 - use `scale_fill_gradient_hdx_mint()` and `scale_color_gradient_hdx_sapphire()`
 as the default continuous fill and color;
-- loads the Source Sans Pro font from Google and activates its usage for the
+- loads the Source Sans 3 font from Google and activates its usage for the
 current session.
 
 You just have to run `gghdx()` once a session, and then our plots will already

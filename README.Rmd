@@ -52,7 +52,7 @@ remotes::install_github("OCHA-DAP/gghdx")
 ```
 
 The package is not currently available on CRAN. Since gghdx utilizes the
-showtext and sysfonts packages to cleanly import and use the Source Sans Pro
+showtext and sysfonts packages to cleanly import and use the Source Sans 3
 font, it is recommended to install them as well. Simply just install showtext
 and sysfonts will also be installed.
 

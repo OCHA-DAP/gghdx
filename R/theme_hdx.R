@@ -11,7 +11,7 @@
 #' Use [scale_color_hdx_discrete()] with this theme.
 #'
 #' *HDX* uses two fonts in its official typography, with the free Google
-#' font Source Sans Pro being easily available in R. Use the
+#' font Source Sans 3 being easily available in R. Use the
 #' \pkg{sysfonts} package to add the Google font easily.
 #'
 #' @inheritParams ggplot2::theme_grey
@@ -27,12 +27,12 @@
 #' @references
 #' \itemize{
 #' \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
-#' \item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro}
+#' \item \href{https://fonts.google.com/specimen/Source+Sans+3}{Google Fonts, Source Sans 3}
 #' \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 #' }
 # no lint end
 theme_hdx <- function(base_size = 10,
-                      base_family = "Source Sans Pro",
+                      base_family = "Source Sans 3",
                       horizontal = TRUE) {
   base_colors <- hdx_colors("gray")
   check_font(base_family)

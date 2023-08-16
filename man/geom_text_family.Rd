@@ -120,7 +120,7 @@ scatterplots or in combination with other geoms, for example, for labeling
 points or for annotating the height of bars. \code{geom_text_hdx()} adds only
 text to the plot. \code{geom_label_hdx()} draws a rectangle behind the text,
 making it easier to read. The only difference with the base \code{geom_text()}
-is that the default font family is Source Sans Pro. \code{geom_label_hdx()} also
+is that the default font family is Source Sans 3. \code{geom_label_hdx()} also
 incorporates a default dark gray background, white text, and no borders.
 }
 \details{

@@ -1,3 +1,8 @@
+# gghdx 0.1.1
+
+* Switched base font family from Source Sans Pro to Source Sans 3.
+* Fixed links flagged in CRAN checks.
+
 # gghdx 0.1.0
 
 * Right adjusting y-axis labels in `theme_hdx()`.
