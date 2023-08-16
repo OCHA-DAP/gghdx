@@ -25,7 +25,7 @@ A theme that approximates the style of the
 visual guide of the HDX platform, as defined in the
 \href{https://data.humdata.org/dataviz-guide/}{dataviz-guide}.
 
-Use \code{\link[=scale_color_hdx]{scale_color_hdx()}} with this theme.
+Use \code{\link[=scale_color_hdx_discrete]{scale_color_hdx_discrete()}} with this theme.
 
 \emph{HDX} uses two fonts in its official typography, with the free Google
 font Source Sans Pro being easily available in R. Use the

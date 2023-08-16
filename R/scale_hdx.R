@@ -11,7 +11,7 @@
 #' @inheritParams ggplot2::scale_color_gradient2
 #' @rdname scale_hdx
 #' @export
-scale_color_hdx <- function(...) {
+scale_color_hdx_discrete <- function(...) {
   ggplot2::discrete_scale(
     "colour",
     "hdx",
@@ -23,7 +23,7 @@ scale_color_hdx <- function(...) {
 
 #' @rdname scale_hdx
 #' @export
-scale_colour_hdx <- scale_color_hdx
+scale_colour_hdx_discrete <- scale_color_hdx_discrete
 
 #' @rdname scale_hdx
 #' @export
@@ -99,7 +99,7 @@ scale_colour_hdx_tomato <- scale_color_hdx_tomato
 
 #' @rdname scale_hdx
 #' @export
-scale_fill_hdx <- function(...) {
+scale_fill_hdx_discrete <- function(...) {
   ggplot2::discrete_scale(
     "fill",
     "hdx",

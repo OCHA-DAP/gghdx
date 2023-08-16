@@ -44,8 +44,8 @@ gghdx <- function(showtext = TRUE,
   )
 
   # set default scales
-  options("ggplot2.discrete.fill" = scale_fill_hdx)
-  options("ggplot2.discrete.colour" = scale_color_hdx)
+  options("ggplot2.discrete.fill" = scale_fill_hdx_discrete)
+  options("ggplot2.discrete.colour" = scale_color_hdx_discrete)
   options("ggplot2.continuous.fill" = scale_fill_gradient_hdx_mint)
   options("ggplot2.continuous.colour" = scale_color_gradient_hdx_sapphire)
 }

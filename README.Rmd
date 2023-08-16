@@ -30,7 +30,7 @@ plotted text, axis gridlines, and other visual features. The key functionalities
 are:
 
 * `theme_hdx()` is the general package theme.
-* `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color scale to
+* `scale_color_hdx_...()` and `scale_fill_hdx_...()` applies the HDX color scale to
 the relevant aesthetics.
 * `hdx_colors()`, `hdx_hex()`, and `hdx_pal_...()` provide easy user access to the
 HDX color template. You can view the colors
@@ -39,8 +39,8 @@ to plot text using HDX fonts and aesthetics.
 * `scale_y_continuous_hdx()` wraps `scale_y_continuous()` to plot data directly
 starting from the y-axis.
 * `gghdx()` ensures plot for the session use HDX defaults for color and fill
-scales, uses `theme_hdx()` for all plots, and applies `scale_color_hdx()` and
-`scale_fill_hdx()`
+scales, uses `theme_hdx()` for all plots, and applies `scale_color_hdx_...()` and
+`scale_fill_hdx_...()`
 
 ## Installation
 

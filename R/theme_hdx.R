@@ -8,7 +8,7 @@
 #' visual guide of the HDX platform, as defined in the
 #' [dataviz-guide](https://data.humdata.org/dataviz-guide/).
 #'
-#' Use [scale_color_hdx()] with this theme.
+#' Use [scale_color_hdx_discrete()] with this theme.
 #'
 #' *HDX* uses two fonts in its official typography, with the free Google
 #' font Source Sans Pro being easily available in R. Use the

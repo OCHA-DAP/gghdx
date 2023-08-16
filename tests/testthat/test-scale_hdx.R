@@ -1,6 +1,6 @@
 test_that("scale_colour matches scale_color", {
   # discrete color scales
-  expect_equal(scale_color_hdx(), scale_colour_hdx())
+  expect_equal(scale_color_hdx_discrete(), scale_colour_hdx_discrete())
   expect_equal(scale_color_hdx_mint(), scale_colour_hdx_mint())
   expect_equal(scale_color_hdx_tomato(), scale_colour_hdx_tomato())
   expect_equal(scale_color_hdx_sapphire(), scale_colour_hdx_sapphire())

@@ -8,7 +8,8 @@
 #' @param palette Character vector of palettes to show.
 #'
 #' @return Plot of HDX color palettes.
-display_hdx_pal <- function(
+#' @export
+hdx_display_pal <- function(
     n = NULL,
     palette = c("discrete", "gray", "mint", "sapphire", "tomato")
   ) {
