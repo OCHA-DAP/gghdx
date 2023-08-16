@@ -1,3 +1,4 @@
+#no lint start
 #' ggplot color theme based on HDX visual design guide
 #'
 #' A theme that approximates the style of the
@@ -7,7 +8,7 @@
 #' visual guide of the HDX platform, as defined in the
 #' [dataviz-guide](https://data.humdata.org/dataviz-guide/).
 #'
-#' Use [scale_color_hdx()] with this theme.
+#' Use [scale_color_hdx_discrete()] with this theme.
 #'
 #' *HDX* uses two fonts in its official typography, with the free Google
 #' font Source Sans Pro being easily available in R. Use the
@@ -26,13 +27,15 @@
 #' @references
 #' \itemize{
 #' \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
-#' \item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro} #nolint
+#' \item \href{https://fonts.google.com/specimen/Source+Sans+Pro}{Google Fonts, Source Sans Pro}
 #' \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 #' }
+# no lint end
 theme_hdx <- function(base_size = 10,
                       base_family = "Source Sans Pro",
                       horizontal = TRUE) {
   base_colors <- hdx_colors("gray")
+  check_font(base_family)
 
   ret <-
     ggthemes::theme_foundation(
@@ -52,7 +55,7 @@ theme_hdx <- function(base_size = 10,
       ),
       ## Axis
       axis.line = element_line(
-        size = rel(0.8),
+        linewidth = rel(0.8),
         color = base_colors["gray-dark"]
       ),
       axis.line.y = element_blank(),
@@ -68,7 +71,7 @@ theme_hdx <- function(base_size = 10,
         margin = ggplot2::margin(b = rel(1), unit = "pt")
       ),
       axis.text.y = ggplot2::element_text(
-        hjust = 0,
+        hjust = 0.95,
         margin = margin(r = rel(1), unit = "pt")
       ),
       axis.ticks = element_blank(),
@@ -88,7 +91,7 @@ theme_hdx <- function(base_size = 10,
       legend.key.width = NULL,
       legend.text = element_text(size = rel(1)),
       legend.text.align = NULL,
-      legend.title = element_text(size = rel(1.25), hjust = 0, vjust = 0.5),
+      legend.title = element_text(size = rel(1.25), hjust = 0.5, vjust = 0.5),
       legend.title.align = NULL,
       legend.position = "bottom",
       legend.direction = NULL,
@@ -97,7 +100,7 @@ theme_hdx <- function(base_size = 10,
       panel.border = element_blank(),
       panel.grid.major = element_line(
         color = base_colors["gray-light"],
-        size = rel(1)
+        linewidth = rel(1)
       ),
       panel.grid.minor = element_blank(),
       panel.spacing = unit(0.25, "lines"),

@@ -21,6 +21,13 @@ gghdx <- function(showtext = TRUE,
                   horizontal = TRUE) {
   colors <- hdx_colors()
 
+  # check the fonts are loaded correctly
+  if (showtext) {
+    load_source_sans_pro()
+  }
+
+  check_font(base_family)
+
   # set the theme
   ggplot2::theme_set(
     theme_hdx(
@@ -37,24 +44,10 @@ gghdx <- function(showtext = TRUE,
   )
 
   # set default scales
-  options("ggplot2.discrete.fill" = scale_fill_hdx)
-  options("ggplot2.discrete.colour" = scale_color_hdx)
+  options("ggplot2.discrete.fill" = scale_fill_hdx_discrete)
+  options("ggplot2.discrete.colour" = scale_color_hdx_discrete)
   options("ggplot2.continuous.fill" = scale_fill_gradient_hdx_mint)
   options("ggplot2.continuous.colour" = scale_color_gradient_hdx_sapphire)
-
-  if (showtext) {
-    st_chk <- requireNamespace("showtext", quietly = TRUE)
-    sf_chk <- requireNamespace("sysfonts", quietly = TRUE)
-    if (!(st_chk && sf_chk)) {
-      stop(
-        "The showtext and sysfonts packages must be installed to automatically",
-        "load and use the Source Sans Pro font.",
-        call. = FALSE
-      )
-    }
-    sysfonts::font_add_google("Source Sans Pro")
-    showtext::showtext_auto()
-  }
 }
 
 #' Default geometry fills

@@ -57,6 +57,12 @@ hdx_hex <- function(color_names) {
   if (all(is.na(color_names)) && ln == 1) {
     return(NA_character_)
   }
+  # allow for alternate spelling of gray
+  color_names <- gsub(
+    pattern = "grey",
+    replacement = "gray",
+    x = color_names
+  )
 
   if (!all(color_names %in% hdx_color_names()) || ln == 0) {
     stop(
@@ -65,7 +71,8 @@ hdx_hex <- function(color_names) {
       call. = FALSE
     )
   }
-  hdx_colors()[color_names]
+
+  unname(hdx_colors()[color_names])
 }
 
 #' @rdname hdx_color

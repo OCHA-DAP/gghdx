@@ -1,4 +1,10 @@
+test_that("theme_hdx raises error for font", {
+  expect_error(theme_hdx())
+  expect_error(theme_hdx(base_family = "NONSENSE TEXT ZZZ"))
+})
+
 test_that("theme_hdx base_family", {
+  load_source_sans_pro()
   thm_base <- theme_hdx()
   thm_sans <- theme_hdx(base_family = "sans")
 
@@ -7,6 +13,7 @@ test_that("theme_hdx base_family", {
 })
 
 test_that("theme_hdx horizontal", {
+  load_source_sans_pro()
   thm_base <- theme_hdx()
   thm_vert <- theme_hdx(horizontal = FALSE)
 

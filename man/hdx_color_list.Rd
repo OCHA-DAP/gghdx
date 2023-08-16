@@ -20,7 +20,7 @@ tomato, and grays.
 \seealso{
 Other color hdx: 
 \code{\link{hdx_colors}()},
-\code{\link{hdx_pal}()}
+\code{\link{hdx_pal_discrete}()}
 }
 \concept{color hdx}
 \keyword{datasets}

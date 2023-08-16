@@ -13,11 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# gghdx <a href='https://github.com/caldwellst/gghdx'><img src='man/figures/logo.png' align="right" height="139">
+# gghdx <a href='https://github.com/OCHA-DAP/gghdx'><img src='man/figures/logo.png' align="right" height="139">
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/caldwellst/gghdx/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/caldwellst/gghdx/branch/main/graph/badge.svg)](https://app.codecov.io/gh/caldwellst/gghdx?branch=main)
+[![R-CMD-check](https://github.com/OCHA-DAP/gghdx/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OCHA-DAP/gghdx/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/OCHA-DAP/gghdx/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OCHA-DAP/gghdx?branch=main)
 <!-- badges: end -->
 
 ## Overview
@@ -30,17 +30,17 @@ plotted text, axis gridlines, and other visual features. The key functionalities
 are:
 
 * `theme_hdx()` is the general package theme.
-* `scale_color_hdx()` and `scale_fill_hdx()` applies the HDX color scale to
+* `scale_color_hdx_...()` and `scale_fill_hdx_...()` applies the HDX color scale to
 the relevant aesthetics.
-* `hdx_colors()`, `hdx_hex()`, and `hdx_pal()` provide easy user access to the
-HDX color template.
+* `hdx_colors()`, `hdx_hex()`, and `hdx_pal_...()` provide easy user access to the
+HDX color template. You can view the colors
 * `geom_text_hdx()` and `geom_label_hdx()` wrap the respective base functions
 to plot text using HDX fonts and aesthetics.
 * `scale_y_continuous_hdx()` wraps `scale_y_continuous()` to plot data directly
 starting from the y-axis.
 * `gghdx()` ensures plot for the session use HDX defaults for color and fill
-scales, uses `theme_hdx()` for all plots, and applies `scale_color_hdx()` and
-`scale_fill_hdx()`
+scales, uses `theme_hdx()` for all plots, and applies `scale_color_hdx_...()` and
+`scale_fill_hdx_...()`
 
 ## Installation
 
@@ -48,7 +48,7 @@ You can install gghdx directly from GitHub:
 
 ```r
 ## install.packages("remotes")
-remotes::install_github("caldwellst/gghdx")
+remotes::install_github("OCHA-DAP/gghdx")
 ```
 
 The package is not currently available on CRAN. Since gghdx utilizes the

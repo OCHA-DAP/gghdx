@@ -41,6 +41,6 @@ accessible in the convenient \code{hdx_color_names()}.
 \seealso{
 Other color hdx: 
 \code{\link{hdx_color_list}},
-\code{\link{hdx_pal}()}
+\code{\link{hdx_pal_discrete}()}
 }
 \concept{color hdx}

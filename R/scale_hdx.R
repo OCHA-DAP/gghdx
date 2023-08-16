@@ -11,18 +11,54 @@
 #' @inheritParams ggplot2::scale_color_gradient2
 #' @rdname scale_hdx
 #' @export
-scale_color_hdx <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal(), ...)
+scale_color_hdx_discrete <- function(...) {
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_discrete(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
 #' @export
-scale_colour_hdx <- scale_color_hdx
+scale_colour_hdx_discrete <- scale_color_hdx_discrete
+
+#' @rdname scale_hdx
+#' @export
+scale_color_hdx_gray <- function(...) {
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_gray(),
+    na.value = hdx_hex("tomato-hdx"),
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_hdx_gray <- scale_color_hdx_gray
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_hdx_grey <- scale_color_hdx_gray
+
+#' @rdname scale_hdx
+#' @export
+scale_color_hdx_grey <- scale_color_hdx_gray
 
 #' @rdname scale_hdx
 #' @export
 scale_color_hdx_mint <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal_mint(), ...)
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_mint(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -32,7 +68,13 @@ scale_colour_hdx_mint <- scale_color_hdx_mint
 #' @rdname scale_hdx
 #' @export
 scale_color_hdx_sapphire <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal_sapphire(), ...)
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_sapphire(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -42,7 +84,13 @@ scale_colour_hdx_sapphire <- scale_color_hdx_sapphire
 #' @rdname scale_hdx
 #' @export
 scale_color_hdx_tomato <- function(...) {
-  ggplot2::discrete_scale("colour", "hdx", hdx_pal_tomato(), ...)
+  ggplot2::discrete_scale(
+    "colour",
+    "hdx",
+    hdx_pal_tomato(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -51,26 +99,66 @@ scale_colour_hdx_tomato <- scale_color_hdx_tomato
 
 #' @rdname scale_hdx
 #' @export
-scale_fill_hdx <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal(), ...)
+scale_fill_hdx_discrete <- function(...) {
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_discrete(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
 #' @export
+scale_fill_hdx_gray <- function(...) {
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_gray(),
+    na.value = hdx_hex("tomato-hdx"),
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_fill_hdx_grey <- scale_fill_hdx_gray
+
+#' @rdname scale_hdx
+#' @export
 scale_fill_hdx_mint <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal_mint(), ...)
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_mint(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
 #' @export
 scale_fill_hdx_sapphire <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal_sapphire(), ...)
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_sapphire(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
 #' @export
 scale_fill_hdx_tomato <- function(...) {
-  ggplot2::discrete_scale("fill", "hdx", hdx_pal_tomato(), ...)
+  ggplot2::discrete_scale(
+    "fill",
+    "hdx",
+    hdx_pal_tomato(),
+    na.value = hdx_hex("gray-light"),
+    ...
+  )
 }
 
 #' @rdname scale_hdx
@@ -80,8 +168,8 @@ scale_fill_gradient_hdx <- function(...) {
     aesthetics = "fill",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["tomato-hdx"],
-      high = hdx_colors()["sapphire-hdx"]
+      low = hdx_hex("tomato-hdx"),
+      high = hdx_hex("sapphire-hdx")
     ),
     guide = "colorbar",
     ...
@@ -95,8 +183,8 @@ scale_fill_gradient_hdx_sapphire <- function(...) {
     aesthetics = "fill",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["sapphire-ultra-light"],
-      high = hdx_colors()["sapphire-hdx"]
+      low = "white",
+      high = hdx_hex("sapphire-hdx")
     ),
     guide = "colorbar",
     ...
@@ -110,8 +198,8 @@ scale_fill_gradient_hdx_mint <- function(...) {
     aesthetics = "fill",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["mint-ultra-light"],
-      high = hdx_colors()["mint-hdx"]
+      low = "white",
+      high = hdx_hex("mint-hdx")
     ),
     guide = "colorbar",
     ...
@@ -125,8 +213,8 @@ scale_fill_gradient_hdx_tomato <- function(...) {
     aesthetics = "fill",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["tomato-ultra-light"],
-      high = hdx_colors()["tomato-hdx"]
+      low = "white",
+      high = hdx_hex("tomato-hdx")
     ),
     guide = "colorbar",
     ...
@@ -140,8 +228,8 @@ scale_color_gradient_hdx <- function(...) {
     aesthetics = "color",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["tomato-hdx"],
-      high = hdx_colors()["sapphire-hdx"]
+      low = hdx_hex("tomato-hdx"),
+      high = hdx_hex("sapphire-hdx")
     ),
     guide = "colorbar",
     ...
@@ -159,8 +247,8 @@ scale_color_gradient_hdx_sapphire <- function(...) {
     aesthetics = "color",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["sapphire-ultra-light"],
-      high = hdx_colors()["sapphire-hdx"]
+      low = "white",
+      high = hdx_hex("sapphire-hdx")
     ),
     guide = "colorbar",
     ...
@@ -178,8 +266,8 @@ scale_color_gradient_hdx_mint <- function(...) {
     aesthetics = "color",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["mint-ultra-light"],
-      high = hdx_colors()["mint-hdx"]
+      low = "white",
+      high = hdx_hex("mint-hdx")
     ),
     guide = "colorbar",
     ...
@@ -197,8 +285,8 @@ scale_color_gradient_hdx_tomato <- function(...) {
     aesthetics = "color",
     scale_name = "hdx",
     palette = scales::seq_gradient_pal(
-      low = hdx_colors()["tomato-ultra-light"],
-      high = hdx_colors()["tomato-hdx"]
+      low = "white",
+      high = hdx_hex("tomato-hdx")
     ),
     guide = "colorbar",
     ...
@@ -216,9 +304,9 @@ scale_color_gradient2_hdx <- function(...) {
     aesthetics = "color",
     scale_name = "hdx",
     palette = scales::div_gradient_pal(
-      low = hdx_colors()["tomato-hdx"],
-      mid = hdx_colors()["gray-white"],
-      high = hdx_colors()["sapphire-hdx"]
+      low = hdx_hex("tomato-hdx"),
+      mid = hdx_hex("gray-white"),
+      high = hdx_hex("sapphire-hdx")
     ),
     guide = "colorbar",
     ...
@@ -236,9 +324,9 @@ scale_fill_gradient2_hdx <- function(...) {
     aesthetics = "fill",
     scale_name = "hdx",
     palette = scales::div_gradient_pal(
-      low = hdx_colors()["tomato-hdx"],
-      mid = hdx_colors()["gray-white"],
-      high = hdx_colors()["sapphire-hdx"]
+      low = hdx_hex("tomato-hdx"),
+      mid = hdx_hex("gray-white"),
+      high = hdx_hex("sapphire-hdx")
     ),
     guide = "colorbar",
     ...
