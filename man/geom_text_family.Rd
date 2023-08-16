@@ -141,3 +141,20 @@ To automatically position non-overlapping text labels see the
 \href{https://cran.r-project.org/package=ggrepel}{ggrepel}
 package.
 }
+\examples{
+library(ggplot2)
+load_source_sans_3()
+
+p <- ggplot(
+  data = mtcars,
+  mapping = aes(
+    x = mpg,
+    y = mpg,
+    label = rownames(mtcars)
+  )
+)
+
+p + geom_text_hdx()
+p + geom_label_hdx()
+
+}

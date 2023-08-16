@@ -14,6 +14,27 @@
 #'     the Source Sans 3 font and runs `showtext_auto()` so all future plots
 #'     in this session will use the font.
 #'
+#' @examples
+#'
+#' library(ggplot2)
+#'
+#' p <- ggplot(mtcars) +
+#'   geom_point(
+#'     aes(
+#'       x = mpg,
+#'       y = hp
+#'     )
+#'   ) +
+#'   labs(
+#'     x = "Miles per gallon",
+#'     y = "Horsepower",
+#'     title = "Horsepower relative to miles per gallon"
+#'   )
+#'
+#' # automatically use the gghdx theme and visuals
+#' gghdx()
+#' p
+#'
 #' @export
 gghdx <- function(showtext = TRUE,
                   base_size = 10,

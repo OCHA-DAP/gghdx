@@ -10,6 +10,10 @@
 #'
 #' @family color hdx
 #' @rdname pal_general
+#'
+#' @examples
+#' hist(mtcars$mpg, col = hdx_pal_discrete()(5))
+#'
 #' @export
 hdx_pal_discrete <- function() {
   colors <- hdx_colors(c("sapphire", "tomato", "mint"))

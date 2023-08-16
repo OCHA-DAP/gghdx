@@ -14,6 +14,12 @@
 #' @return Named vector of hex values.
 #' @family color hdx
 #' @rdname hdx_color
+#'
+#' @examples
+#' hdx_colors()
+#' hdx_colors("sapphire")
+#'
+#'
 #' @export
 hdx_colors <- function(colors = c("sapphire", "mint", "tomato", "gray")) {
   # return NA if input is NA

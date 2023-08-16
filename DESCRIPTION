@@ -6,7 +6,7 @@ Authors@R:
       given = "Seth",
       family = "Caldwell", 
       email = "caldwellst@gmail.com",
-      role = c("aut", "cre")
+      role = c("aut", "cre", "cph")
     )
 Description: An HDX theme, color palettes, and scales for 'ggplot2' to allow
     users to easily follow the HDX visual design guide. Also provides other

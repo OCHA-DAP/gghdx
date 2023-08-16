@@ -28,3 +28,21 @@ data visualization guidelines. This is done by setting \code{expand = c(0, 0)}.
 For simple manipulation of labels and limits, you may wish to use
 \code{\link[ggplot2:labs]{labs()}} and \code{\link[ggplot2:lims]{lims()}} instead.
 }
+\examples{
+library(ggplot2)
+
+p <- ggplot(df_covid) +
+  geom_line(
+    aes(
+      x = date,
+      y = cases_monthly
+    )
+  )
+
+p
+
+# start y axis at 0
+p + scale_y_continuous_hdx()
+p + scale_y_log10_hdx()
+
+}

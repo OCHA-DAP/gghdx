@@ -21,6 +21,12 @@ knitr::opts_chunk$set(
 
 ## Using the package
 
+The package is designed so the user just has to run `gghdx()` once a session
+and mainly forget about it. This will automatically set your ggplot2
+to use the HDX theme, palettes, fonts, and more by default. If you want more
+control or want to better understand how the package works, please see the
+details below!
+
 ### Theme
 
 A quick and simple example would be plotting the `iris` dataset included in

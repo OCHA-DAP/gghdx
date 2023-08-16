@@ -6,3 +6,4 @@
 ^codecov\.yml$
 ^data-raw$
 ^gghdx\.Rproj$
+^cran-comments\.md$

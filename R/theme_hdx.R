@@ -22,15 +22,44 @@
 #'
 #' @return An object of class \code{\link[ggplot2]{theme}()}.
 #'
-#' @export
-#'
 #' @references
 #' \itemize{
 #' \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
 #' \item \href{https://fonts.google.com/specimen/Source+Sans+3}{Google Fonts, Source Sans 3}
 #' \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 #' }
-# no lint end
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' p <- ggplot(mtcars) +
+#'   geom_point(
+#'     aes(
+#'       x = mpg,
+#'       y = hp
+#'     )
+#'   ) +
+#'   labs(
+#'     x = "Miles per gallon",
+#'     y = "Horsepower",
+#'     title = "Horsepower relative to miles per gallon"
+#'   )
+#'
+#' # the default font is source sans 3
+#' # an error will occur if not loaded before using theme_hdx()
+#' try(p + theme_hdx())
+#'
+#' # you can change the base family
+#' p + theme_hdx(base_family = "sans")
+#'
+#' # or load Source Sans 3 using gghdx() or load_source_sans_3()
+#' load_source_sans_3()
+#' p + theme_hdx()
+#'
+#' # we can change the axis line direction depending on the plot
+#' p + theme_hdx(horizontal = FALSE)
+#'
+#' @export
 theme_hdx <- function(base_size = 10,
                       base_family = "Source Sans 3",
                       horizontal = TRUE) {

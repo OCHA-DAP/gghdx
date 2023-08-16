@@ -33,3 +33,25 @@ The default discrete scale is \code{scale_..._hdx()} for both \code{fill} and \c
 For continuous scales, the default is \code{scale_fill_gradient_hdx_mint()} for
 fill and \code{scale_color_gradient_hdx_sapphire()} for color.
 }
+\examples{
+
+library(ggplot2)
+
+p <- ggplot(mtcars) +
+  geom_point(
+    aes(
+      x = mpg,
+      y = hp
+    )
+  ) +
+  labs(
+    x = "Miles per gallon",
+    y = "Horsepower",
+    title = "Horsepower relative to miles per gallon"
+  )
+
+# automatically use the gghdx theme and visuals
+gghdx()
+p
+
+}

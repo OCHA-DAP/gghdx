@@ -38,6 +38,12 @@ know the name of the color you want, such as "sapphire-hdx", you can use
 All valid color names are in the named vector returned by \code{hdx_colors()} or
 accessible in the convenient \code{hdx_color_names()}.
 }
+\examples{
+hdx_colors()
+hdx_colors("sapphire")
+
+
+}
 \seealso{
 Other color hdx: 
 \code{\link{hdx_color_list}},
