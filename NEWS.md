@@ -1,6 +1,4 @@
-# Development
-
-## gghdx 0.1
+# gghdx 0.1.0
 
 * Right adjusting y-axis labels in `theme_hdx()`.
 * Replace deprecated `size` argument from `ggplot2` calls.
@@ -12,14 +10,10 @@ allow both grey and gray spellings of colors.
 * Improved error catching when fonts are not available.
 * Added gray color palette, `hdx_pal_gray()`.
 
-
-## gghdx 0.0.2.1
-
-* Changing `NA` colors from white to gray.
-
 # gghdx 0.0.2
 
 * Cleaned `df_covid` for consistent days between dates on x-axis plots.
+* Changed `NA` colors from white to gray.
 
 # gghdx 0.0.1
 
