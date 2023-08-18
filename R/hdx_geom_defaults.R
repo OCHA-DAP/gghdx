@@ -18,7 +18,7 @@
 #'   ~ do.call(what = ggplot2::update_geom_defaults, args = .),
 #' )
 #'
-#' @seealso [gghdx()] for automically setting default geometries,
+#' @seealso [gghdx()] for automatically setting default geometries,
 #'     along with other styling.
 #'
 #' @export
