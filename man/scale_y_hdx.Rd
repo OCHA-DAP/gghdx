@@ -19,7 +19,8 @@ scale_y_sqrt_hdx(...)
 \item{...}{Other arguments pass on to \code{\link[ggplot2:scale_continuous]{ggplot2::scale_y_continuous()}}.}
 }
 \value{
-Relevant ggplot2 scaling.
+\code{ggplot2::ScaleContinuousPosition} object to scale a
+\code{ggplot2::ggplot()} plot.
 }
 \description{
 \code{scale_y_continuous_hdx()} and the three variants with different \code{trans}

@@ -20,7 +20,11 @@
 #' @importFrom ggplot2 element_rect element_text rel element_blank margin unit
 #'     theme element_line
 #'
-#' @return An object of class \code{\link[ggplot2]{theme}()}.
+#' @return A \code{\link[ggplot2]{theme}()} to stylize a `ggplot2::ggplot()`
+#'     plot.
+#'
+#' @seealso [gghdx()] for automatically applying the theme to all plots in this
+#'     current R session, along with other styling.
 #'
 #' @references
 #' \itemize{

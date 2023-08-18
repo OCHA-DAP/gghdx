@@ -29,7 +29,7 @@
 #' p + geom_text_hdx()
 #' p + geom_label_hdx()
 #'
-#' @return A ggplot2 text layer.
+#' @return A ggplot2 layer that can be added to a `ggplot2::ggplot()` plot.
 #'
 #' @export
 geom_text_hdx <- function(mapping = NULL,
@@ -81,8 +81,6 @@ geom_text_hdx <- function(mapping = NULL,
 #' @param fontface Font emphasis. Defaults to bold.
 #'
 #' @inherit ggplot2::geom_label params
-#'
-#' @return A ggplot labels layer.
 #'
 #' @export
 geom_label_hdx <- function(mapping = NULL,

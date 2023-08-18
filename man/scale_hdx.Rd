@@ -164,7 +164,8 @@ expand the scale by 5\% on each side for continuous variables, and by
   }}
 }
 \value{
-Relevant ggplot2 scaling.
+Relevant ggplot2 scale object to add to a \code{ggplot2::ggplot()} plot,
+either \code{ggplot2::ScaleDiscrete} or \code{ggplot2::ScaleContinuous}.
 }
 \description{
 Color scales using the HDX palette. For discrete color scales, the
@@ -206,4 +207,8 @@ p2
 p2 + scale_color_gradient_hdx_mint()
 p2 + scale_color_gradient_hdx_tomato()
 
+}
+\seealso{
+\code{\link[=gghdx]{gghdx()}} for setting default fill and color scaling,
+along with other styling.
 }

@@ -14,7 +14,8 @@ theme_hdx(base_size = 10, base_family = "Source Sans 3", horizontal = TRUE)
 \item{horizontal}{\code{logical} Horizontal axis lines?}
 }
 \value{
-An object of class \code{\link[ggplot2]{theme}()}.
+A \code{\link[ggplot2]{theme}()} to stylize a \code{ggplot2::ggplot()}
+plot.
 }
 \description{
 A theme that approximates the style of the
@@ -68,4 +69,8 @@ p + theme_hdx(horizontal = FALSE)
 \item \href{https://fonts.google.com/specimen/Source+Sans+3}{Google Fonts, Source Sans 3}
 \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 }
+}
+\seealso{
+\code{\link[=gghdx]{gghdx()}} for automatically applying the theme to all plots in this
+current R session, along with other styling.
 }

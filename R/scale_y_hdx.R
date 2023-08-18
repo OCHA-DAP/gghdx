@@ -27,7 +27,8 @@
 #' p + scale_y_continuous_hdx()
 #' p + scale_y_log10_hdx()
 #'
-#' @return Relevant ggplot2 scaling.
+#' @return `ggplot2::ScaleContinuousPosition` object to scale a
+#'     `ggplot2::ggplot()` plot.
 #'
 #' @export
 scale_y_continuous_hdx <- function(...) {

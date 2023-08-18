@@ -44,7 +44,11 @@
 #' p2 + scale_color_gradient_hdx_mint()
 #' p2 + scale_color_gradient_hdx_tomato()
 #'
-#' @return Relevant ggplot2 scaling.
+#' @return Relevant ggplot2 scale object to add to a `ggplot2::ggplot()` plot,
+#'     either `ggplot2::ScaleDiscrete` or `ggplot2::ScaleContinuous`.
+#'
+#' @seealso [gghdx()] for setting default fill and color scaling,
+#'     along with other styling.
 #'
 #' @export
 scale_color_hdx_discrete <- function(...) {
