@@ -114,6 +114,9 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 
 \item{label.size}{Size of label border, in mm.}
 }
+\value{
+A ggplot2 layer that can be added to a \code{ggplot2::ggplot()} plot.
+}
 \description{
 Text geoms are useful for labeling plots. They can be used by themselves as
 scatterplots or in combination with other geoms, for example, for labeling
@@ -140,4 +143,21 @@ To add labels at specified points use \code{\link[ggplot2:annotate]{annotate()}}
 To automatically position non-overlapping text labels see the
 \href{https://cran.r-project.org/package=ggrepel}{ggrepel}
 package.
+}
+\examples{
+library(ggplot2)
+load_source_sans_3()
+
+p <- ggplot(
+  data = mtcars,
+  mapping = aes(
+    x = mpg,
+    y = mpg,
+    label = rownames(mtcars)
+  )
+)
+
+p + geom_text_hdx()
+p + geom_label_hdx()
+
 }

@@ -18,6 +18,10 @@ scale_y_sqrt_hdx(...)
 \arguments{
 \item{...}{Other arguments pass on to \code{\link[ggplot2:scale_continuous]{ggplot2::scale_y_continuous()}}.}
 }
+\value{
+\code{ggplot2::ScaleContinuousPosition} object to scale a
+\code{ggplot2::ggplot()} plot.
+}
 \description{
 \code{scale_y_continuous_hdx()} and the three variants with different \code{trans}
 arguments are defaults scales for the y axis that ensures the distance
@@ -27,4 +31,22 @@ data visualization guidelines. This is done by setting \code{expand = c(0, 0)}.
 \details{
 For simple manipulation of labels and limits, you may wish to use
 \code{\link[ggplot2:labs]{labs()}} and \code{\link[ggplot2:lims]{lims()}} instead.
+}
+\examples{
+library(ggplot2)
+
+p <- ggplot(df_covid) +
+  geom_line(
+    aes(
+      x = date,
+      y = cases_monthly
+    )
+  )
+
+p
+
+# start y axis at 0
+p + scale_y_continuous_hdx()
+p + scale_y_log10_hdx()
+
 }

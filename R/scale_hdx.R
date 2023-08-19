@@ -1,7 +1,7 @@
 #' HDX color scales
 #'
 #' Color scales using the HDX palette. For discrete color scales, the
-#' `scale_color_hdx()` and `scale_fill_hdx()` family of functions are
+#' `scale_color_hdx_...()` and `scale_fill_hdx_...()` family of functions are
 #' available. For gradient scales, use `scale_color_gradient_hdx()` and
 #' `scale_fill_gradient_hdx()` functions for a single color scale or
 #' `scale_..._gradient2...()` alternative.
@@ -10,6 +10,46 @@
 #' @inheritParams hdx_pal
 #' @inheritParams ggplot2::scale_color_gradient2
 #' @rdname scale_hdx
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' # discrete scaling
+#' p1 <- ggplot(iris) +
+#'   geom_point(
+#'     aes(
+#'       x = Sepal.Length,
+#'       y = Petal.Width,
+#'       color = Species
+#'     )
+#'   )
+#'
+#' p1
+#'
+#' p1 + scale_color_hdx_discrete()
+#' p1 + scale_color_hdx_mint()
+#'
+#' # use gradient scaling
+#' p2 <- ggplot(iris) +
+#'   geom_point(
+#'     aes(
+#'       x = Sepal.Length,
+#'       y = Petal.Width,
+#'       color = Petal.Length
+#'     )
+#'   )
+#'
+#' p2
+#'
+#' p2 + scale_color_gradient_hdx_mint()
+#' p2 + scale_color_gradient_hdx_tomato()
+#'
+#' @return Relevant ggplot2 scale object to add to a `ggplot2::ggplot()` plot,
+#'     either `ggplot2::ScaleDiscrete` or `ggplot2::ScaleContinuous`.
+#'
+#' @seealso [gghdx()] for setting default fill and color scaling,
+#'     along with other styling.
+#'
 #' @export
 scale_color_hdx_discrete <- function(...) {
   ggplot2::discrete_scale(

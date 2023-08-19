@@ -22,3 +22,8 @@ Displays the HDX color palettes. By default, shows all values for all
 palettes. You can change the number of values for each palette or only
 show a subset of the available palettes (from \code{hdx_pal_...()}).
 }
+\examples{
+hdx_display_pal()
+hdx_display_pal(n = 3)
+
+}

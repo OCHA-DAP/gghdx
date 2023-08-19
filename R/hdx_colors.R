@@ -11,9 +11,21 @@
 #' @param colors Specified color ramps to return. Some set of "sapphire",
 #'     "mint", "tomato", and "gray. By default returns all colors.
 #'
-#' @return Named vector of hex values.
+#' @returns
+#'    * `hdx_colors()` returns a named vector of hex values.
+#'    * `hdx_color_names()` returns a character vector of color names.
+#'
 #' @family color hdx
 #' @rdname hdx_color
+#'
+#' @examples
+#' # get hex values
+#' hdx_colors()
+#' hdx_colors("sapphire")
+#'
+#' # get color names
+#' hdx_color_names()
+#'
 #' @export
 hdx_colors <- function(colors = c("sapphire", "mint", "tomato", "gray")) {
   # return NA if input is NA

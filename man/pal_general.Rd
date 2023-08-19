@@ -18,6 +18,9 @@ hdx_pal_mint()
 
 hdx_pal_gray()
 }
+\value{
+A palette function.
+}
 \description{
 The hues in the HDX palette are sapphire, mint, and tomato.
 }
@@ -27,6 +30,10 @@ The hues in the HDX palette are sapphire, mint, and tomato.
 \code{hdx_pal_mint()}, \code{hdx_pal_tomato()}, and \code{hdx_pal_sapphire()} allow for a
 4 element discrete scale using only the specified color. These are color
 ramps with a range from dark, normal (HDX standard), light, and ultra light.
+}
+\examples{
+hist(mtcars$mpg, col = hdx_pal_discrete()(5))
+
 }
 \seealso{
 Other color hdx: 

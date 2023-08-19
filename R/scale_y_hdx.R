@@ -5,10 +5,31 @@
 #' from data to the y-axis is reduced to 0, as is common throughout the HDX
 #' data visualization guidelines. This is done by setting `expand = c(0, 0)`.
 #'
-#' @inherit ggplot2::scale_y_continuous details return
+#' @inherit ggplot2::scale_y_continuous details
 #' @param ... Other arguments pass on to [ggplot2::scale_y_continuous()].
 #'
 #' @rdname scale_y_hdx
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' p <- ggplot(df_covid) +
+#'   geom_line(
+#'     aes(
+#'       x = date,
+#'       y = cases_monthly
+#'     )
+#'   )
+#'
+#' p
+#'
+#' # start y axis at 0
+#' p + scale_y_continuous_hdx()
+#' p + scale_y_log10_hdx()
+#'
+#' @return `ggplot2::ScaleContinuousPosition` object to scale a
+#'     `ggplot2::ggplot()` plot.
+#'
 #' @export
 scale_y_continuous_hdx <- function(...) {
   ggplot2::scale_y_continuous(..., expand = c(0, 0))

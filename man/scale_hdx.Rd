@@ -163,10 +163,52 @@ expand the scale by 5\% on each side for continuous variables, and by
     \item{\code{super}}{The super class to use for the constructed scale}
   }}
 }
+\value{
+Relevant ggplot2 scale object to add to a \code{ggplot2::ggplot()} plot,
+either \code{ggplot2::ScaleDiscrete} or \code{ggplot2::ScaleContinuous}.
+}
 \description{
 Color scales using the HDX palette. For discrete color scales, the
-\code{scale_color_hdx()} and \code{scale_fill_hdx()} family of functions are
+\code{scale_color_hdx_...()} and \code{scale_fill_hdx_...()} family of functions are
 available. For gradient scales, use \code{scale_color_gradient_hdx()} and
 \code{scale_fill_gradient_hdx()} functions for a single color scale or
 \code{scale_..._gradient2...()} alternative.
+}
+\examples{
+library(ggplot2)
+
+# discrete scaling
+p1 <- ggplot(iris) +
+  geom_point(
+    aes(
+      x = Sepal.Length,
+      y = Petal.Width,
+      color = Species
+    )
+  )
+
+p1
+
+p1 + scale_color_hdx_discrete()
+p1 + scale_color_hdx_mint()
+
+# use gradient scaling
+p2 <- ggplot(iris) +
+  geom_point(
+    aes(
+      x = Sepal.Length,
+      y = Petal.Width,
+      color = Petal.Length
+    )
+  )
+
+p2
+
+p2 + scale_color_gradient_hdx_mint()
+p2 + scale_color_gradient_hdx_tomato()
+
+}
+\seealso{
+\code{\link[=gghdx]{gghdx()}} for setting default fill and color scaling,
+along with other styling.
 }

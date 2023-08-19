@@ -34,29 +34,26 @@ features. The key functionalities are:
 
 ## Installation
 
-You can install gghdx directly from GitHub:
+You can install gghdx directly from CRAN:
+
+``` r
+install.packages("gghdx")
+```
+
+You can install the development version from GitHub:
 
 ``` r
 ## install.packages("remotes")
 remotes::install_github("OCHA-DAP/gghdx")
 ```
 
-The package is not currently available on CRAN. Since gghdx utilizes the
-showtext and sysfonts packages to cleanly import and use the Source Sans
-3 font, it is recommended to install them as well. Simply just install
-showtext and sysfonts will also be installed.
-
-``` r
-install.packages("showtext")
-```
+## Using the package
 
 The package is designed so the user just has to run `gghdx()` once a
 session and mainly forget about it. This will automatically set your
 ggplot2 to use the HDX theme, palettes, fonts, and more by default. If
 you want more control or want to better understand how the package
 works, please see the details below!
-
-## Using the package
 
 ### Theme
 

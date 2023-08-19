@@ -22,6 +22,9 @@ in this session will use the font.}
 
 \item{horizontal}{\code{logical} Horizontal axis lines?}
 }
+\value{
+No return value, run for the side effects described in Details.
+}
 \description{
 \code{gghdx()} gives you the convenience of \code{theme_hdx()} without having to
 explicitly call it for each plot. It also allows for setting the default
@@ -29,7 +32,63 @@ continuous and discrete scales to follow the HDX color scheme, including
 default line and point colors and area fills.
 }
 \details{
+\code{gghdx()} changes global settings for this R session. This includes updating
+the ggplot2 default geometries using \code{ggplot2::update_geom_defaults()} and
+setting global options to scale color and fill for ggplot2:
+\itemize{
+\item \code{options("ggplot2.discrete.fill")}
+\item \code{options("ggplot2.discrete.colour")}
+\item \code{options("ggplot2.continuous.fill")}
+\item \code{options("ggplot2.continous.colour")}
+}
+
 The default discrete scale is \code{scale_..._hdx()} for both \code{fill} and \code{color}.
 For continuous scales, the default is \code{scale_fill_gradient_hdx_mint()} for
 fill and \code{scale_color_gradient_hdx_sapphire()} for color.
+
+Once \code{gghdx()} is run, the easiest way to return to the default ggplot2
+settings is to restart your R session. Without restarting the session, you
+can make some changes:
+\itemize{
+\item \code{ggplot2::reset_theme_settings()}: resets the global theme to default.
+\item For all of the options listed above, run \code{options("option") <- NULL}.
+\item \code{showtext::showtext_end()} to stop using the showtext library if it was
+activated.
+}
+
+There is no easy way to update the default geometries, but you can manually
+use \code{ggplot2::update_geom_defaults()} if you desire.
+}
+\examples{
+
+library(ggplot2)
+
+p <- ggplot(mtcars) +
+  geom_point(
+    aes(
+      x = mpg,
+      y = hp
+    )
+  ) +
+  labs(
+    x = "Miles per gallon",
+    y = "Horsepower",
+    title = "Horsepower relative to miles per gallon"
+  )
+
+# automatically use the gghdx theme and visuals
+gghdx()
+p
+
+}
+\seealso{
+\code{gghdx()} relies on the following functions:
+\itemize{
+\item \code{\link[=theme_hdx]{theme_hdx()}} as the default theme.
+\item \code{\link[=load_source_sans_3]{load_source_sans_3()}} to load the font and activate showtext.
+\item \code{\link[=hdx_geom_defaults]{hdx_geom_defaults()}} as the default geometries to set with
+\code{ggplot2::update_geom_defaults()}.
+\item \code{\link[=scale_color_hdx_discrete]{scale_color_hdx_discrete()}} and other family of functions to set standard
+fill and color scales.
+}
 }
