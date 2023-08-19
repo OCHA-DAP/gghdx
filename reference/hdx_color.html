@@ -89,9 +89,8 @@ using <code>hdx_colors</code></p></dd>
     <h2>Value</h2>
     
 
-<ul><li><p><code>hdx_colors()</code> returns a named vector of hex values.</p></li>
-<li><p><code>hdx_color_names()</code> returns a character vector of color names.</p></li>
-</ul></div>
+<p>Named vector of hex values.</p>
+    </div>
     <div id="details">
     <h2>Details</h2>
     <p>All valid color names are in the named vector returned by <code>hdx_colors()</code> or
@@ -104,39 +103,6 @@ accessible in the convenient <code>hdx_color_names()</code>.</p>
 <code><a href="pal_general.html">hdx_pal_discrete</a>()</code></p></div>
     </div>
 
-    <div id="ref-examples">
-    <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># get hex values</span></span></span>
-<span class="r-in"><span><span class="fu">hdx_colors</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        sapphire-dark         sapphire-hdx       sapphire-light </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#0063B3"            "#007CE0"            "#66B0EC" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sapphire-ultra-light            mint-dark             mint-hdx </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#CCE5F9"            "#18998F"            "#1EBFB3" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           mint-light     mint-ultra-light          tomato-dark </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#78D9D1"            "#D2F2F0"            "#C25048" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           tomato-hdx         tomato-light   tomato-ultra-light </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#F2645A"            "#F7A29C"            "#FCE0DE" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           gray-black            gray-dark          gray-medium </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#000000"            "#888888"            "#CCCCCC" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           gray-light           gray-white </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#EEEEEE"            "#FFFFFF" </span>
-<span class="r-in"><span><span class="fu">hdx_colors</span><span class="op">(</span><span class="st">"sapphire"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        sapphire-dark         sapphire-hdx       sapphire-light </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#0063B3"            "#007CE0"            "#66B0EC" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sapphire-ultra-light </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            "#CCE5F9" </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># get color names</span></span></span>
-<span class="r-in"><span><span class="fu">hdx_color_names</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "sapphire-dark"        "sapphire-hdx"         "sapphire-light"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "sapphire-ultra-light" "mint-dark"            "mint-hdx"            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "mint-light"           "mint-ultra-light"     "tomato-dark"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "tomato-hdx"           "tomato-light"         "tomato-ultra-light"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "gray-black"           "gray-dark"            "gray-medium"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "gray-light"           "gray-white"          </span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

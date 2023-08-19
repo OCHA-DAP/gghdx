@@ -90,69 +90,13 @@ in this session will use the font.</p></dd>
 <dd><p><code>logical</code> Horizontal axis lines?</p></dd>
 
 </dl></div>
-    <div id="value">
-    <h2>Value</h2>
-    
-
-<p>No return value, run for the side effects described in Details.</p>
-    </div>
     <div id="details">
     <h2>Details</h2>
-    <p><code>gghdx()</code> changes global settings for this R session. This includes updating
-the ggplot2 default geometries using <code><a href="https://ggplot2.tidyverse.org/reference/update_defaults.html" class="external-link">ggplot2::update_geom_defaults()</a></code> and
-setting global options to scale color and fill for ggplot2:</p><ul><li><p><code>options("ggplot2.discrete.fill")</code></p></li>
-<li><p><code>options("ggplot2.discrete.colour")</code></p></li>
-<li><p><code>options("ggplot2.continuous.fill")</code></p></li>
-<li><p><code>options("ggplot2.continous.colour")</code></p></li>
-</ul><p>The default discrete scale is <code>scale_..._hdx()</code> for both <code>fill</code> and <code>color</code>.
+    <p>The default discrete scale is <code>scale_..._hdx()</code> for both <code>fill</code> and <code>color</code>.
 For continuous scales, the default is <code><a href="scale_hdx.html">scale_fill_gradient_hdx_mint()</a></code> for
 fill and <code><a href="scale_hdx.html">scale_color_gradient_hdx_sapphire()</a></code> for color.</p>
-<p>Once <code>gghdx()</code> is run, the easiest way to return to the default ggplot2
-settings is to restart your R session. Without restarting the session, you
-can make some changes:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/register_theme_elements.html" class="external-link">ggplot2::reset_theme_settings()</a></code>: resets the global theme to default.</p></li>
-<li><p>For all of the options listed above, run <code>options("option") &lt;- NULL</code>.</p></li>
-<li><p><code><a href="https://rdrr.io/pkg/showtext/man/showtext_end.html" class="external-link">showtext::showtext_end()</a></code> to stop using the showtext library if it was
-activated.</p></li>
-</ul><p>There is no easy way to update the default geometries, but you can manually
-use <code><a href="https://ggplot2.tidyverse.org/reference/update_defaults.html" class="external-link">ggplot2::update_geom_defaults()</a></code> if you desire.</p>
-    </div>
-    <div id="see-also">
-    <h2>See also</h2>
-    <div class="dont-index"><p><code>gghdx()</code> relies on the following functions:</p><ul><li><p><code><a href="theme_hdx.html">theme_hdx()</a></code> as the default theme.</p></li>
-<li><p><code><a href="load_source_sans_3.html">load_source_sans_3()</a></code> to load the font and activate showtext.</p></li>
-<li><p><code><a href="hdx_geom_defaults.html">hdx_geom_defaults()</a></code> as the default geometries to set with
-<code><a href="https://ggplot2.tidyverse.org/reference/update_defaults.html" class="external-link">ggplot2::update_geom_defaults()</a></code>.</p></li>
-<li><p><code><a href="scale_hdx.html">scale_color_hdx_discrete()</a></code> and other family of functions to set standard
-fill and color scales.</p></li>
-</ul></div>
     </div>
 
-    <div id="ref-examples">
-    <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      x <span class="op">=</span> <span class="va">mpg</span>,</span></span>
-<span class="r-in"><span>      y <span class="op">=</span> <span class="va">hp</span></span></span>
-<span class="r-in"><span>    <span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    x <span class="op">=</span> <span class="st">"Miles per gallon"</span>,</span></span>
-<span class="r-in"><span>    y <span class="op">=</span> <span class="st">"Horsepower"</span>,</span></span>
-<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"Horsepower relative to miles per gallon"</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># automatically use the gghdx theme and visuals</span></span></span>
-<span class="r-in"><span><span class="fu">gghdx</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-in"><span><span class="va">p</span></span></span>
-<span class="r-plt img"><img src="gghdx-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
-    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
