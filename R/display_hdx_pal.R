@@ -34,7 +34,7 @@ hdx_display_pal <- function(
 
   purrr::map(
     .x = palette,
-    .f = \(pal) {
+    .f = function(pal) {
       pal_fun <- pal_funs[[pal]]
       if (is.null(n)) {
         n <- attributes(pal_fun)$max_n
