@@ -4,7 +4,20 @@
 \alias{load_source_sans_3}
 \title{Load and use Source Sans 3}
 \usage{
-load_source_sans_3()
+load_source_sans_3(family = NULL, regular = NULL)
+}
+\arguments{
+\item{family}{Character string for the Source Sans 3 family. If \code{NULL},
+defaults to \code{"Source Sans 3"}, the standard family name. See "Details"
+in the \code{\link[sysfonts:font_add]{sysfonts::font_add()}} documentation for further explanation. Used
+only when no internet connection is available to directly load from
+Google.}
+
+\item{regular}{Path to the font file for the regular font face. If \code{NULL},
+defaults to \code{"SourceSans3-Regular.ttf"}, the standard file name downloaded
+from \href{https://fonts.google.com/specimen/Source+Sans+3}{Source Sans 3}.
+Used only when no internet connection is available to directly load from
+Google.}
 }
 \value{
 Nothing, run for side effect of loading the font and activating
@@ -16,6 +29,13 @@ Simple wrapper for \code{sysfonts::font_add_google()} and
 \href{https://fonts.google.com/specimen/Source+Sans+3}{Source Sans 3 font} and
 specify all plots to automatically use showtext. Use to load the default
 font family for \code{\link[=geom_text_hdx]{geom_text_hdx()}} and \code{\link[=geom_label_hdx]{geom_label_hdx()}}.
+}
+\details{
+By default, the font is loaded from Google using \code{sysfonts::font_add_google()}.
+If an internet connection is unavailable, then attempts to use a locally
+installed version of the font using \code{sysfonts::font_add(family, regular)}.
+If you have the font installed but still receive an error from this function,
+check the \code{family} and \code{regular} arguments match your installed font.
 }
 \examples{
 library(ggplot2)
