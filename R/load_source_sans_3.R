@@ -93,7 +93,8 @@ load_source_sans_3_local <- function(family, regular) {
         "`sysfonts::font_add_google()`, likely due to connection issues.\n\n",
         "If you do not have a connection, ensure the font is installed and the ",
         "correct `family` and `regular` arguments are passed for use in ",
-        "`sysfonts::font_add()`.",
+        "`sysfonts::font_add()`. Otherwise, use a pre-installed font family ",
+        "such as sans by running `gghdx(showtext = FALSE, base_family = 'sans')`.",
         call. = FALSE
       )
     }
