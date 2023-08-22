@@ -88,8 +88,6 @@ gghdx <- function(showtext = TRUE,
     load_source_sans_3()
   }
 
-  check_font(base_family)
-
   # set the theme
   ggplot2::theme_set(
     theme_hdx(
