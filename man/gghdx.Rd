@@ -2,7 +2,8 @@
 % Please edit documentation in R/gghdx.R
 \name{gghdx}
 \alias{gghdx}
-\title{Set HDX theme}
+\alias{gghdx_reset}
+\title{Set HDX theme and aesthetics}
 \usage{
 gghdx(
   showtext = TRUE,
@@ -10,6 +11,8 @@ gghdx(
   base_family = "Source Sans 3",
   horizontal = TRUE
 )
+
+gghdx_reset()
 }
 \arguments{
 \item{showtext}{\code{logical} If \code{TRUE}, uses the showtext package to add
@@ -29,7 +32,8 @@ No return value, run for the side effects described in Details.
 \code{gghdx()} gives you the convenience of \code{theme_hdx()} without having to
 explicitly call it for each plot. It also allows for setting the default
 continuous and discrete scales to follow the HDX color scheme, including
-default line and point colors and area fills.
+default line and point colors and area fills. \code{gghdx_reset()} returns
+all of these values back to the defaults.
 }
 \details{
 \code{gghdx()} changes global settings for this R session. This includes updating
@@ -47,17 +51,17 @@ For continuous scales, the default is \code{scale_fill_gradient_hdx_mint()} for
 fill and \code{scale_color_gradient_hdx_sapphire()} for color.
 
 Once \code{gghdx()} is run, the easiest way to return to the default ggplot2
-settings is to restart your R session. Without restarting the session, you
-can make some changes:
+settings is to run \code{gghdx_reset()}. This will make changes by running:
 \itemize{
 \item \code{ggplot2::reset_theme_settings()}: resets the global theme to default.
 \item For all of the options listed above, run \code{options("option") <- NULL}.
 \item \code{showtext::showtext_end()} to stop using the showtext library if it was
 activated.
+\item Runs \code{ggplot2::update_geom_defaults()} for all geometries in
+\code{\link[=ggplot2_geom_defaults]{ggplot2_geom_defaults()}}.
 }
 
-There is no easy way to update the default geometries, but you can manually
-use \code{ggplot2::update_geom_defaults()} if you desire.
+You can also simply restart your R session to return to the defaults.
 }
 \examples{
 
@@ -76,8 +80,15 @@ p <- ggplot(mtcars) +
     title = "Horsepower relative to miles per gallon"
   )
 
+# see the plot using base aesthetics
+p
+
 # automatically use the gghdx theme and visuals
 gghdx()
+p
+
+# get rid of the changes of gghdx
+gghdx_reset()
 p
 
 }

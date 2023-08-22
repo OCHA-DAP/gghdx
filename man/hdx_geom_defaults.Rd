@@ -2,7 +2,7 @@
 % Please edit documentation in R/hdx_geom_defaults.R
 \name{hdx_geom_defaults}
 \alias{hdx_geom_defaults}
-\title{Default HDX geometries}
+\title{Default HDX geometry aesthetics}
 \usage{
 hdx_geom_defaults()
 }
@@ -10,7 +10,7 @@ hdx_geom_defaults()
 A list of geometry defaults.
 }
 \description{
-Default geometries fitting the HDX design guide. Used in \code{\link[=gghdx]{gghdx()}} to
+Default geometry aesthetics fitting the HDX design guide. Used in \code{\link[=gghdx]{gghdx()}} to
 set default fill, color, size, and point geometry defaults, which is not possible
 using just \code{\link[=theme_hdx]{theme_hdx()}}.
 }
@@ -20,6 +20,7 @@ Derived from the
 }
 \examples{
 library(purrr)
+library(ggplot2)
 
 # updating geom defaults (like default color of a point or fill for bar)
 purrr::walk(
@@ -27,8 +28,31 @@ purrr::walk(
   ~ do.call(what = ggplot2::update_geom_defaults, args = .),
 )
 
+p <- ggplot(mtcars) +
+  geom_point(
+    aes(
+      x = mpg,
+      y = hp
+    )
+  )
+
+# see the points are automatically in HDX sapphire
+p
+
+# need to reset back to the default geometries
+purrr::walk(
+  ggplot2_geom_defaults(),
+  ~ do.call(what = ggplot2::update_geom_defaults, args = .)
+)
+
+# now the points are back to default black
+p
+
 }
 \seealso{
-\code{\link[=gghdx]{gghdx()}} for automically setting default geometries,
+\itemize{
+\item \code{\link[=gghdx]{gghdx()}} for automatically setting default geometries,
 along with other styling.
+\item \code{\link[=ggplot_geom_defaults]{ggplot_geom_defaults()}} for the ggplot2 default aesthetics.
+}
 }
