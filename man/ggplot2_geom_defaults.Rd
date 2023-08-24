@@ -12,7 +12,7 @@ A list of geometry defaults.
 \description{
 Default geometry aesthetics from the ggplot2 library. All of the aesthetics are the
 standard ggplot2 defaults for those changed in \code{\link[=gghdx]{gghdx()}} based on
-\code{\link[=hdx_geom_defualts]{hdx_geom_defualts()}}. Used in \code{\link[=gghdx_reset]{gghdx_reset()}} to return the plotting defaults
+\code{\link[=hdx_geom_defaults]{hdx_geom_defaults()}}. Used in \code{\link[=gghdx_reset]{gghdx_reset()}} to return the plotting defaults
 back to normal.
 }
 \details{

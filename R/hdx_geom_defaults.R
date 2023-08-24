@@ -42,7 +42,7 @@
 #' @seealso
 #' * [gghdx()] for automatically setting default geometries,
 #'     along with other styling.
-#' * [ggplot_geom_defaults()] for the ggplot2 default aesthetics.
+#' * [ggplot2_geom_defaults()] for the ggplot2 default aesthetics.
 #'
 #' @export
 hdx_geom_defaults <- function() {
@@ -92,7 +92,7 @@ hdx_geom_defaults <- function() {
 #'
 #' Default geometry aesthetics from the ggplot2 library. All of the aesthetics are the
 #' standard ggplot2 defaults for those changed in [gghdx()] based on
-#' [hdx_geom_defualts()]. Used in [gghdx_reset()] to return the plotting defaults
+#' [hdx_geom_defaults()]. Used in [gghdx_reset()] to return the plotting defaults
 #' back to normal.
 #'
 #' @details

@@ -53,6 +53,6 @@ p
 \itemize{
 \item \code{\link[=gghdx]{gghdx()}} for automatically setting default geometries,
 along with other styling.
-\item \code{\link[=ggplot_geom_defaults]{ggplot_geom_defaults()}} for the ggplot2 default aesthetics.
+\item \code{\link[=ggplot2_geom_defaults]{ggplot2_geom_defaults()}} for the ggplot2 default aesthetics.
 }
 }
