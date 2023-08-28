@@ -64,15 +64,41 @@ font family for <code><a href="geom_text_family.html">geom_text_hdx()</a></code>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">load_source_sans_3</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">load_source_sans_3</span><span class="op">(</span>family <span class="op">=</span> <span class="cn">NULL</span>, regular <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div id="arguments">
+    <h2>Arguments</h2>
+    <dl><dt>family</dt>
+<dd><p>Character string for the Source Sans 3 family. If <code>NULL</code>,
+defaults to <code>"Source Sans 3"</code>, the standard family name. See "Details"
+in the <code><a href="https://rdrr.io/pkg/sysfonts/man/font_add.html" class="external-link">sysfonts::font_add()</a></code> documentation for further explanation. Used
+only when no internet connection is available to directly load from
+Google.</p></dd>
+
+
+<dt>regular</dt>
+<dd><p>Path to the font file for the regular font face. If <code>NULL</code>,
+defaults to <code>"SourceSans3-Regular.ttf"</code>, the standard file name downloaded
+from <a href="https://fonts.google.com/specimen/Source+Sans+3" class="external-link">Source Sans 3</a>.
+Used only when no internet connection is available to directly load from
+Google.</p></dd>
+
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     
 
 <p>Nothing, run for side effect of loading the font and activating
 showtext.</p>
+    </div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>By default, the font is loaded from Google using <code><a href="https://rdrr.io/pkg/sysfonts/man/font_add_google.html" class="external-link">sysfonts::font_add_google()</a></code>.
+If an internet connection is unavailable, then attempts to use a locally
+installed version of the font using <code>sysfonts::font_add(family, regular)</code>.
+If you have the font installed but still receive an error from this function,
+check the <code>family</code> and <code>regular</code> arguments match your installed font.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
