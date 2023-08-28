@@ -1,9 +1,10 @@
-#' Set HDX theme
+#' Set HDX theme and aesthetics
 #'
 #' `gghdx()` gives you the convenience of `theme_hdx()` without having to
 #' explicitly call it for each plot. It also allows for setting the default
 #' continuous and discrete scales to follow the HDX color scheme, including
-#' default line and point colors and area fills.
+#' default line and point colors and area fills. `gghdx_reset()` returns
+#' all of these values back to the defaults.
 #'
 #' @details
 #' `gghdx()` changes global settings for this R session. This includes updating
@@ -20,16 +21,16 @@
 #' fill and `scale_color_gradient_hdx_sapphire()` for color.
 #'
 #' Once `gghdx()` is run, the easiest way to return to the default ggplot2
-#' settings is to restart your R session. Without restarting the session, you
-#' can make some changes:
+#' settings is to run `gghdx_reset()`. This will make changes by running:
 #'
 #' * `ggplot2::reset_theme_settings()`: resets the global theme to default.
 #' * For all of the options listed above, run `options("option") <- NULL`.
 #' * `showtext::showtext_end()` to stop using the showtext library if it was
 #' activated.
+#' * Runs `ggplot2::update_geom_defaults()` for all geometries in
+#' [ggplot2_geom_defaults()].
 #'
-#' There is no easy way to update the default geometries, but you can manually
-#' use `ggplot2::update_geom_defaults()` if you desire.
+#' You can also simply restart your R session to return to the defaults.
 #'
 #' @inheritParams theme_hdx
 #' @param showtext `logical` If `TRUE`, uses the showtext package to add
@@ -53,8 +54,15 @@
 #'     title = "Horsepower relative to miles per gallon"
 #'   )
 #'
+#' # see the plot using base aesthetics
+#' p
+#'
 #' # automatically use the gghdx theme and visuals
 #' gghdx()
+#' p
+#'
+#' # get rid of the changes of gghdx
+#' gghdx_reset()
 #' p
 #'
 #' @seealso `gghdx()` relies on the following functions:
@@ -66,6 +74,7 @@
 #'     fill and color scales.
 #'
 #' @returns No return value, run for the side effects described in Details.
+#' @rdname gghdx
 #'
 #' @export
 gghdx <- function(showtext = TRUE,
@@ -78,8 +87,6 @@ gghdx <- function(showtext = TRUE,
   if (showtext) {
     load_source_sans_3()
   }
-
-  check_font(base_family)
 
   # set the theme
   ggplot2::theme_set(
@@ -103,5 +110,42 @@ gghdx <- function(showtext = TRUE,
   options("ggplot2.continuous.colour" = scale_color_gradient_hdx_sapphire)
 
   # return nothing
-  NULL
+  invisible(NULL)
+}
+
+#' Reset HDX theme and aesthetics
+#'
+#' @rdname gghdx
+#' @export
+gghdx_reset <- function() {
+  # stop using showtext fonts
+  # errors are generated if there is no current graphics device (no plot made)
+  # so we have to catch that error
+  tryCatch(
+    showtext::showtext_end(),
+    error = function(cond) {
+      message(
+        "No active graphics device, so `showtext::showtext_end()` not run."
+      )
+    }
+  )
+
+
+  # reset the theme
+  ggplot2::reset_theme_settings()
+
+  # updating geom defaults to the originals
+  purrr::walk(
+    ggplot2_geom_defaults(),
+    ~ do.call(what = ggplot2::update_geom_defaults, args = .),
+  )
+
+  # return to default scales
+  options("ggplot2.discrete.fill" = NULL)
+  options("ggplot2.discrete.colour" = NULL)
+  options("ggplot2.continuous.fill" = NULL)
+  options("ggplot2.continuous.colour" = NULL)
+
+  # return nothing
+  invisible(NULL)
 }

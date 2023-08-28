@@ -17,7 +17,7 @@
 hdx_display_pal <- function(
     n = NULL,
     palette = c("discrete", "gray", "mint", "sapphire", "tomato")
-  ) {
+) {
   # check the palette argument is correct
   palette <- rlang::arg_match(
     arg = palette,
@@ -31,6 +31,13 @@ hdx_display_pal <- function(
     sapphire = hdx_pal_sapphire(),
     tomato = hdx_pal_tomato()
   )
+
+  # check source sans 3 is laoded, and if so, use that font, otherwise use sans
+  if (!("Source Sans 3" %in% sysfonts::font_families())) {
+    base_family <- "sans"
+  } else {
+    base_family <- "Source Sans 3"
+  }
 
   purrr::map(
     .x = palette,
@@ -59,7 +66,9 @@ hdx_display_pal <- function(
       color = "white",
       lwd = 1
     ) +
-    theme_hdx() +
+    theme_hdx(
+      base_family = base_family
+    ) +
     ggplot2::theme(
       panel.grid = ggplot2::element_blank(),
       axis.line = ggplot2::element_blank(),

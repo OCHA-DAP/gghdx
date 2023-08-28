@@ -1,6 +1,10 @@
 # Development
 
-* 
+* Use anonymous function format `function()` in `hdx_display_pal()`.
+* Add `gghdx_reset()` and `ggplot2_geom_defaults()` functions to allow user to
+remove all defaults set by `gghdx()`.
+* Improve `load_source_sans_3()` so local installations of Source Sans 3 are
+used when an internet connection is unavailable.
 
 # gghdx 0.1.1
 
