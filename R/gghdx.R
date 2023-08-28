@@ -110,7 +110,7 @@ gghdx <- function(showtext = TRUE,
   options("ggplot2.continuous.colour" = scale_color_gradient_hdx_sapphire)
 
   # return nothing
-  NULL
+  invisible(NULL)
 }
 
 #' Reset HDX theme and aesthetics
@@ -119,7 +119,17 @@ gghdx <- function(showtext = TRUE,
 #' @export
 gghdx_reset <- function() {
   # stop using showtext fonts
-  showtext::showtext_end()
+  # errors are generated if there is no current graphics device (no plot made)
+  # so we have to catch that error
+  tryCatch(
+    showtext::showtext_end(),
+    error = function(cond) {
+      message(
+        "No active graphics device, so `showtext::showtext_end()` not run."
+      )
+    }
+  )
+
 
   # reset the theme
   ggplot2::reset_theme_settings()
@@ -136,4 +146,6 @@ gghdx_reset <- function() {
   options("ggplot2.continuous.fill" = NULL)
   options("ggplot2.continuous.colour" = NULL)
 
+  # return nothing
+  invisible(NULL)
 }
