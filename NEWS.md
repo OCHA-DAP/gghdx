@@ -1,3 +1,5 @@
+# gghdx 0.1.2
+
 # Development
 
 * Use anonymous function format `function()` in `hdx_display_pal()`.
