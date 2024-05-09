@@ -187,7 +187,8 @@ the visual guide using the theme and color scales in the package.
 
 The inbuilt data `gghdx::df_covid` has aggregated COVID data we can use
 to mirror this plot. To make the data start at the y-axis, we can use
-`scale_y_continuous_hdx()` which sets `expand = c(0, 0)` by default.
+`scale_y_continuous_hdx()` which sets `expand = c(0, 0)` by default, and
+the `label_key_figures()` function to create custom labels.
 
 ``` r
 p_blue <- ggplot(
@@ -203,11 +204,7 @@ p_blue <- ggplot(
     fill = hdx_hex("sapphire-hdx") # use sapphire for fill
   ) +
   scale_y_continuous_hdx(
-    labels = scales::label_number(
-      accuracy = 1,
-      scale = 1 / 1000000,
-      suffix = "M"
-    )
+    labels = label_key_figures()
   ) +
   scale_x_date(
     date_breaks = "1 month",
