@@ -106,9 +106,8 @@ scale_colour_hdx_mint <- scale_color_hdx_mint
 #' @export
 scale_color_hdx_sapphire <- function(...) {
   ggplot2::discrete_scale(
-    "colour",
-    "hdx",
-    hdx_pal_sapphire(),
+    aesthetic = "colour",
+    palette = hdx_pal_sapphire(),
     na.value = hdx_hex("gray-light"),
     ...
   )
