@@ -44,7 +44,7 @@ hdx_display_pal <- function(
     .f = function(pal) {
       pal_fun <- pal_funs[[pal]]
       if (is.null(n)) {
-        n <- attributes(pal_fun())$max_n
+        n <- attributes(pal_fun)$max_n
       }
 
       data.frame(
