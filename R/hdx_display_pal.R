@@ -64,7 +64,7 @@ hdx_display_pal <- function(
     ) +
     ggplot2::geom_tile(
       color = "white",
-      lwd = 1
+      linewidth = 1
     ) +
     theme_hdx(
       base_family = base_family
