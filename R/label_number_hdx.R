@@ -1,6 +1,6 @@
-#' Label numeric key figures
+#' Label numbers in HDX key figures style
 #'
-#' Formats numeric vector of key figures in the Centre style, which abbreviates
+#' Formats numeric vector in the Centre style for key figures, which abbreviates
 #' numbers 1,000 and above to X.YK, 10,000 and above to XYK, 100,000 and above
 #' to XYZK, and the same for 1,000,000 and above, replacing the K with an M, and
 #' the same for B. Details of the data viz style can be found in the
@@ -15,7 +15,7 @@
 #' Not to be used for percents, which should just use [scales::label_percent()].
 #'
 #' Designed like the `scales::` family of label functions, the return value of
-#' `label_key_figures` is a function, based on the `additional_prefix`. So you
+#' `label_number_hdx` is a function, based on the `additional_prefix`. So you
 #' should pass it in to `scales_...()` `labels` parameter in the same way as
 #' `scales_...()`
 #'
@@ -43,14 +43,14 @@
 #'
 #' p +
 #'   scale_x_continuous(
-#'     labels = label_key_figures("$")
+#'     labels = label_number_hdx("$")
 #'   ) +
 #'   scale_y_continuous(
-#'     labels = label_key_figures()
+#'     labels = label_number_hdx()
 #'   )
 #'
 #' @export
-label_key_figures <- function(additional_prefix = "") {
+label_number_hdx <- function(additional_prefix = "") {
   if (!is.character(additional_prefix) || length(additional_prefix) > 1) {
     stop(
       "`additional_prefix` should be a character string of length 1, not a ",
@@ -60,19 +60,19 @@ label_key_figures <- function(additional_prefix = "") {
     )
   }
 
-  function(x) format_key_figures(x = x, additional_prefix = additional_prefix)
+  function(x) format_number_hdx(x = x, additional_prefix = additional_prefix)
 }
 
-#' Format key figures
+#' Format numbers in HDX style
 #'
-#' Does the formatting found in `label_key_figures`.
+#' Does the formatting found in `label_number_hdx`.
 #'
-#' @inherit label_key_figures params description details
+#' @inherit label_number_hdx params description details
 #'
 #' @param x Numeric vector to format
 #'
 #' @returns Character vector of formatted strings
-format_key_figures <- function(x, additional_prefix) {
+format_number_hdx <- function(x, additional_prefix) {
   if (!is.numeric(x)) {
     stop(
       "`x` must be numeric, not class ",

@@ -1,6 +1,6 @@
 # Development
 
-- Implement `label_key_figures()` function to improve numeric scales labeling
+- Implement `label_number_hdx()` function to improve numeric scales labeling
 to match the data visualization guidelines.
 
 # gghdx 0.1.2
