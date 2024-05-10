@@ -25,6 +25,9 @@
     <loc>/reference/df_covid.html</loc>
   </url>
   <url>
+    <loc>/reference/format_number_hdx.html</loc>
+  </url>
+  <url>
     <loc>/reference/geom_text_family.html</loc>
   </url>
   <url>
@@ -47,6 +50,9 @@
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/label_number_hdx.html</loc>
   </url>
   <url>
     <loc>/reference/load_source_sans_3.html</loc>
