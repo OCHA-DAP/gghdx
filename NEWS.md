@@ -1,7 +1,5 @@
 # gghdx 0.1.3
 
-# Development
-
 - Implement `label_number_hdx()` function to improve numeric scales labeling
 to match the data visualization guidelines.
 - Switch develop continous `NA` fill value to be `"transparent"` so it appears
