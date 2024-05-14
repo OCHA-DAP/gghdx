@@ -2,6 +2,10 @@
 
 - Implement `label_number_hdx()` function to improve numeric scales labeling
 to match the data visualization guidelines.
+- Switch develop continous `NA` fill value to be `"transparent"` so it appears
+better when plotting continuous rasters.
+- Check installed `{ggplot2}` version to pass the `scale_name` argument to remove
+warnings and errors.
 
 # gghdx 0.1.2
 

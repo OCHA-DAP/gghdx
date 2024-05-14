@@ -36,73 +36,75 @@
 \alias{scale_fill_gradient2_hdx}
 \title{HDX color scales}
 \usage{
-scale_color_hdx_discrete(...)
+scale_color_hdx_discrete(na.value = hdx_hex("gray-light"), ...)
 
-scale_colour_hdx_discrete(...)
+scale_colour_hdx_discrete(na.value = hdx_hex("gray-light"), ...)
 
-scale_color_hdx_gray(...)
+scale_color_hdx_gray(na.value = hdx_hex("tomato-hdx"), ...)
 
-scale_colour_hdx_gray(...)
+scale_colour_hdx_gray(na.value = hdx_hex("tomato-hdx"), ...)
 
-scale_colour_hdx_grey(...)
+scale_colour_hdx_grey(na.value = hdx_hex("tomato-hdx"), ...)
 
-scale_color_hdx_grey(...)
+scale_color_hdx_grey(na.value = hdx_hex("tomato-hdx"), ...)
 
-scale_color_hdx_mint(...)
+scale_color_hdx_mint(na.value = hdx_hex("gray-light"), ...)
 
-scale_colour_hdx_mint(...)
+scale_colour_hdx_mint(na.value = hdx_hex("gray-light"), ...)
 
-scale_color_hdx_sapphire(...)
+scale_color_hdx_sapphire(na.value = hdx_hex("gray-light"), ...)
 
-scale_colour_hdx_sapphire(...)
+scale_colour_hdx_sapphire(na.value = hdx_hex("gray-light"), ...)
 
-scale_color_hdx_tomato(...)
+scale_color_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
-scale_colour_hdx_tomato(...)
+scale_colour_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
-scale_fill_hdx_discrete(...)
+scale_fill_hdx_discrete(na.value = hdx_hex("gray-light"), ...)
 
-scale_fill_hdx_gray(...)
+scale_fill_hdx_gray(na.value = hdx_hex("tomato-hdx"), ...)
 
-scale_fill_hdx_grey(...)
+scale_fill_hdx_grey(na.value = hdx_hex("tomato-hdx"), ...)
 
-scale_fill_hdx_mint(...)
+scale_fill_hdx_mint(na.value = hdx_hex("gray-light"), ...)
 
-scale_fill_hdx_sapphire(...)
+scale_fill_hdx_sapphire(na.value = hdx_hex("gray-light"), ...)
 
-scale_fill_hdx_tomato(...)
+scale_fill_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
-scale_fill_gradient_hdx(...)
+scale_fill_gradient_hdx(na.value = "transparent", ...)
 
-scale_fill_gradient_hdx_sapphire(...)
+scale_fill_gradient_hdx_sapphire(na.value = "transparent", ...)
 
-scale_fill_gradient_hdx_mint(...)
+scale_fill_gradient_hdx_mint(na.value = "transparent", ...)
 
-scale_fill_gradient_hdx_tomato(...)
+scale_fill_gradient_hdx_tomato(na.value = "transparent", ...)
 
-scale_color_gradient_hdx(...)
+scale_color_gradient_hdx(na.value = "transparent", ...)
 
-scale_colour_gradient_hdx(...)
+scale_colour_gradient_hdx(na.value = "transparent", ...)
 
-scale_color_gradient_hdx_sapphire(...)
+scale_color_gradient_hdx_sapphire(na.value = "transparent", ...)
 
-scale_colour_gradient_hdx_sapphire(...)
+scale_colour_gradient_hdx_sapphire(na.value = "transparent", ...)
 
-scale_color_gradient_hdx_mint(...)
+scale_color_gradient_hdx_mint(na.value = "transparent", ...)
 
-scale_colour_gradient_hdx_mint(...)
+scale_colour_gradient_hdx_mint(na.value = "transparent", ...)
 
-scale_color_gradient_hdx_tomato(...)
+scale_color_gradient_hdx_tomato(na.value = "transparent", ...)
 
-scale_colour_gradient_hdx_tomato(...)
+scale_colour_gradient_hdx_tomato(na.value = "transparent", ...)
 
-scale_color_gradient2_hdx(...)
+scale_color_gradient2_hdx(na.value = "transparent", ...)
 
-scale_colour_gradient2_hdx(...)
+scale_colour_gradient2_hdx(na.value = "transparent", ...)
 
-scale_fill_gradient2_hdx(...)
+scale_fill_gradient2_hdx(na.value = "transparent", ...)
 }
 \arguments{
+\item{na.value}{Colour to use for missing values}
+
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:discrete_scale]{discrete_scale}}
   \describe{
