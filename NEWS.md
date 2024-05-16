@@ -1,4 +1,4 @@
-# Development
+# gghdx 0.1.3
 
 - Implement `label_number_hdx()` function to improve numeric scales labeling
 to match the data visualization guidelines.
