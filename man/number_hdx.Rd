@@ -2,12 +2,12 @@
 % Please edit documentation in R/label_number_hdx.R
 \name{label_number_hdx}
 \alias{label_number_hdx}
-\alias{number_hdx}
+\alias{format_number_hdx}
 \title{Format and labels numbers in HDX key figures style}
 \usage{
 label_number_hdx(additional_prefix = "")
 
-number_hdx(x, additional_prefix = "")
+format_number_hdx(x, additional_prefix = "")
 }
 \arguments{
 \item{additional_prefix}{Additional prefix to add to string, that will come
@@ -21,17 +21,17 @@ return value of \verb{-$1.1K}.}
 functions work, i.e. a function that takes \code{x} and returns a labelled character
 vector of \code{length(x)}.
 
-\code{number_hdx()}: Character vector of formatted strings
+\code{format_number_hdx()}: Formatted character vector of number strings
 }
 \description{
-Use \code{number_hdx()} directly on numeric vectors, and use \code{label_number_hdx()}
+Use \code{format_number_hdx()} to directly format numeric vectors, and use \code{label_number_hdx()}
 in the same way as the \verb{scales::} family of label functions. The return value of
 \code{label_number_hdx()} is a function, based on the \code{additional_prefix}. So you
 should pass it in to \code{scales_...()} \code{labels} parameter in the same way as
 \code{scales_...()}
 }
 \details{
-Formats numeric vector in the Centre style for key figures, which abbreviates
+Numeric vectors are formatted in the HDX style for key figures, which abbreviates
 numbers 1,000 and above to X.YK, 10,000 and above to XYK, 100,000 and above
 to XYZK, and the same for 1,000,000 and above, replacing the K with an M, and
 the same for B. Details of the data viz style can be found in the
@@ -72,7 +72,7 @@ p +
 # number_hdx()
 
 x <- c(1234, 7654321)
-number_hdx(x)
-number_hdx(x, "$")
+format_number_hdx(x)
+format_number_hdx(x, "$")
 
 }

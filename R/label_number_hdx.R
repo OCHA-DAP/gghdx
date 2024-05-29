@@ -1,12 +1,12 @@
 #' Format and labels numbers in HDX key figures style
 #'
-#' Use `number_hdx()` directly on numeric vectors, and use `label_number_hdx()`
+#' Use `format_number_hdx()` to directly format numeric vectors, and use `label_number_hdx()`
 #' in the same way as the `scales::` family of label functions. The return value of
 #' `label_number_hdx()` is a function, based on the `additional_prefix`. So you
 #' should pass it in to `scales_...()` `labels` parameter in the same way as
 #' `scales_...()`
 #'
-#' Formats numeric vector in the Centre style for key figures, which abbreviates
+#' Numeric vectors are formatted in the HDX style for key figures, which abbreviates
 #' numbers 1,000 and above to X.YK, 10,000 and above to XYK, 100,000 and above
 #' to XYZK, and the same for 1,000,000 and above, replacing the K with an M, and
 #' the same for B. Details of the data viz style can be found in the
@@ -57,28 +57,24 @@
 #' @export
 label_number_hdx <- function(additional_prefix = "") {
   assert_prefix(additional_prefix)
-  function(x) number_hdx(x = x, additional_prefix = additional_prefix)
+  function(x) format_number_hdx(x = x, additional_prefix = additional_prefix)
 }
 
-#' Format numbers in HDX style
-#'
-#' @inherit label_number_hdx  description details
-#'
 #' @param x Numeric vector to format
 #'
-#' @returns `number_hdx()`: Character vector of formatted strings
+#' @returns `format_number_hdx()`: Formatted character vector of number strings
 #'
 #' @examples
 #' # number_hdx()
 #'
 #' x <- c(1234, 7654321)
-#' number_hdx(x)
-#' number_hdx(x, "$")
+#' format_number_hdx(x)
+#' format_number_hdx(x, "$")
 #'
 #' @rdname number_hdx
 #'
 #' @export
-number_hdx <- function(x, additional_prefix = "") {
+format_number_hdx <- function(x, additional_prefix = "") {
   assert_prefix(additional_prefix)
 
   if (!is.numeric(x)) {
@@ -108,7 +104,7 @@ number_hdx <- function(x, additional_prefix = "") {
 }
 
 #' @noRd
-assert_prefix(additional_prefix) {
+assert_prefix <- function(additional_prefix) {
   if (!is.character(additional_prefix) || length(additional_prefix) > 1) {
     stop(
       "`additional_prefix` should be a character string of length 1, not a ",
