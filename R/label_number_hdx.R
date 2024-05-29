@@ -56,15 +56,7 @@
 #'
 #' @export
 label_number_hdx <- function(additional_prefix = "") {
-  if (!is.character(additional_prefix) || length(additional_prefix) > 1) {
-    stop(
-      "`additional_prefix` should be a character string of length 1, not a ",
-      class(additional_prefix)[1],
-      ".",
-      call. = FALSE
-    )
-  }
-
+  assert_prefix(additional_prefix)
   function(x) number_hdx(x = x, additional_prefix = additional_prefix)
 }
 
@@ -87,6 +79,8 @@ label_number_hdx <- function(additional_prefix = "") {
 #'
 #' @export
 number_hdx <- function(x, additional_prefix = "") {
+  assert_prefix(additional_prefix)
+
   if (!is.numeric(x)) {
     stop(
       "`x` must be numeric, not class ",
@@ -111,4 +105,16 @@ number_hdx <- function(x, additional_prefix = "") {
     abs_x < 1e13 ~ paste0(sign_prefix, additional_prefix, round(abs_x / 1e12, digits = 1), "T"),
     abs_x >= 1e13 ~ paste0(sign_prefix, additional_prefix, round(abs_x / 1e12, digits = 0), "T")
   )
+}
+
+#' @noRd
+assert_prefix(additional_prefix) {
+  if (!is.character(additional_prefix) || length(additional_prefix) > 1) {
+    stop(
+      "`additional_prefix` should be a character string of length 1, not a ",
+      class(additional_prefix)[1],
+      ".",
+      call. = FALSE
+    )
+  }
 }
