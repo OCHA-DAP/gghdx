@@ -31,8 +31,9 @@ features. The key functionalities are:
 - `gghdx()` ensures plot for the session use HDX defaults for color and
   fill scales, uses `theme_hdx()` for all plots, and applies
   `scale_color_hdx_...()` and `scale_fill_hdx_...()`
-- `label_number_hdx()` supplements the `scales::label_...()` series of
-  functions to create labels for numbers in the HDX style.
+- `label_number_hdx()` and `number_hdx()` supplement the
+  `scales::label_...()` series of functions to create labels for numbers
+  in the HDX style.
 
 ## Installation
 

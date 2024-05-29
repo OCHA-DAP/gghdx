@@ -1,4 +1,10 @@
-#' Label numbers in HDX key figures style
+#' Format and labels numbers in HDX key figures style
+#'
+#' Use `number_hdx()` directly on numeric vectors, and use `label_number_hdx()`
+#' in the same way as the `scales::` family of label functions. The return value of
+#' `label_number_hdx()` is a function, based on the `additional_prefix`. So you
+#' should pass it in to `scales_...()` `labels` parameter in the same way as
+#' `scales_...()`
 #'
 #' Formats numeric vector in the Centre style for key figures, which abbreviates
 #' numbers 1,000 and above to X.YK, 10,000 and above to XYK, 100,000 and above
@@ -14,20 +20,17 @@
 #' manners. Also ensures that rounding is performed so numbers look correct.
 #' Not to be used for percents, which should just use [scales::label_percent()].
 #'
-#' Designed like the `scales::` family of label functions, the return value of
-#' `label_number_hdx` is a function, based on the `additional_prefix`. So you
-#' should pass it in to `scales_...()` `labels` parameter in the same way as
-#' `scales_...()`
-#'
 #' @param additional_prefix Additional prefix to add to string, that will come
 #'     between `sign_prefix` and the number. For example, `"$"` could produce a
 #'     return value of `-$1.1K`.
 #'
-#' @returns Returns a "labelling" function, in the same way as `scales::label_...()`
+#' @returns `label_number_hdx()`: "labelling" function, in the same way as `scales::label_...()`
 #'     functions work, i.e. a function that takes `x` and returns a labelled character
 #'     vector of `length(x)`.
 #'
 #' @examples
+#' # label_number_hdx()
+#'
 #' library(ggplot2)
 #'
 #' # discrete scaling
@@ -49,6 +52,8 @@
 #'     labels = label_number_hdx()
 #'   )
 #'
+#' @rdname number_hdx
+#'
 #' @export
 label_number_hdx <- function(additional_prefix = "") {
   if (!is.character(additional_prefix) || length(additional_prefix) > 1) {
@@ -60,19 +65,28 @@ label_number_hdx <- function(additional_prefix = "") {
     )
   }
 
-  function(x) format_number_hdx(x = x, additional_prefix = additional_prefix)
+  function(x) number_hdx(x = x, additional_prefix = additional_prefix)
 }
 
 #' Format numbers in HDX style
 #'
-#' Does the formatting found in `label_number_hdx`.
-#'
-#' @inherit label_number_hdx params description details
+#' @inherit label_number_hdx  description details
 #'
 #' @param x Numeric vector to format
 #'
-#' @returns Character vector of formatted strings
-format_number_hdx <- function(x, additional_prefix) {
+#' @returns `number_hdx()`: Character vector of formatted strings
+#'
+#' @examples
+#' # number_hdx()
+#'
+#' x <- c(1234, 7654321)
+#' number_hdx(x)
+#' number_hdx(x, "$")
+#'
+#' @rdname number_hdx
+#'
+#' @export
+number_hdx <- function(x, additional_prefix = "") {
   if (!is.numeric(x)) {
     stop(
       "`x` must be numeric, not class ",

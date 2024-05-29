@@ -1,5 +1,8 @@
 # gghdx (development version)
 
+- Export `number_hdx()` to provide users simple access to number formatting
+outside the labeling use case.
+
 # gghdx 0.1.3
 
 - Implement `label_number_hdx()` function to improve numeric scales labeling
