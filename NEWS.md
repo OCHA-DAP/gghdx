@@ -1,4 +1,4 @@
-# gghdx (development version)
+# gghdx 0.1.4
 
 - Export `number_hdx()` to provide users simple access to number formatting
 outside the labeling use case.
