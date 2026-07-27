@@ -6,8 +6,9 @@
 #' points or for annotating the height of bars. `geom_text_hdx()` adds only
 #' text to the plot. `geom_label_hdx()` draws a rectangle behind the text,
 #' making it easier to read. The only difference with the base `geom_text()`
-#' is that the default font family is Source Sans 3. `geom_label_hdx()` also
-#' incorporates a default dark gray background, white text, and no borders.
+#' is that the default font family is Roboto, the HDX body font as of the
+#' 2025 redesign. `geom_label_hdx()` also incorporates a default dark gray
+#' background, white text, and no borders.
 #'
 #' @inherit ggplot2::geom_text details params return
 #'
@@ -15,7 +16,7 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' load_source_sans_3()
+#' load_hdx_fonts()
 #'
 #' p <- ggplot(
 #'   data = mtcars,
@@ -67,7 +68,7 @@ geom_text_hdx <- function(mapping = NULL,
       parse = parse,
       check_overlap = check_overlap,
       na.rm = na.rm,
-      family = "Source Sans 3",
+      family = "Roboto",
       ...
     )
   )
@@ -128,7 +129,7 @@ geom_label_hdx <- function(mapping = NULL,
       label.r = label.r,
       label.size = label.size,
       na.rm = na.rm,
-      family = "Source Sans 3",
+      family = "Roboto",
       ...
     )
   )

@@ -27,7 +27,7 @@
 #'     )
 #'   )
 #'
-#' # see the points are automatically in HDX sapphire
+#' # see the points are automatically in HDX primary blue
 #' p
 #'
 #' # need to reset back to the default geometries
@@ -46,43 +46,48 @@
 #'
 #' @export
 hdx_geom_defaults <- function() {
-  colors <- hdx_colors()
+  colors <- hdx_hex(
+    c("primary-5", "primary-4", "neutral-8")
+  )
+  names(colors) <- c("primary-5", "primary-4", "neutral-8")
 
   list(
     # geoms where we just need default color
-    list(geom = "abline", new = list(color = colors["sapphire-hdx"])),
+    # primary-5 is the 2025 redesign's primary blue
+    list(geom = "abline", new = list(color = colors["primary-5"])),
     list(geom = "point", new = list(
-      color = colors["sapphire-hdx"],
+      color = colors["primary-5"],
       size = rel(2)
     )),
-    list(geom = "density", new = list(color = colors["sapphire-hdx"])),
-    list(geom = "errorbar", new = list(color = colors["sapphire-hdx"])),
-    list(geom = "hline", new = list(color = colors["sapphire-hdx"])),
-    list(geom = "vline", new = list(color = colors["sapphire-hdx"])),
-    list(geom = "line", new = list(color = colors["sapphire-hdx"])),
+    list(geom = "density", new = list(color = colors["primary-5"])),
+    list(geom = "errorbar", new = list(color = colors["primary-5"])),
+    list(geom = "hline", new = list(color = colors["primary-5"])),
+    list(geom = "vline", new = list(color = colors["primary-5"])),
+    list(geom = "line", new = list(color = colors["primary-5"])),
 
     # using dark grey for text
-    list(geom = "text", new = list(color = colors["gray-dark"])),
+    list(geom = "text", new = list(color = colors["neutral-8"])),
 
     # geoms where we just need default fill
-    # using mint fill here since sapphire quite intense and contrasts with color
-    list(geom = "area", new = list(fill = colors["mint-hdx"])),
-    list(geom = "ribbon", new = list(fill = colors["mint-hdx"])),
-    list(geom = "bar", new = list(fill = colors["mint-hdx"])),
-    list(geom = "col", new = list(fill = colors["mint-hdx"])),
+    # using primary-4, the institutional data-grid blue, so fills contrast
+    # with the primary-5 line/point color
+    list(geom = "area", new = list(fill = colors["primary-4"])),
+    list(geom = "ribbon", new = list(fill = colors["primary-4"])),
+    list(geom = "bar", new = list(fill = colors["primary-4"])),
+    list(geom = "col", new = list(fill = colors["primary-4"])),
 
     # special geometries
     list(geom = "boxplot", new = list(
-      color = colors["sapphire-hdx"],
-      fill = colors["mint-hdx"]
+      color = colors["primary-5"],
+      fill = colors["primary-4"]
     )),
     list(geom = "smooth", new = list(
-      color = colors["sapphire-hdx"],
-      fill = colors["mint-hdx"]
+      color = colors["primary-5"],
+      fill = colors["primary-4"]
     )),
     list(geom = "dotplot", new = list(
-      color = colors["sapphire-hdx"],
-      fill = colors["mint-hdx"],
+      color = colors["primary-5"],
+      fill = colors["primary-4"],
       size = rel(2)
     ))
   )

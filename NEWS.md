@@ -1,3 +1,33 @@
+# gghdx 0.2.0
+
+- Incorporate the 2025 HDX website redesign into the package's colors,
+fonts, and default theme.
+- Add the `primary`, `brand`, `neutral`, `success`, `warning`, and `error`
+color scales from the new HDX design tokens to `hdx_color_list`, accessible
+through `hdx_colors()`, `hdx_hex()`, and `hdx_color_names()`. The original
+`sapphire`, `mint`, `tomato`, and `gray` scales are kept for backwards
+compatibility.
+- Add `hdx_pal_primary()`, `hdx_pal_brand()`, and `hdx_pal_error()`, along
+with matching `scale_color_hdx_...()`, `scale_fill_hdx_...()`, and
+`scale_..._gradient_hdx_...()` functions, superseding `hdx_pal_sapphire()`,
+`hdx_pal_mint()`, and `hdx_pal_tomato()` respectively.
+- Update `hdx_pal_discrete()` and the default discrete/continuous scales set
+by `gghdx()` to use the new `primary`/`brand`/`error` hues instead of the
+original `sapphire`/`mint`/`tomato`.
+- Add `load_hdx_fonts()` to load Merriweather (display/title font) and
+Roboto (body font), replacing Source Sans 3 as the package's default fonts.
+`load_source_sans_3()` is kept for backwards compatibility.
+- Update `theme_hdx()` with a new `title_family` argument (default
+`"Merriweather"`) applied to titles, subtitles, and strip text, while
+`base_family` (default `"Roboto"`) applies to body text. Gridlines, axis
+lines, and ticks now use the new hairline gray, and axis text uses the new
+muted gray.
+- Update `hdx_geom_defaults()` so points, lines, and other default geometries
+use the new primary blue, and area/bar/ribbon fills use the new
+institutional data-grid blue, instead of the original sapphire/mint colors.
+- `geom_text_hdx()` and `geom_label_hdx()` now default to the Roboto font
+family instead of Source Sans 3.
+
 # gghdx 0.1.4
 
 - Export `number_hdx()` to provide users simple access to number formatting

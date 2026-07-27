@@ -81,6 +81,26 @@ load_source_sans_3_local <- function(family, regular) {
   if (is.null(regular)) {
     regular <- "SourceSans3-Regular.ttf"
   }
+  load_google_font_local(
+    google_name = "Source Sans 3",
+    family = family,
+    regular = regular
+  )
+}
+
+#' Load a Google font locally
+#'
+#' Shared fallback used when a Google font can't be downloaded through
+#' `sysfonts::font_add_google()`, so the locally installed version is used
+#' instead. Used by [load_source_sans_3()] and [load_hdx_fonts()].
+#'
+#' @param google_name Name of the font as listed on Google Fonts, used only
+#'     in the error message if the local font is also unavailable.
+#' @param family Font family name to register with `sysfonts::font_add()`.
+#' @param regular Path to the regular font face file.
+#'
+#' @noRd
+load_google_font_local <- function(google_name, family, regular) {
   tryCatch(
     sysfonts::font_add(
       family = family,
@@ -89,7 +109,7 @@ load_source_sans_3_local <- function(family, regular) {
     error = function(cond) {
       message("")
       stop(
-        "The Source Sans 3 font was not accessible through ",
+        "The ", google_name, " font was not accessible through ",
         "`sysfonts::font_add_google()`, likely due to connection issues.\n\n",
         "If you do not have a connection, ensure the font is installed and the ",
         "correct `family` and `regular` arguments are passed for use in ",
@@ -99,7 +119,6 @@ load_source_sans_3_local <- function(family, regular) {
       )
     }
   )
-
 }
 
 #' Check font availability

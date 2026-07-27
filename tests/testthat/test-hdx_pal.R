@@ -16,7 +16,10 @@ test_that("hdx_pal_color()s return hex codes", {
     hdx_pal_mint(),
     hdx_pal_sapphire(),
     hdx_pal_tomato(),
-    hdx_pal_gray()
+    hdx_pal_gray(),
+    hdx_pal_primary(),
+    hdx_pal_brand(),
+    hdx_pal_error()
   )
 
   for (pal in pals) {
@@ -30,7 +33,10 @@ test_that("hdx_pal_...() raises errors", {
   pals <- list(
     hdx_pal_mint(),
     hdx_pal_sapphire(),
-    hdx_pal_tomato()
+    hdx_pal_tomato(),
+    hdx_pal_primary(),
+    hdx_pal_brand(),
+    hdx_pal_error()
   )
 
   for (pal in pals) {

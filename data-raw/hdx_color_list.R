@@ -1,6 +1,8 @@
 library(yaml)
 library(here)
-library(tidyverse)
+library(purrr)
+library(tibble)
+library(magrittr)
 
 hdx_color_list <- yaml.load_file(
   here(

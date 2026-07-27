@@ -6,15 +6,24 @@
 #'
 #' `theme_hdx()` implements a chart that follows the general
 #' visual guide of the HDX platform, as defined in the
-#' [dataviz-guide](https://data.humdata.org/dataviz-guide/).
+#' [dataviz-guide](https://data.humdata.org/dataviz-guide/), updated for the
+#' 2025 HDX website redesign.
 #'
 #' Use [scale_color_hdx_discrete()] with this theme.
 #'
-#' *HDX* uses two fonts in its official typography, with the free Google
-#' font Source Sans 3 being easily available in R. Use the
-#' \pkg{sysfonts} package to add the Google font easily.
+#' *HDX* uses two fonts in its official 2025 typography: the free Google font
+#' Merriweather for titles and other display text, and the free Google font
+#' Roboto for body text, both easily available in R. Use the \pkg{sysfonts}
+#' package to add the Google fonts easily, or use [load_hdx_fonts()] to load
+#' both at once.
 #'
 #' @inheritParams ggplot2::theme_grey
+#' @param base_family Base font family for body text, such as axis text and
+#'     legend text. Defaults to `"Roboto"`, the HDX body font as of the 2025
+#'     redesign.
+#' @param title_family Font family for titles, subtitles, and strip text.
+#'     Defaults to `"Merriweather"`, the HDX display font as of the 2025
+#'     redesign.
 #' @param horizontal `logical` Horizontal axis lines?
 #'
 #' @importFrom ggplot2 element_rect element_text rel element_blank margin unit
@@ -29,7 +38,9 @@
 #' @references
 #' \itemize{
 #' \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
-#' \item \href{https://fonts.google.com/specimen/Source+Sans+3}{Google Fonts, Source Sans 3}
+#' \item \href{https://fonts.google.com/specimen/Merriweather}{Google Fonts,
+#'     Merriweather}
+#' \item \href{https://fonts.google.com/specimen/Roboto}{Google Fonts, Roboto}
 #' \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 #' }
 #'
@@ -49,15 +60,15 @@
 #'     title = "Horsepower relative to miles per gallon"
 #'   )
 #'
-#' # the default font is source sans 3
+#' # the default fonts are Roboto (body) and Merriweather (titles)
 #' # an error will occur if not loaded before using theme_hdx()
 #' try(p + theme_hdx())
 #'
-#' # you can change the base family
-#' p + theme_hdx(base_family = "sans")
+#' # you can change the base and title families
+#' p + theme_hdx(base_family = "sans", title_family = "sans")
 #'
-#' # or load Source Sans 3 using gghdx() or load_source_sans_3()
-#' load_source_sans_3()
+#' # or load Roboto and Merriweather using gghdx() or load_hdx_fonts()
+#' load_hdx_fonts()
 #' p + theme_hdx()
 #'
 #' # we can change the axis line direction depending on the plot
@@ -65,10 +76,12 @@
 #'
 #' @export
 theme_hdx <- function(base_size = 10,
-                      base_family = "Source Sans 3",
+                      base_family = "Roboto",
+                      title_family = "Merriweather",
                       horizontal = TRUE) {
-  base_colors <- hdx_colors("gray")
+  base_colors <- hdx_colors("neutral")
   check_font(base_family)
+  check_font(title_family)
 
   ret <-
     ggthemes::theme_foundation(
@@ -76,24 +89,25 @@ theme_hdx <- function(base_size = 10,
       base_family = base_family
     ) +
     theme(
-      line = element_line(color = base_colors["gray-black"]),
+      line = element_line(color = base_colors["neutral-2"]),
       rect = element_rect(
         fill = "white",
         colour = NA,
         linetype = 1
       ),
       text = element_text(
-        color = base_colors["gray-dark"],
+        color = base_colors["neutral-8"],
         family = base_family
       ),
       ## Axis
       axis.line = element_line(
         linewidth = rel(0.8),
-        color = base_colors["gray-dark"]
+        color = base_colors["neutral-2"]
       ),
       axis.line.y = element_blank(),
       axis.text = element_text(
-        size = rel(1)
+        size = rel(1),
+        color = base_colors["neutral-5"]
       ),
       axis.text.x = element_text(
         vjust = 0,
@@ -107,7 +121,7 @@ theme_hdx <- function(base_size = 10,
         hjust = 0.95,
         margin = margin(r = rel(1), unit = "pt")
       ),
-      axis.ticks = element_blank(),
+      axis.ticks = element_line(color = base_colors["neutral-2"]),
       axis.title = element_text(size = rel(1.25)),
       axis.title.x = element_text(
         margin = margin(t = rel(4), unit = "pt")
@@ -129,22 +143,23 @@ theme_hdx <- function(base_size = 10,
       legend.position = "bottom",
       legend.direction = NULL,
       legend.justification = "center",
-      panel.background = element_rect(fill = base_colors["gray-white"]),
+      panel.background = element_rect(fill = base_colors["neutral-0"]),
       panel.border = element_blank(),
       panel.grid.major = element_line(
-        color = base_colors["gray-light"],
+        color = base_colors["neutral-2"],
         linewidth = rel(1)
       ),
       panel.grid.minor = element_blank(),
       panel.spacing = unit(0.25, "lines"),
       strip.background = element_rect(
-        fill = base_colors["gray-white"],
+        fill = base_colors["neutral-0"],
         color = NA,
         linetype = 0
       ),
       strip.text = element_text(
         size = rel(1.1),
-        color = base_colors["gray-black"],
+        color = base_colors["neutral-95"],
+        family = title_family,
         face = "bold"
       ),
       strip.text.x = element_text(
@@ -152,21 +167,24 @@ theme_hdx <- function(base_size = 10,
       ),
       strip.text.y = element_text(angle = -90),
       plot.background = element_rect(
-        fill = base_colors["gray-white"],
+        fill = base_colors["neutral-0"],
         color = NA
       ),
       plot.title = element_text(
         size = rel(1.5),
         hjust = 0,
+        family = title_family,
         face = "bold",
-        color = base_colors["gray-black"],
+        color = base_colors["neutral-95"],
         margin = margin(b = rel(5), unit = "pt")
       ),
       plot.title.position = "plot",
       plot.subtitle = element_text(
         size = rel(1.1),
         hjust = 0,
+        family = title_family,
         face = "bold",
+        color = base_colors["neutral-95"],
         margin = margin(b = rel(10), unit = "pt")
       ),
       plot.margin = unit(c(6, 5, 6, 5) * 2, "points"),

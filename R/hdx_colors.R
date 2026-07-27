@@ -8,8 +8,20 @@
 #' All valid color names are in the named vector returned by `hdx_colors()` or
 #' accessible in the convenient `hdx_color_names()`.
 #'
+#' As of the 2025 HDX website redesign, the "primary", "brand", "neutral",
+#' "success", "warning", and "error" scales are also available, following the
+#' step naming of the HDX design tokens (e.g. "primary-5" for the primary
+#' scale's base blue, "neutral-2" for a hairline gridline gray). These are not
+#' returned by default to avoid breaking existing uses of `hdx_colors()`;
+#' request them explicitly, e.g. `hdx_colors("primary")`. The original
+#' "sapphire", "mint", and "tomato" scales are kept for backwards
+#' compatibility but are superseded by "primary"/"brand"/"error" going
+#' forward.
+#'
 #' @param colors Specified color ramps to return. Some set of "sapphire",
-#'     "mint", "tomato", and "gray. By default returns all colors.
+#'     "mint", "tomato", "gray", "primary", "brand", "neutral", "success",
+#'     "warning", and "error". By default returns the original "sapphire",
+#'     "mint", "tomato", and "gray" colors.
 #'
 #' @returns
 #'    * `hdx_colors()` returns a named vector of hex values.
@@ -23,6 +35,9 @@
 #' hdx_colors()
 #' hdx_colors("sapphire")
 #'
+#' # 2025 redesign colors
+#' hdx_colors("primary")
+#'
 #' # get color names
 #' hdx_color_names()
 #'
@@ -34,11 +49,12 @@ hdx_colors <- function(colors = c("sapphire", "mint", "tomato", "gray")) {
     return(NA_character_)
   }
 
-  defaults <- eval(formals()$colors)
-  if (!all(colors %in% defaults) || ln == 0) {
+  valid <- names(gghdx::hdx_color_list)
+  if (!all(colors %in% valid) || ln == 0) {
     stop(
-      "`colors` must specify some set of 'sapphire', 'mint', 'tomato', and ",
-      "'gray' in a character vector.",
+      "`colors` must specify some set of ",
+      paste(paste0("'", valid, "'"), collapse = ", "),
+      " in a character vector.",
       call. = FALSE
     )
   }
@@ -84,13 +100,26 @@ hdx_hex <- function(color_names) {
     )
   }
 
-  unname(hdx_colors()[color_names])
+  unname(hdx_colors_all()[color_names])
 }
 
 #' @rdname hdx_color
 #' @export
 hdx_color_names <- function() {
-  unname(names(hdx_colors()))
+  unname(names(hdx_colors_all()))
+}
+
+#' All HDX colors, across legacy and 2025 redesign scales
+#'
+#' Unlike [hdx_colors()], which defaults to only the original "sapphire",
+#' "mint", "tomato", and "gray" scales for backwards compatibility, this
+#' returns every scale in [gghdx::hdx_color_list]. Used internally by
+#' [hdx_hex()] and [hdx_color_names()] so both legacy and 2025 redesign color
+#' names are accessible by name.
+#'
+#' @noRd
+hdx_colors_all <- function() {
+  hdx_colors(names(gghdx::hdx_color_list))
 }
 
 #' @rdname hdx_color

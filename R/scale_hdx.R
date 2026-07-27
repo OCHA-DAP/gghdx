@@ -51,7 +51,7 @@
 #'     along with other styling.
 #'
 #' @export
-scale_color_hdx_discrete <- function(na.value = hdx_hex("gray-light"), ...) {
+scale_color_hdx_discrete <- function(na.value = hdx_hex("neutral-2"), ...) {
   ggplot2::discrete_scale(
     aesthetics = "colour",
     scale_name = scale_name(),
@@ -123,6 +123,54 @@ scale_colour_hdx_sapphire <- scale_color_hdx_sapphire
 
 #' @rdname scale_hdx
 #' @export
+scale_color_hdx_primary <- function(na.value = hdx_hex("neutral-2"), ...) {
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
+    scale_name = scale_name(),
+    palette = hdx_pal_primary(),
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_hdx_primary <- scale_color_hdx_primary
+
+#' @rdname scale_hdx
+#' @export
+scale_color_hdx_brand <- function(na.value = hdx_hex("neutral-2"), ...) {
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
+    scale_name = scale_name(),
+    palette = hdx_pal_brand(),
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_hdx_brand <- scale_color_hdx_brand
+
+#' @rdname scale_hdx
+#' @export
+scale_color_hdx_error <- function(na.value = hdx_hex("neutral-2"), ...) {
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
+    scale_name = scale_name(),
+    palette = hdx_pal_error(),
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_hdx_error <- scale_color_hdx_error
+
+#' @rdname scale_hdx
+#' @export
 scale_color_hdx_tomato <- function(na.value = hdx_hex("gray-light"), ...) {
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -139,7 +187,7 @@ scale_colour_hdx_tomato <- scale_color_hdx_tomato
 
 #' @rdname scale_hdx
 #' @export
-scale_fill_hdx_discrete <- function(na.value = hdx_hex("gray-light"), ...) {
+scale_fill_hdx_discrete <- function(na.value = hdx_hex("neutral-2"), ...) {
   ggplot2::discrete_scale(
     aesthetics = "fill",
     scale_name = scale_name(),
@@ -184,6 +232,42 @@ scale_fill_hdx_sapphire <- function(na.value = hdx_hex("gray-light"), ...) {
     aesthetics = "fill",
     scale_name = scale_name(),
     palette = hdx_pal_sapphire(),
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_fill_hdx_primary <- function(na.value = hdx_hex("neutral-2"), ...) {
+  ggplot2::discrete_scale(
+    aesthetics = "fill",
+    scale_name = scale_name(),
+    palette = hdx_pal_primary(),
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_fill_hdx_brand <- function(na.value = hdx_hex("neutral-2"), ...) {
+  ggplot2::discrete_scale(
+    aesthetics = "fill",
+    scale_name = scale_name(),
+    palette = hdx_pal_brand(),
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_fill_hdx_error <- function(na.value = hdx_hex("neutral-2"), ...) {
+  ggplot2::discrete_scale(
+    aesthetics = "fill",
+    scale_name = scale_name(),
+    palette = hdx_pal_error(),
     na.value = na.value,
     ...
   )
@@ -258,6 +342,54 @@ scale_fill_gradient_hdx_tomato <- function(na.value = "transparent", ...) {
     palette = scales::seq_gradient_pal(
       low = "white",
       high = hdx_hex("tomato-hdx")
+    ),
+    guide = "colorbar",
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_fill_gradient_hdx_primary <- function(na.value = "transparent", ...) {
+  ggplot2::continuous_scale(
+    aesthetics = "fill",
+    scale_name = scale_name(),
+    palette = scales::seq_gradient_pal(
+      low = "white",
+      high = hdx_hex("primary-5")
+    ),
+    guide = "colorbar",
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_fill_gradient_hdx_brand <- function(na.value = "transparent", ...) {
+  ggplot2::continuous_scale(
+    aesthetics = "fill",
+    scale_name = scale_name(),
+    palette = scales::seq_gradient_pal(
+      low = "white",
+      high = hdx_hex("brand-5")
+    ),
+    guide = "colorbar",
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_fill_gradient_hdx_error <- function(na.value = "transparent", ...) {
+  ggplot2::continuous_scale(
+    aesthetics = "fill",
+    scale_name = scale_name(),
+    palette = scales::seq_gradient_pal(
+      low = "white",
+      high = hdx_hex("error-5")
     ),
     guide = "colorbar",
     na.value = na.value,
@@ -344,6 +476,66 @@ scale_color_gradient_hdx_tomato <- function(na.value = "transparent", ...) {
 #' @rdname scale_hdx
 #' @export
 scale_colour_gradient_hdx_tomato <- scale_color_gradient_hdx_tomato
+
+#' @rdname scale_hdx
+#' @export
+scale_color_gradient_hdx_primary <- function(na.value = "transparent", ...) {
+  ggplot2::continuous_scale(
+    aesthetics = "color",
+    scale_name = scale_name(),
+    palette = scales::seq_gradient_pal(
+      low = "white",
+      high = hdx_hex("primary-5")
+    ),
+    guide = "colorbar",
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_gradient_hdx_primary <- scale_color_gradient_hdx_primary
+
+#' @rdname scale_hdx
+#' @export
+scale_color_gradient_hdx_brand <- function(na.value = "transparent", ...) {
+  ggplot2::continuous_scale(
+    aesthetics = "color",
+    scale_name = scale_name(),
+    palette = scales::seq_gradient_pal(
+      low = "white",
+      high = hdx_hex("brand-5")
+    ),
+    guide = "colorbar",
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_gradient_hdx_brand <- scale_color_gradient_hdx_brand
+
+#' @rdname scale_hdx
+#' @export
+scale_color_gradient_hdx_error <- function(na.value = "transparent", ...) {
+  ggplot2::continuous_scale(
+    aesthetics = "color",
+    scale_name = scale_name(),
+    palette = scales::seq_gradient_pal(
+      low = "white",
+      high = hdx_hex("error-5")
+    ),
+    guide = "colorbar",
+    na.value = na.value,
+    ...
+  )
+}
+
+#' @rdname scale_hdx
+#' @export
+scale_colour_gradient_hdx_error <- scale_color_gradient_hdx_error
 
 #' @rdname scale_hdx
 #' @export

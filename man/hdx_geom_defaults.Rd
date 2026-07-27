@@ -36,7 +36,7 @@ p <- ggplot(mtcars) +
     )
   )
 
-# see the points are automatically in HDX sapphire
+# see the points are automatically in HDX primary blue
 p
 
 # need to reset back to the default geometries

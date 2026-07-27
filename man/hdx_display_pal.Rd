@@ -6,7 +6,8 @@
 \usage{
 hdx_display_pal(
   n = NULL,
-  palette = c("discrete", "gray", "mint", "sapphire", "tomato")
+  palette = c("discrete", "primary", "brand", "error", "gray", "mint", "sapphire",
+    "tomato")
 )
 }
 \arguments{

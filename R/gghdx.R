@@ -17,8 +17,8 @@
 #' * `options("ggplot2.continous.colour")`
 #'
 #' The default discrete scale is `scale_..._hdx()` for both `fill` and `color`.
-#' For continuous scales, the default is `scale_fill_gradient_hdx_mint()` for
-#' fill and `scale_color_gradient_hdx_sapphire()` for color.
+#' For continuous scales, the default is `scale_fill_gradient_hdx_primary()`
+#' for fill and `scale_color_gradient_hdx_primary()` for color.
 #'
 #' Once `gghdx()` is run, the easiest way to return to the default ggplot2
 #' settings is to run `gghdx_reset()`. This will make changes by running:
@@ -34,8 +34,8 @@
 #'
 #' @inheritParams theme_hdx
 #' @param showtext `logical` If `TRUE`, uses the showtext package to add
-#'     the Source Sans 3 font and runs `showtext_auto()` so all future plots
-#'     in this session will use the font.
+#'     the Roboto and Merriweather fonts and runs `showtext_auto()` so all
+#'     future plots in this session will use them.
 #'
 #' @examples
 #'
@@ -67,7 +67,7 @@
 #'
 #' @seealso `gghdx()` relies on the following functions:
 #' * [theme_hdx()] as the default theme.
-#' * [load_source_sans_3()] to load the font and activate showtext.
+#' * [load_hdx_fonts()] to load the fonts and activate showtext.
 #' * [hdx_geom_defaults()] as the default geometries to set with
 #'    `ggplot2::update_geom_defaults()`.
 #' * [scale_color_hdx_discrete()] and other family of functions to set standard
@@ -79,13 +79,12 @@
 #' @export
 gghdx <- function(showtext = TRUE,
                   base_size = 10,
-                  base_family = "Source Sans 3",
+                  base_family = "Roboto",
+                  title_family = "Merriweather",
                   horizontal = TRUE) {
-  colors <- hdx_colors()
-
   # check the fonts are loaded correctly
   if (showtext) {
-    load_source_sans_3()
+    load_hdx_fonts()
   }
 
   # set the theme
@@ -93,6 +92,7 @@ gghdx <- function(showtext = TRUE,
     theme_hdx(
       base_size = base_size,
       base_family = base_family,
+      title_family = title_family,
       horizontal = horizontal
     )
   )
@@ -106,8 +106,8 @@ gghdx <- function(showtext = TRUE,
   # set default scales
   options("ggplot2.discrete.fill" = scale_fill_hdx_discrete)
   options("ggplot2.discrete.colour" = scale_color_hdx_discrete)
-  options("ggplot2.continuous.fill" = scale_fill_gradient_hdx_mint)
-  options("ggplot2.continuous.colour" = scale_color_gradient_hdx_sapphire)
+  options("ggplot2.continuous.fill" = scale_fill_gradient_hdx_primary)
+  options("ggplot2.continuous.colour" = scale_color_gradient_hdx_primary)
 
   # return nothing
   invisible(NULL)
