@@ -7,10 +7,15 @@
 #' text to the plot. `geom_label_hdx()` draws a rectangle behind the text,
 #' making it easier to read. The only difference with the base `geom_text()`
 #' is that the default font family is Roboto, the HDX body font as of the
-#' 2025 redesign. `geom_label_hdx()` also incorporates a default dark gray
-#' background, white text, and no borders.
+#' 2025 redesign, or Source Sans 3 when `design = "legacy"`. `geom_label_hdx()`
+#' also incorporates a default dark gray background, white text, and no
+#' borders.
 #'
 #' @inherit ggplot2::geom_text details params return
+#'
+#' @param design Either `"2025"` (default), which sets `family = "Roboto"`,
+#'     or `"legacy"`, which sets `family = "Source Sans 3"` to match the
+#'     pre-2025 theme.
 #'
 #' @rdname geom_text_family
 #'
@@ -30,6 +35,10 @@
 #' p + geom_text_hdx()
 #' p + geom_label_hdx()
 #'
+#' # match the pre-2025 legacy theme instead
+#' load_source_sans_3()
+#' p + geom_text_hdx(design = "legacy")
+#'
 #' @return A ggplot2 layer that can be added to a `ggplot2::ggplot()` plot.
 #'
 #' @export
@@ -44,7 +53,10 @@ geom_text_hdx <- function(mapping = NULL,
                           check_overlap = FALSE,
                           na.rm = FALSE,
                           show.legend = NA,
-                          inherit.aes = TRUE) {
+                          inherit.aes = TRUE,
+                          design = c("2025", "legacy")) {
+  design <- rlang::arg_match(design)
+
   # source code taken from ggplot2 for easy wrapping
   if (!missing(nudge_x) || !missing(nudge_y)) {
     if (!missing(position)) {
@@ -68,7 +80,7 @@ geom_text_hdx <- function(mapping = NULL,
       parse = parse,
       check_overlap = check_overlap,
       na.rm = na.rm,
-      family = "Roboto",
+      family = if (design == "legacy") "Source Sans 3" else "Roboto",
       ...
     )
   )
@@ -100,7 +112,10 @@ geom_label_hdx <- function(mapping = NULL,
                            label.size = 0,
                            na.rm = FALSE,
                            show.legend = NA,
-                           inherit.aes = TRUE) {
+                           inherit.aes = TRUE,
+                           design = c("2025", "legacy")) {
+  design <- rlang::arg_match(design)
+
   # source code taken from ggplot2 for easy wrapping
   if (!missing(nudge_x) || !missing(nudge_y)) {
     if (!missing(position)) {
@@ -129,7 +144,7 @@ geom_label_hdx <- function(mapping = NULL,
       label.r = label.r,
       label.size = label.size,
       na.rm = na.rm,
-      family = "Roboto",
+      family = if (design == "legacy") "Source Sans 3" else "Roboto",
       ...
     )
   )

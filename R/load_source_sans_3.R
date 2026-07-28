@@ -140,7 +140,11 @@ check_font <- function(family) {
     stop(
       family,
       " not in available fonts. You can use the sysfonts and showtext ",
-      "libraries to simplify installation and usage of fonts.",
+      "libraries to simplify installation and usage of fonts.\n\n",
+      "If you are upgrading from gghdx <= 0.1.4: as of 0.2.0, `theme_hdx()` ",
+      "and `gghdx()` default to Roboto and Merriweather instead of Source ",
+      "Sans 3. Call `load_hdx_fonts()` to load both, or pass ",
+      "`design = \"legacy\"` to keep the pre-0.2.0 look with Source Sans 3.",
       call. = FALSE
     )
   }

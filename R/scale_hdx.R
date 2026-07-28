@@ -58,8 +58,8 @@
 #' @export
 scale_color_hdx_discrete <- function(
     na.value = NULL,
-    design = c("2025", "legacy"),
-    ...) {
+    ...,
+    design = c("2025", "legacy")) {
   design <- rlang::arg_match(design)
   if (is.null(na.value)) {
     na.value <- if (design == "legacy") {
@@ -205,8 +205,8 @@ scale_colour_hdx_tomato <- scale_color_hdx_tomato
 #' @export
 scale_fill_hdx_discrete <- function(
     na.value = NULL,
-    design = c("2025", "legacy"),
-    ...) {
+    ...,
+    design = c("2025", "legacy")) {
   design <- rlang::arg_match(design)
   if (is.null(na.value)) {
     na.value <- if (design == "legacy") {

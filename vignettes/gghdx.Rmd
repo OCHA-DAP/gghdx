@@ -165,9 +165,14 @@ knitr::include_graphics(
 The inbuilt data `gghdx::df_covid` has aggregated COVID data we can use to
 mirror this plot. To make the data start at the y-axis, we can use
 `scale_y_continuous_hdx()` which sets `expand = c(0, 0)` by default, and the
-`label_number_hdx()` function to create custom labels.
+`label_number_hdx()` function to create custom labels. Since `gghdx()` set
+the 2025 theme globally above, we explicitly add
+`theme_hdx(design = "legacy")` to each plot so it matches the pre-2025
+reference images instead of inheriting the ambient 2025 look.
 
 ```{r covid-match, fig.height = 5, fig.width = 6, out.width = "45%", fig.show = "hold", fig.align = "default"}
+load_source_sans_3()
+
 p_blue <- ggplot(
   df_covid,
   aes(
@@ -187,6 +192,7 @@ p_blue <- ggplot(
     date_breaks = "1 month",
     labels = function(x) toupper(strftime(x, "%b"))
   ) +
+  theme_hdx(design = "legacy") +
   labs(
     title = "Monthly global COVID-19 confirmed cases in 2020",
     subtitle = "DATA | JUL 2022 | World Health Organization",

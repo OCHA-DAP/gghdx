@@ -45,6 +45,17 @@ positional argument order so existing positional calls like
 the CRAN maintainer contact, coordinate with Seth Caldwell in advance of the
 next CRAN submission, as CRAN will email the account listed at submission
 time for confirmation.
+- Add a `design = c("2025", "legacy")` argument to `geom_text_hdx()` and
+`geom_label_hdx()` so `design = "legacy"` uses Source Sans 3 instead of
+hardcoding Roboto, completing the `design = "legacy"` escape hatch for plots
+using text or label geoms.
+- Move `design` after `...` in `scale_color_hdx_discrete()` and
+`scale_fill_hdx_discrete()`, fixing the same positional-argument hazard
+already fixed in `theme_hdx()`/`gghdx()` (e.g.
+`scale_color_hdx_discrete("red", "Legend name")` no longer binds
+`"Legend name"` to `design`).
+- Improve the error raised when a font isn't loaded to mention the 0.2.0
+default font change and point at `load_hdx_fonts()` or `design = "legacy"`.
 
 # gghdx 0.1.4
 

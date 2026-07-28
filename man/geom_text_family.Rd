@@ -17,7 +17,8 @@ geom_text_hdx(
   check_overlap = FALSE,
   na.rm = FALSE,
   show.legend = NA,
-  inherit.aes = TRUE
+  inherit.aes = TRUE,
+  design = c("2025", "legacy")
 )
 
 geom_label_hdx(
@@ -37,7 +38,8 @@ geom_label_hdx(
   label.size = 0,
   na.rm = FALSE,
   show.legend = NA,
-  inherit.aes = TRUE
+  inherit.aes = TRUE,
+  design = c("2025", "legacy")
 )
 }
 \arguments{
@@ -142,6 +144,10 @@ rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 
+\item{design}{Either \code{"2025"} (default), which sets \code{family = "Roboto"},
+or \code{"legacy"}, which sets \code{family = "Source Sans 3"} to match the
+pre-2025 theme.}
+
 \item{fill}{Fill color for label box. Defaults to dark gray.}
 
 \item{color}{Font color. Defaults to white.}
@@ -164,8 +170,9 @@ points or for annotating the height of bars. \code{geom_text_hdx()} adds only
 text to the plot. \code{geom_label_hdx()} draws a rectangle behind the text,
 making it easier to read. The only difference with the base \code{geom_text()}
 is that the default font family is Roboto, the HDX body font as of the
-2025 redesign. \code{geom_label_hdx()} also incorporates a default dark gray
-background, white text, and no borders.
+2025 redesign, or Source Sans 3 when \code{design = "legacy"}. \code{geom_label_hdx()}
+also incorporates a default dark gray background, white text, and no
+borders.
 }
 \details{
 Note that when you resize a plot, text labels stay the same size, even
@@ -200,5 +207,9 @@ p <- ggplot(
 
 p + geom_text_hdx()
 p + geom_label_hdx()
+
+# match the pre-2025 legacy theme instead
+load_source_sans_3()
+p + geom_text_hdx(design = "legacy")
 
 }

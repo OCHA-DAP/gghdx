@@ -51,3 +51,13 @@ test_that("scale_colour matches scale_color", {
     scale_colour_gradient2_hdx()
   )
 })
+
+test_that("scale_..._hdx_discrete() design is not bound positionally", {
+  # design sits after ... in the signature, so a second positional argument
+  # must bind to ... (e.g. name), not to design
+  scale <- scale_color_hdx_discrete("red", "Legend name")
+  expect_identical(scale$name, "Legend name")
+
+  scale <- scale_fill_hdx_discrete("red", "Legend name")
+  expect_identical(scale$name, "Legend name")
+})

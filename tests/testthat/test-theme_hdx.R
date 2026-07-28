@@ -7,6 +7,13 @@ test_that("theme_hdx raises error for font", {
   )
 })
 
+test_that("theme_hdx font error explains the 0.2.0 default font change", {
+  expect_error(
+    theme_hdx(base_family = "NONSENSE TEXT ZZZ"),
+    regexp = "load_hdx_fonts|design = .legacy."
+  )
+})
+
 test_that("theme_hdx base_family and title_family", {
   load_hdx_fonts()
   thm_base <- theme_hdx()
