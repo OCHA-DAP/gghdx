@@ -6,25 +6,37 @@
 #'
 #' `theme_hdx()` implements a chart that follows the general
 #' visual guide of the HDX platform, as defined in the
-#' [dataviz-guide](https://data.humdata.org/dataviz-guide/), updated for the
-#' 2025 HDX website redesign.
+#' [dataviz-guide](https://data.humdata.org/dataviz-guide/).
 #'
 #' Use [scale_color_hdx_discrete()] with this theme.
 #'
-#' *HDX* uses two fonts in its official 2025 typography: the free Google font
-#' Merriweather for titles and other display text, and the free Google font
-#' Roboto for body text, both easily available in R. Use the \pkg{sysfonts}
-#' package to add the Google fonts easily, or use [load_hdx_fonts()] to load
-#' both at once.
+#' As of the 2025 HDX website redesign, `theme_hdx()` defaults to the new
+#' typography: the free Google font Merriweather for titles and other display
+#' text (`title_family`), and the free Google font Roboto for body text
+#' (`base_family`). Use the \pkg{sysfonts} package to add the Google fonts
+#' easily, or use [load_hdx_fonts()] to load both at once. Pass
+#' `design = "legacy"` to instead get the pre-2025 theme (single Source Sans 3
+#' font, original gray palette, no axis ticks) for reports that aren't ready
+#' to move to the new look.
+#'
+#' If you supply `base_family` but not `title_family`, `title_family` is set
+#' to match `base_family` rather than defaulting to `"Merriweather"`. This
+#' means code written for the pre-2025 single-font theme, such as
+#' `theme_hdx(base_family = "Source Sans 3")`, continues to work without
+#' requiring Merriweather to also be loaded.
 #'
 #' @inheritParams ggplot2::theme_grey
 #' @param base_family Base font family for body text, such as axis text and
-#'     legend text. Defaults to `"Roboto"`, the HDX body font as of the 2025
-#'     redesign.
-#' @param title_family Font family for titles, subtitles, and strip text.
-#'     Defaults to `"Merriweather"`, the HDX display font as of the 2025
-#'     redesign.
+#'     legend text. Defaults to `"Roboto"` when `design = "2025"`, or
+#'     `"Source Sans 3"` when `design = "legacy"`.
 #' @param horizontal `logical` Horizontal axis lines?
+#' @param title_family Font family for titles, subtitles, and strip text when
+#'     `design = "2025"`. Defaults to `"Merriweather"`, unless `base_family`
+#'     is also supplied, in which case it defaults to `base_family`. Ignored
+#'     when `design = "legacy"`, which always uses a single font family.
+#' @param design Either `"2025"` (default), the current HDX visual design, or
+#'     `"legacy"`, the original pre-2025 theme kept for backwards
+#'     compatibility.
 #'
 #' @importFrom ggplot2 element_rect element_text rel element_blank margin unit
 #'     theme element_line
@@ -67,6 +79,10 @@
 #' # you can change the base and title families
 #' p + theme_hdx(base_family = "sans", title_family = "sans")
 #'
+#' # supplying only base_family carries it over to title_family too
+#' load_source_sans_3()
+#' p + theme_hdx(base_family = "Source Sans 3")
+#'
 #' # or load Roboto and Merriweather using gghdx() or load_hdx_fonts()
 #' load_hdx_fonts()
 #' p + theme_hdx()
@@ -74,11 +90,50 @@
 #' # we can change the axis line direction depending on the plot
 #' p + theme_hdx(horizontal = FALSE)
 #'
+#' # use the pre-2025 theme instead
+#' p + theme_hdx(design = "legacy")
+#'
 #' @export
 theme_hdx <- function(base_size = 10,
-                      base_family = "Roboto",
-                      title_family = "Merriweather",
-                      horizontal = TRUE) {
+                      base_family = NULL,
+                      horizontal = TRUE,
+                      title_family = NULL,
+                      design = c("2025", "legacy")) {
+  design <- rlang::arg_match(design)
+
+  if (design == "legacy") {
+    if (is.null(base_family)) {
+      base_family <- "Source Sans 3"
+    }
+    return(
+      theme_hdx_legacy(
+        base_size = base_size,
+        base_family = base_family,
+        horizontal = horizontal
+      )
+    )
+  }
+
+  base_family_supplied <- !is.null(base_family)
+  if (is.null(base_family)) {
+    base_family <- "Roboto"
+  }
+  if (is.null(title_family)) {
+    title_family <- if (base_family_supplied) base_family else "Merriweather"
+  }
+
+  theme_hdx_2025(
+    base_size = base_size,
+    base_family = base_family,
+    title_family = title_family,
+    horizontal = horizontal
+  )
+}
+
+#' 2025 HDX redesign theme
+#'
+#' @noRd
+theme_hdx_2025 <- function(base_size, base_family, title_family, horizontal) {
   base_colors <- hdx_colors("neutral")
   check_font(base_family)
   check_font(title_family)
@@ -185,6 +240,123 @@ theme_hdx <- function(base_size = 10,
         family = title_family,
         face = "bold",
         color = base_colors["neutral-95"],
+        margin = margin(b = rel(10), unit = "pt")
+      ),
+      plot.margin = unit(c(6, 5, 6, 5) * 2, "points"),
+      complete = TRUE
+    )
+  if (horizontal) {
+    ret <- ret + theme(panel.grid.major.x = element_blank())
+  } else {
+    ret <- ret + theme(panel.grid.major.y = element_blank())
+  }
+  ret
+}
+
+#' Pre-2025 HDX theme, kept for backwards compatibility
+#'
+#' @noRd
+theme_hdx_legacy <- function(base_size, base_family, horizontal) {
+  base_colors <- hdx_colors("gray")
+  check_font(base_family)
+
+  ret <-
+    ggthemes::theme_foundation(
+      base_size = base_size,
+      base_family = base_family
+    ) +
+    theme(
+      line = element_line(color = base_colors["gray-black"]),
+      rect = element_rect(
+        fill = "white",
+        colour = NA,
+        linetype = 1
+      ),
+      text = element_text(
+        color = base_colors["gray-dark"],
+        family = base_family
+      ),
+      ## Axis
+      axis.line = element_line(
+        linewidth = rel(0.8),
+        color = base_colors["gray-dark"]
+      ),
+      axis.line.y = element_blank(),
+      axis.text = element_text(
+        size = rel(1)
+      ),
+      axis.text.x = element_text(
+        vjust = 0,
+        margin = margin(t = rel(1), unit = "pt")
+      ),
+      axis.text.x.top = ggplot2::element_text(
+        vjust = 0,
+        margin = ggplot2::margin(b = rel(1), unit = "pt")
+      ),
+      axis.text.y = ggplot2::element_text(
+        hjust = 0.95,
+        margin = margin(r = rel(1), unit = "pt")
+      ),
+      axis.ticks = element_blank(),
+      axis.title = element_text(size = rel(1.25)),
+      axis.title.x = element_text(
+        margin = margin(t = rel(4), unit = "pt")
+      ),
+      axis.title.y = element_text(
+        angle = 90,
+        margin = margin(r = rel(4), unit = "pt")
+      ),
+      legend.background = element_rect(linetype = 0),
+      legend.spacing = unit(base_size * 1.5, "points"),
+      legend.key = element_rect(linetype = 0),
+      legend.key.size = unit(1.2, "lines"),
+      legend.key.height = NULL,
+      legend.key.width = NULL,
+      legend.text = element_text(size = rel(1)),
+      legend.text.align = NULL,
+      legend.title = element_text(size = rel(1.25), hjust = 0.5, vjust = 0.5),
+      legend.title.align = NULL,
+      legend.position = "bottom",
+      legend.direction = NULL,
+      legend.justification = "center",
+      panel.background = element_rect(fill = base_colors["gray-white"]),
+      panel.border = element_blank(),
+      panel.grid.major = element_line(
+        color = base_colors["gray-light"],
+        linewidth = rel(1)
+      ),
+      panel.grid.minor = element_blank(),
+      panel.spacing = unit(0.25, "lines"),
+      strip.background = element_rect(
+        fill = base_colors["gray-white"],
+        color = NA,
+        linetype = 0
+      ),
+      strip.text = element_text(
+        size = rel(1.1),
+        color = base_colors["gray-black"],
+        face = "bold"
+      ),
+      strip.text.x = element_text(
+        margin = margin(b = rel(5))
+      ),
+      strip.text.y = element_text(angle = -90),
+      plot.background = element_rect(
+        fill = base_colors["gray-white"],
+        color = NA
+      ),
+      plot.title = element_text(
+        size = rel(1.5),
+        hjust = 0,
+        face = "bold",
+        color = base_colors["gray-black"],
+        margin = margin(b = rel(5), unit = "pt")
+      ),
+      plot.title.position = "plot",
+      plot.subtitle = element_text(
+        size = rel(1.1),
+        hjust = 0,
+        face = "bold",
         margin = margin(b = rel(10), unit = "pt")
       ),
       plot.margin = unit(c(6, 5, 6, 5) * 2, "points"),

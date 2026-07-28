@@ -11,7 +11,7 @@
 \alias{hdx_pal_gray}
 \title{HDX color palette (discrete)}
 \usage{
-hdx_pal_discrete()
+hdx_pal_discrete(design = c("2025", "legacy"))
 
 hdx_pal_sapphire()
 
@@ -27,6 +27,11 @@ hdx_pal_mint()
 
 hdx_pal_gray()
 }
+\arguments{
+\item{design}{Either \code{"2025"} (default), the current HDX visual design, or
+\code{"legacy"}, the original pre-2025 12 element scale kept for backwards
+compatibility. Only used by \code{hdx_pal_discrete()}.}
+}
 \value{
 A palette function.
 }
@@ -35,7 +40,9 @@ As of the 2025 HDX website redesign, \code{hdx_pal_discrete()} utilizes the
 primary, brand, and error hues for up to a 12 element discrete scale. These
 supersede the original sapphire, mint, and tomato hues, kept available
 individually via \code{hdx_pal_sapphire()}, \code{hdx_pal_mint()}, and
-\code{hdx_pal_tomato()} for backwards compatibility.
+\code{hdx_pal_tomato()} for backwards compatibility. Pass \code{design = "legacy"} to
+instead get the original sapphire/mint/tomato 12 element scale for reports
+that aren't ready to move to the new look.
 }
 \details{
 \code{hdx_pal_primary()}, \code{hdx_pal_brand()}, and \code{hdx_pal_error()} allow for a

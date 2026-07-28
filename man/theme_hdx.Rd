@@ -6,23 +6,29 @@
 \usage{
 theme_hdx(
   base_size = 10,
-  base_family = "Roboto",
-  title_family = "Merriweather",
-  horizontal = TRUE
+  base_family = NULL,
+  horizontal = TRUE,
+  title_family = NULL,
+  design = c("2025", "legacy")
 )
 }
 \arguments{
 \item{base_size}{base font size, given in pts.}
 
 \item{base_family}{Base font family for body text, such as axis text and
-legend text. Defaults to \code{"Roboto"}, the HDX body font as of the 2025
-redesign.}
-
-\item{title_family}{Font family for titles, subtitles, and strip text.
-Defaults to \code{"Merriweather"}, the HDX display font as of the 2025
-redesign.}
+legend text. Defaults to \code{"Roboto"} when \code{design = "2025"}, or
+\code{"Source Sans 3"} when \code{design = "legacy"}.}
 
 \item{horizontal}{\code{logical} Horizontal axis lines?}
+
+\item{title_family}{Font family for titles, subtitles, and strip text when
+\code{design = "2025"}. Defaults to \code{"Merriweather"}, unless \code{base_family}
+is also supplied, in which case it defaults to \code{base_family}. Ignored
+when \code{design = "legacy"}, which always uses a single font family.}
+
+\item{design}{Either \code{"2025"} (default), the current HDX visual design, or
+\code{"legacy"}, the original pre-2025 theme kept for backwards
+compatibility.}
 }
 \value{
 A \code{\link[ggplot2]{theme}()} to stylize a \code{ggplot2::ggplot()}
@@ -35,16 +41,24 @@ A theme that approximates the style of the
 \details{
 \code{theme_hdx()} implements a chart that follows the general
 visual guide of the HDX platform, as defined in the
-\href{https://data.humdata.org/dataviz-guide/}{dataviz-guide}, updated for the
-2025 HDX website redesign.
+\href{https://data.humdata.org/dataviz-guide/}{dataviz-guide}.
 
 Use \code{\link[=scale_color_hdx_discrete]{scale_color_hdx_discrete()}} with this theme.
 
-\emph{HDX} uses two fonts in its official 2025 typography: the free Google font
-Merriweather for titles and other display text, and the free Google font
-Roboto for body text, both easily available in R. Use the \pkg{sysfonts}
-package to add the Google fonts easily, or use \code{\link[=load_hdx_fonts]{load_hdx_fonts()}} to load
-both at once.
+As of the 2025 HDX website redesign, \code{theme_hdx()} defaults to the new
+typography: the free Google font Merriweather for titles and other display
+text (\code{title_family}), and the free Google font Roboto for body text
+(\code{base_family}). Use the \pkg{sysfonts} package to add the Google fonts
+easily, or use \code{\link[=load_hdx_fonts]{load_hdx_fonts()}} to load both at once. Pass
+\code{design = "legacy"} to instead get the pre-2025 theme (single Source Sans 3
+font, original gray palette, no axis ticks) for reports that aren't ready
+to move to the new look.
+
+If you supply \code{base_family} but not \code{title_family}, \code{title_family} is set
+to match \code{base_family} rather than defaulting to \code{"Merriweather"}. This
+means code written for the pre-2025 single-font theme, such as
+\code{theme_hdx(base_family = "Source Sans 3")}, continues to work without
+requiring Merriweather to also be loaded.
 }
 \examples{
 library(ggplot2)
@@ -69,6 +83,10 @@ try(p + theme_hdx())
 # you can change the base and title families
 p + theme_hdx(base_family = "sans", title_family = "sans")
 
+# supplying only base_family carries it over to title_family too
+load_source_sans_3()
+p + theme_hdx(base_family = "Source Sans 3")
+
 # or load Roboto and Merriweather using gghdx() or load_hdx_fonts()
 load_hdx_fonts()
 p + theme_hdx()
@@ -76,11 +94,15 @@ p + theme_hdx()
 # we can change the axis line direction depending on the plot
 p + theme_hdx(horizontal = FALSE)
 
+# use the pre-2025 theme instead
+p + theme_hdx(design = "legacy")
+
 }
 \references{
 \itemize{
 \item \href{https://data.humdata.org}{Humanitarian Data Exchange}
-\item \href{https://fonts.google.com/specimen/Merriweather}{Google Fonts, Merriweather}
+\item \href{https://fonts.google.com/specimen/Merriweather}{Google Fonts,
+Merriweather}
 \item \href{https://fonts.google.com/specimen/Roboto}{Google Fonts, Roboto}
 \item \href{https://data.humdata.org/dataviz-guide/}{HDX Dataviz Guide}
 }

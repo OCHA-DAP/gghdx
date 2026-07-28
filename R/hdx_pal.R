@@ -4,13 +4,19 @@
 #' primary, brand, and error hues for up to a 12 element discrete scale. These
 #' supersede the original sapphire, mint, and tomato hues, kept available
 #' individually via `hdx_pal_sapphire()`, `hdx_pal_mint()`, and
-#' `hdx_pal_tomato()` for backwards compatibility.
+#' `hdx_pal_tomato()` for backwards compatibility. Pass `design = "legacy"` to
+#' instead get the original sapphire/mint/tomato 12 element scale for reports
+#' that aren't ready to move to the new look.
 #'
 #' `hdx_pal_primary()`, `hdx_pal_brand()`, and `hdx_pal_error()` allow for a
 #' 4 element discrete scale using only the specified color. These are color
 #' ramps with a range from dark, normal (HDX standard), light, and ultra
 #' light. `hdx_pal_mint()`, `hdx_pal_tomato()`, and `hdx_pal_sapphire()`
 #' provide the same 4 element ramps for the original palette.
+#'
+#' @param design Either `"2025"` (default), the current HDX visual design, or
+#'     `"legacy"`, the original pre-2025 12 element scale kept for backwards
+#'     compatibility. Only used by `hdx_pal_discrete()`.
 #'
 #' @family color hdx
 #' @rdname pal_general
@@ -21,21 +27,14 @@
 #' @return A palette function.
 #'
 #' @export
-hdx_pal_discrete <- function() {
-  colors <- hdx_hex(
-    c(
-      "primary-5", "brand-5", "error-5",
-      "brand-3", "error-3", "primary-3",
-      "error-7", "primary-7", "brand-7",
-      "brand-1", "primary-1", "error-1"
-    )
-  )
-  names(colors) <- c(
-    "primary-5", "brand-5", "error-5",
-    "brand-3", "error-3", "primary-3",
-    "error-7", "primary-7", "brand-7",
-    "brand-1", "primary-1", "error-1"
-  )
+hdx_pal_discrete <- function(design = c("2025", "legacy")) {
+  design <- rlang::arg_match(design)
+
+  if (design == "legacy") {
+    return(hdx_pal_discrete_legacy())
+  }
+
+  colors <- hdx_colors(c("primary", "brand", "error"))
 
   max_n <- 12
   # error used only when necessary for odd # of colors
@@ -100,6 +99,85 @@ hdx_pal_discrete <- function() {
         "brand-3", "error-3", "primary-3",
         "error-7", "primary-7", "brand-7",
         "brand-1", "primary-1", "error-1"
+      )
+    }
+    unname(colors[i])
+  }
+
+  attr(f, "max_n") <- max_n
+  f
+}
+
+#' Pre-2025 HDX discrete palette, kept for backwards compatibility
+#'
+#' @noRd
+hdx_pal_discrete_legacy <- function() {
+  colors <- hdx_colors(c("sapphire", "tomato", "mint"))
+
+  max_n <- 12
+  # tomato used only when necessary for odd # of colors
+  f <- function(n) {
+    check_pal_n(n, max_n)
+    if (n == 1L) {
+      i <- "mint-hdx"
+    } else if (n == 2L) {
+      i <- c("mint-hdx", "sapphire-hdx")
+    } else if (n == 3L) {
+      i <- c("mint-hdx", "sapphire-hdx", "tomato-hdx")
+    } else if (n == 4L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light"
+      )
+    } else if (n == 5L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light"
+      )
+    } else if (n == 6L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light"
+      )
+    } else if (n == 7L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark"
+      )
+    } else if (n == 8L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark"
+      )
+    } else if (n == 9L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark"
+      )
+    } else if (n == 10L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark",
+        "mint-ultra-light"
+      )
+    } else if (n == 11L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark",
+        "mint-ultra-light", "sapphire-ultra-light"
+      )
+    } else if (n >= 12L) {
+      i <- c(
+        "sapphire-hdx", "mint-hdx", "tomato-hdx",
+        "mint-light", "tomato-light", "sapphire-light",
+        "tomato-dark", "sapphire-dark", "mint-dark",
+        "mint-ultra-light", "sapphire-ultra-light",
+        "tomato-ultra-light"
       )
     }
     unname(colors[i])

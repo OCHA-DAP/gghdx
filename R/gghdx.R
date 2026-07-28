@@ -18,7 +18,12 @@
 #'
 #' The default discrete scale is `scale_..._hdx()` for both `fill` and `color`.
 #' For continuous scales, the default is `scale_fill_gradient_hdx_primary()`
-#' for fill and `scale_color_gradient_hdx_primary()` for color.
+#' for fill and `scale_color_gradient_hdx_primary()` for color. Passing
+#' `design = "legacy"` uses the pre-2025 equivalents instead
+#' (`scale_fill_gradient_hdx_mint()` and `scale_color_gradient_hdx_sapphire()`
+#' for continuous scales), so a report that isn't ready to move to the new
+#' look can call `gghdx(design = "legacy")` to keep rendering as it did in
+#' gghdx 0.1.4.
 #'
 #' Once `gghdx()` is run, the easiest way to return to the default ggplot2
 #' settings is to run `gghdx_reset()`. This will make changes by running:
@@ -34,8 +39,9 @@
 #'
 #' @inheritParams theme_hdx
 #' @param showtext `logical` If `TRUE`, uses the showtext package to add
-#'     the Roboto and Merriweather fonts and runs `showtext_auto()` so all
-#'     future plots in this session will use them.
+#'     the Roboto and Merriweather fonts (or, when `design = "legacy"`,
+#'     Source Sans 3) and runs `showtext_auto()` so all future plots in this
+#'     session will use them.
 #'
 #' @examples
 #'
@@ -65,6 +71,11 @@
 #' gghdx_reset()
 #' p
 #'
+#' # keep the pre-2025 look instead
+#' gghdx(design = "legacy")
+#' p
+#' gghdx_reset()
+#'
 #' @seealso `gghdx()` relies on the following functions:
 #' * [theme_hdx()] as the default theme.
 #' * [load_hdx_fonts()] to load the fonts and activate showtext.
@@ -79,12 +90,23 @@
 #' @export
 gghdx <- function(showtext = TRUE,
                   base_size = 10,
-                  base_family = "Roboto",
-                  title_family = "Merriweather",
-                  horizontal = TRUE) {
+                  base_family = NULL,
+                  horizontal = TRUE,
+                  title_family = NULL,
+                  design = c("2025", "legacy")) {
+  design <- rlang::arg_match(design)
+
+  if (design == "legacy" && is.null(base_family)) {
+    base_family <- "Source Sans 3"
+  }
+
   # check the fonts are loaded correctly
   if (showtext) {
-    load_hdx_fonts()
+    if (design == "legacy") {
+      load_source_sans_3()
+    } else {
+      load_hdx_fonts()
+    }
   }
 
   # set the theme
@@ -92,22 +114,43 @@ gghdx <- function(showtext = TRUE,
     theme_hdx(
       base_size = base_size,
       base_family = base_family,
+      horizontal = horizontal,
       title_family = title_family,
-      horizontal = horizontal
+      design = design
     )
   )
 
   # updating geom defaults (like default color of a point or fill for bar)
   purrr::walk(
-    hdx_geom_defaults(),
+    hdx_geom_defaults(design = design),
     ~ do.call(what = ggplot2::update_geom_defaults, args = .),
   )
 
   # set default scales
-  options("ggplot2.discrete.fill" = scale_fill_hdx_discrete)
-  options("ggplot2.discrete.colour" = scale_color_hdx_discrete)
-  options("ggplot2.continuous.fill" = scale_fill_gradient_hdx_primary)
-  options("ggplot2.continuous.colour" = scale_color_gradient_hdx_primary)
+  options(
+    "ggplot2.discrete.fill" = function(...) {
+      scale_fill_hdx_discrete(design = design, ...)
+    }
+  )
+  options(
+    "ggplot2.discrete.colour" = function(...) {
+      scale_color_hdx_discrete(design = design, ...)
+    }
+  )
+  options(
+    "ggplot2.continuous.fill" = if (design == "legacy") {
+      scale_fill_gradient_hdx_mint
+    } else {
+      scale_fill_gradient_hdx_primary
+    }
+  )
+  options(
+    "ggplot2.continuous.colour" = if (design == "legacy") {
+      scale_color_gradient_hdx_sapphire
+    } else {
+      scale_color_gradient_hdx_primary
+    }
+  )
 
   # return nothing
   invisible(NULL)

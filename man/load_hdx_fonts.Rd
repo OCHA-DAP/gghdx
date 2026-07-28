@@ -12,11 +12,11 @@ load_hdx_fonts(
 )
 }
 \arguments{
-\item{display_family}{Character string for the Merriweather family. If
-\code{NULL}, defaults to \code{"Merriweather"}, the standard family name. See
-"Details" in the \code{\link[sysfonts:font_add]{sysfonts::font_add()}} documentation for further
-explanation. Used only when no internet connection is available to
-directly load from Google.}
+\item{display_family}{Character string for the Merriweather family name to
+register, used whether the font is downloaded from Google or loaded
+locally. If \code{NULL}, defaults to \code{"Merriweather"}, the standard family
+name. See "Details" in the \code{\link[sysfonts:font_add]{sysfonts::font_add()}} documentation for
+further explanation.}
 
 \item{display_regular}{Path to the font file for the Merriweather regular
 font face. If \code{NULL}, defaults to \code{"Merriweather-Regular.ttf"}, the
@@ -25,9 +25,9 @@ standard file name downloaded from
 only when no internet connection is available to directly load from
 Google.}
 
-\item{body_family}{Character string for the Roboto family. If \code{NULL},
-defaults to \code{"Roboto"}, the standard family name. Used only when no
-internet connection is available to directly load from Google.}
+\item{body_family}{Character string for the Roboto family name to
+register, used whether the font is downloaded from Google or loaded
+locally. If \code{NULL}, defaults to \code{"Roboto"}, the standard family name.}
 
 \item{body_regular}{Path to the font file for the Roboto regular font
 face. If \code{NULL}, defaults to \code{"Roboto-Regular.ttf"}, the standard file

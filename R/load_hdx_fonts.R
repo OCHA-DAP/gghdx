@@ -16,20 +16,20 @@
 #' still receive an error from this function, check the `*_family` and
 #' `*_regular` arguments match your installed fonts.
 #'
-#' @param display_family Character string for the Merriweather family. If
-#'     `NULL`, defaults to `"Merriweather"`, the standard family name. See
-#'     "Details" in the [sysfonts::font_add()] documentation for further
-#'     explanation. Used only when no internet connection is available to
-#'     directly load from Google.
+#' @param display_family Character string for the Merriweather family name to
+#'     register, used whether the font is downloaded from Google or loaded
+#'     locally. If `NULL`, defaults to `"Merriweather"`, the standard family
+#'     name. See "Details" in the [sysfonts::font_add()] documentation for
+#'     further explanation.
 #' @param display_regular Path to the font file for the Merriweather regular
 #'     font face. If `NULL`, defaults to `"Merriweather-Regular.ttf"`, the
 #'     standard file name downloaded from
 #'     [Merriweather](https://fonts.google.com/specimen/Merriweather). Used
 #'     only when no internet connection is available to directly load from
 #'     Google.
-#' @param body_family Character string for the Roboto family. If `NULL`,
-#'     defaults to `"Roboto"`, the standard family name. Used only when no
-#'     internet connection is available to directly load from Google.
+#' @param body_family Character string for the Roboto family name to
+#'     register, used whether the font is downloaded from Google or loaded
+#'     locally. If `NULL`, defaults to `"Roboto"`, the standard family name.
 #' @param body_regular Path to the font file for the Roboto regular font
 #'     face. If `NULL`, defaults to `"Roboto-Regular.ttf"`, the standard file
 #'     name downloaded from [Roboto](https://fonts.google.com/specimen/Roboto).

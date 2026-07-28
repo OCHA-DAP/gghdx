@@ -4,7 +4,12 @@
 \alias{hdx_geom_defaults}
 \title{Default HDX geometry aesthetics}
 \usage{
-hdx_geom_defaults()
+hdx_geom_defaults(design = c("2025", "legacy"))
+}
+\arguments{
+\item{design}{Either \code{"2025"} (default), the current HDX visual design, or
+\code{"legacy"}, the original pre-2025 defaults kept for backwards
+compatibility.}
 }
 \value{
 A list of geometry defaults.
@@ -17,6 +22,11 @@ using just \code{\link[=theme_hdx]{theme_hdx()}}.
 \details{
 Derived from the
 \href{https://github.com/Mikata-Project/ggthemr/}{ggthemr} methods.
+
+As of the 2025 HDX website redesign, the defaults use the new primary blue
+and institutional data-grid blue. Pass \code{design = "legacy"} to instead get
+the original pre-2025 defaults (HDX sapphire and mint) for reports that
+aren't ready to move to the new look.
 }
 \examples{
 library(purrr)

@@ -50,12 +50,28 @@
 #' @seealso [gghdx()] for setting default fill and color scaling,
 #'     along with other styling.
 #'
+#' @param design Either `"2025"` (default), the current HDX visual design, or
+#'     `"legacy"`, the original pre-2025 discrete scale kept for backwards
+#'     compatibility. Only used by `scale_color_hdx_discrete()` and
+#'     `scale_fill_hdx_discrete()`; see [hdx_pal_discrete()].
+#'
 #' @export
-scale_color_hdx_discrete <- function(na.value = hdx_hex("neutral-2"), ...) {
+scale_color_hdx_discrete <- function(
+    na.value = NULL,
+    design = c("2025", "legacy"),
+    ...) {
+  design <- rlang::arg_match(design)
+  if (is.null(na.value)) {
+    na.value <- if (design == "legacy") {
+      hdx_hex("gray-light")
+    } else {
+      hdx_hex("neutral-2")
+    }
+  }
   ggplot2::discrete_scale(
     aesthetics = "colour",
     scale_name = scale_name(),
-    palette = hdx_pal_discrete(),
+    palette = hdx_pal_discrete(design = design),
     na.value = na.value,
     ...
   )
@@ -187,11 +203,22 @@ scale_colour_hdx_tomato <- scale_color_hdx_tomato
 
 #' @rdname scale_hdx
 #' @export
-scale_fill_hdx_discrete <- function(na.value = hdx_hex("neutral-2"), ...) {
+scale_fill_hdx_discrete <- function(
+    na.value = NULL,
+    design = c("2025", "legacy"),
+    ...) {
+  design <- rlang::arg_match(design)
+  if (is.null(na.value)) {
+    na.value <- if (design == "legacy") {
+      hdx_hex("gray-light")
+    } else {
+      hdx_hex("neutral-2")
+    }
+  }
   ggplot2::discrete_scale(
     aesthetics = "fill",
     scale_name = scale_name(),
-    palette = hdx_pal_discrete(),
+    palette = hdx_pal_discrete(design = design),
     na.value = na.value,
     ...
   )

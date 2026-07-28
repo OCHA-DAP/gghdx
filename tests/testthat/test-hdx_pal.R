@@ -49,3 +49,21 @@ test_that("hdx_pal_discrete() raises warnings", {
   pal <- hdx_pal_discrete()
   expect_warning(pal(13))
 })
+
+test_that("hdx_pal_discrete(design = 'legacy') reproduces pre-2025 palette", {
+  pal_legacy <- hdx_pal_discrete(design = "legacy")
+  pal_2025 <- hdx_pal_discrete()
+
+  expect_identical(
+    pal_legacy(3),
+    unname(
+      hdx_colors(c("mint", "sapphire", "tomato"))[
+        c("mint-hdx", "sapphire-hdx", "tomato-hdx")
+      ]
+    )
+  )
+  expect_false(identical(pal_legacy(3), pal_2025(3)))
+  for (i in 1:12) {
+    expect_hex_colors(pal_legacy(i))
+  }
+})

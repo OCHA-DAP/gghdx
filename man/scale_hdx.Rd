@@ -54,9 +54,9 @@
 \alias{scale_fill_gradient2_hdx}
 \title{HDX color scales}
 \usage{
-scale_color_hdx_discrete(na.value = hdx_hex("neutral-2"), ...)
+scale_color_hdx_discrete(na.value = NULL, design = c("2025", "legacy"), ...)
 
-scale_colour_hdx_discrete(na.value = hdx_hex("neutral-2"), ...)
+scale_colour_hdx_discrete(na.value = NULL, design = c("2025", "legacy"), ...)
 
 scale_color_hdx_gray(na.value = hdx_hex("tomato-hdx"), ...)
 
@@ -90,7 +90,7 @@ scale_color_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
 scale_colour_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
-scale_fill_hdx_discrete(na.value = hdx_hex("neutral-2"), ...)
+scale_fill_hdx_discrete(na.value = NULL, design = c("2025", "legacy"), ...)
 
 scale_fill_hdx_gray(na.value = hdx_hex("tomato-hdx"), ...)
 
@@ -158,6 +158,11 @@ scale_fill_gradient2_hdx(na.value = "transparent", ...)
 }
 \arguments{
 \item{na.value}{Colour to use for missing values}
+
+\item{design}{Either \code{"2025"} (default), the current HDX visual design, or
+\code{"legacy"}, the original pre-2025 discrete scale kept for backwards
+compatibility. Only used by \code{scale_color_hdx_discrete()} and
+\code{scale_fill_hdx_discrete()}; see \code{\link[=hdx_pal_discrete]{hdx_pal_discrete()}}.}
 
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:discrete_scale]{discrete_scale}}
