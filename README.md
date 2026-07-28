@@ -84,7 +84,7 @@ p <- ggplot(
 p
 ```
 
-<img src="man/figures/README-intro-plot-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
+<img src="man/figures/README-intro-plot-1.png" alt="" width="90%" height="10%" style="display: block; margin: auto;" />
 
 This output using the base ggplot style doesn’t look particularly bad,
 but we can use `theme_hdx()` to quickly adjust some of the styling to
@@ -93,10 +93,10 @@ fit the style guide.
 ``` r
 library(gghdx)
 
-p + theme_hdx(base_family = "sans")
+p + theme_hdx(base_family = "sans", title_family = "sans")
 ```
 
-<img src="man/figures/README-intro-hdx-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
+<img src="man/figures/README-intro-hdx-1.png" alt="" width="90%" height="10%" style="display: block; margin: auto;" />
 
 Now, axis lines have been cleaned up and the plot better resembles
 recommendations from the visual guide with just that single line of
@@ -107,48 +107,58 @@ code.
 However, the color palette for the points is still using the base R
 palette. We can use one of the many `scale_...hdx()` functions to use
 HDX colors. Let’s just use the primary discrete color scale that will
-align each species with one of the 3 non-gray colorramps (sapphire,
-mint, and tomato).
+align each species with one of the 3 non-neutral colorramps from the
+2025 HDX redesign (primary blue, brand teal, and error red).
 
 ``` r
-p + theme_hdx(base_family = "sans") + scale_color_hdx_discrete()
+p +
+  theme_hdx(base_family = "sans", title_family = "sans") +
+  scale_color_hdx_discrete()
 ```
 
-<img src="man/figures/README-intro-ramp-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
+<img src="man/figures/README-intro-ramp-1.png" alt="" width="90%" height="10%" style="display: block; margin: auto;" />
 
 You can check the documentation of any of the `scale_...hdx()` functions
 to see all available scales, or directly access the colors using
 `hdx_colors()` or the raw list in `hdx_color_list`. The available
-palettes can be easily visualized using `hdx_display_pal()`.
+palettes can be easily visualized using `hdx_display_pal()`. The
+original sapphire, mint, and tomato colorramps are still available
+(e.g. `scale_color_hdx_sapphire()`) for backwards compatibility.
 
 ### Adding fonts
 
-We also would like to use the HDX font family. Since Source Sans 3 is a
-free Google font, it makes it relatively easy to access in R. gghdx uses
-the [sysfonts](https://CRAN.R-project.org/package=sysfonts) package to
-load the Google font and then
+We also would like to use the HDX font families. As of the 2025
+redesign, HDX uses Merriweather for titles and other display text, and
+Roboto for body text. Since both are free Google fonts, they’re
+relatively easy to access in R. gghdx uses the
+[sysfonts](https://CRAN.R-project.org/package=sysfonts) package to load
+the Google fonts and then
 [showtext](https://CRAN.R-project.org/package=showtext) to include them
 in our plot. You can also use the
 [extrafont](https://CRAN.R-project.org/package=extrafont) package as an
-alternative if you have the font installed locally. This requires
+alternative if you have the fonts installed locally. This requires
 ghostscript to be installed locally and can run into other issues, such
 as [font names](https://github.com/wch/extrafont/issues/32) not being
 found.
 
 Below, I use the showtext package because it’s simpler.
+`load_hdx_fonts()` wraps exactly this for both fonts at once.
 
 ``` r
 library(showtext)
 #> Loading required package: sysfonts
 #> Loading required package: showtextdb
 
-font_add_google("Source Sans 3")
+font_add_google("Merriweather")
+font_add_google("Roboto")
 showtext_auto()
 
-p + theme_hdx(base_family = "Source Sans 3") + scale_color_hdx_discrete()
+p +
+  theme_hdx(base_family = "Roboto", title_family = "Merriweather") +
+  scale_color_hdx_discrete()
 ```
 
-<img src="man/figures/README-extrafont-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
+<img src="man/figures/README-extrafont-1.png" alt="" width="90%" height="10%" style="display: block; margin: auto;" />
 
 ### Streamlined plotting
 
@@ -158,15 +168,15 @@ to call these every time we make a new plot. So, to make life simpler,
 `gghdx()` is provided as a convenience function that sets ggplot to:
 
 - automatically use the HDX theme by default;
-- use default HDX sapphire for point and line colors and and HDX mint
-  for fill when not an aesthetic;
+- use default HDX primary blue for point and line colors, and HDX
+  data-grid blue for fill when not an aesthetic;
 - use `scale_fill_hdx_discrete()` and `scale_color_hdx_discrete()` as
   the default discrete fill and color respectively;
-- use `scale_fill_gradient_hdx_mint()` and
-  `scale_color_gradient_hdx_sapphire()` as the default continuous fill
+- use `scale_fill_gradient_hdx_primary()` and
+  `scale_color_gradient_hdx_primary()` as the default continuous fill
   and color;
-- loads the Source Sans 3 font from Google and activates its usage for
-  the current session.
+- loads the Roboto and Merriweather fonts from Google and activates
+  their usage for the current session.
 
 You just have to run `gghdx()` once a session, and then our plots will
 already be where we would like!
@@ -176,7 +186,7 @@ gghdx()
 p
 ```
 
-<img src="man/figures/README-gghdx-1.png" width="90%" height="10%" style="display: block; margin: auto;" />
+<img src="man/figures/README-gghdx-1.png" alt="" width="90%" height="10%" style="display: block; margin: auto;" />
 
 And voíla, we have our graph without specifying the theme or color
 scale.
@@ -184,9 +194,13 @@ scale.
 ### COVID plots
 
 As a final example, we can closely match the COVID plots referenced in
-the visual guide using the theme and color scales in the package.
+the original visual guide using the theme and color scales in the
+package. These reference plots predate the 2025 redesign, so this
+example intentionally uses the legacy `sapphire`/`tomato` colorramps
+(kept for backwards compatibility) rather than the new `primary`/`error`
+scales, to match the published images.
 
-<img src="man/figures/covid_blue.png" width="45%" height="20%" /><img src="man/figures/covid_red.png" width="45%" height="20%" />
+<img src="man/figures/covid_blue.png" alt="" width="45%" height="20%" /><img src="man/figures/covid_red.png" alt="" width="45%" height="20%" />
 
 The inbuilt data `gghdx::df_covid` has aggregated COVID data we can use
 to mirror this plot. To make the data start at the y-axis, we can use
@@ -240,7 +254,7 @@ p_blue +
   )
 ```
 
-<img src="man/figures/README-covid-match-1.png" width="45%" /><img src="man/figures/README-covid-match-2.png" width="45%" />
+<img src="man/figures/README-covid-match-1.png" alt="" width="45%" /><img src="man/figures/README-covid-match-2.png" alt="" width="45%" />
 
 We’ve used relatively few lines of code to match fairly closely these
 examples plots!
