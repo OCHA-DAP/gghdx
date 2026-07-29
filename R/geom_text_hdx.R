@@ -21,7 +21,7 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' load_hdx_fonts()
+#' try(load_hdx_fonts())
 #'
 #' p <- ggplot(
 #'   data = mtcars,
@@ -32,12 +32,12 @@
 #'   )
 #' )
 #'
-#' p + geom_text_hdx()
-#' p + geom_label_hdx()
+#' try(p + geom_text_hdx())
+#' try(p + geom_label_hdx())
 #'
 #' # match the pre-2025 legacy theme instead
-#' load_source_sans_3()
-#' p + geom_text_hdx(design = "legacy")
+#' try(load_source_sans_3())
+#' try(p + geom_text_hdx(design = "legacy"))
 #'
 #' @return A ggplot2 layer that can be added to a `ggplot2::ggplot()` plot.
 #'

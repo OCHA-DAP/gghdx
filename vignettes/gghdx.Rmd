@@ -108,12 +108,23 @@ wraps exactly this for both fonts at once.
 ```{r extrafont, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
 library(showtext)
 
-font_add_google("Merriweather")
-font_add_google("Roboto")
+# fall back to sans if Google Fonts can't be reached while building this
+# vignette (e.g. no internet connection)
+fonts_ok <- tryCatch(
+  {
+    font_add_google("Merriweather")
+    font_add_google("Roboto")
+    TRUE
+  },
+  error = function(cond) FALSE
+)
 showtext_auto()
 
 p +
-  theme_hdx(base_family = "Roboto", title_family = "Merriweather") +
+  theme_hdx(
+    base_family = if (fonts_ok) "Roboto" else "sans",
+    title_family = if (fonts_ok) "Merriweather" else "sans"
+  ) +
   scale_color_hdx_discrete()
 ```
 
@@ -138,7 +149,18 @@ You just have to run `gghdx()` once a session, and then our plots will already
 be where we would like!
 
 ```{r gghdx, out.width = "90%", out.height = "10%", fig.height = 4, fig.width = 6}
-gghdx()
+# fall back to sans if Google Fonts can't be reached while building this
+# vignette (e.g. no internet connection)
+fonts_ok <- tryCatch(
+  {
+    gghdx()
+    TRUE
+  },
+  error = function(cond) FALSE
+)
+if (!fonts_ok) {
+  gghdx(showtext = FALSE, base_family = "sans", title_family = "sans")
+}
 p
 ```
 
@@ -171,7 +193,16 @@ the 2025 theme globally above, we explicitly add
 reference images instead of inheriting the ambient 2025 look.
 
 ```{r covid-match, fig.height = 5, fig.width = 6, out.width = "45%", fig.show = "hold", fig.align = "default"}
-load_source_sans_3()
+# fall back to sans if Google Fonts can't be reached while building this
+# vignette (e.g. no internet connection)
+fonts_ok <- tryCatch(
+  {
+    load_source_sans_3()
+    TRUE
+  },
+  error = function(cond) FALSE
+)
+legacy_family <- if (fonts_ok) "Source Sans 3" else "sans"
 
 p_blue <- ggplot(
   df_covid,
@@ -192,7 +223,7 @@ p_blue <- ggplot(
     date_breaks = "1 month",
     labels = function(x) toupper(strftime(x, "%b"))
   ) +
-  theme_hdx(design = "legacy") +
+  theme_hdx(design = "legacy", base_family = legacy_family) +
   labs(
     title = "Monthly global COVID-19 confirmed cases in 2020",
     subtitle = "DATA | JUL 2022 | World Health Organization",

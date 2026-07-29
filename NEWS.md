@@ -56,6 +56,10 @@ already fixed in `theme_hdx()`/`gghdx()` (e.g.
 `"Legend name"` to `design`).
 - Improve the error raised when a font isn't loaded to mention the 0.2.0
 default font change and point at `load_hdx_fonts()` or `design = "legacy"`.
+- Tests, examples, and the vignette no longer fail when Merriweather, Roboto,
+or Source Sans 3 can't be downloaded from Google Fonts (e.g. no internet
+connection or the `curl` package is unavailable); they now skip or fall back
+to `sans` instead.
 
 # gghdx 0.1.4
 

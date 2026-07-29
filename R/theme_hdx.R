@@ -80,12 +80,12 @@
 #' p + theme_hdx(base_family = "sans", title_family = "sans")
 #'
 #' # supplying only base_family carries it over to title_family too
-#' load_source_sans_3()
-#' p + theme_hdx(base_family = "Source Sans 3")
+#' try(load_source_sans_3())
+#' try(p + theme_hdx(base_family = "Source Sans 3"))
 #'
 #' # or load Roboto and Merriweather using gghdx() or load_hdx_fonts()
-#' load_hdx_fonts()
-#' p + theme_hdx()
+#' try(load_hdx_fonts())
+#' try(p + theme_hdx())
 #'
 #' # we can change the axis line direction depending on the plot
 #' p + theme_hdx(horizontal = FALSE)
