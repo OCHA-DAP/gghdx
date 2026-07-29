@@ -14,6 +14,9 @@ test_that("scale_colour matches scale_color", {
   expect_equal_scale(scale_color_hdx_mint(), scale_colour_hdx_mint())
   expect_equal_scale(scale_color_hdx_tomato(), scale_colour_hdx_tomato())
   expect_equal_scale(scale_color_hdx_sapphire(), scale_colour_hdx_sapphire())
+  expect_equal_scale(scale_color_hdx_primary(), scale_colour_hdx_primary())
+  expect_equal_scale(scale_color_hdx_brand(), scale_colour_hdx_brand())
+  expect_equal_scale(scale_color_hdx_error(), scale_colour_hdx_error())
 
   # continuous color scales
   expect_equal_scale(scale_color_gradient_hdx(), scale_colour_gradient_hdx())
@@ -29,10 +32,32 @@ test_that("scale_colour matches scale_color", {
     scale_color_gradient_hdx_sapphire(),
     scale_colour_gradient_hdx_sapphire()
   )
+  expect_equal_scale(
+    scale_color_gradient_hdx_primary(),
+    scale_colour_gradient_hdx_primary()
+  )
+  expect_equal_scale(
+    scale_color_gradient_hdx_brand(),
+    scale_colour_gradient_hdx_brand()
+  )
+  expect_equal_scale(
+    scale_color_gradient_hdx_error(),
+    scale_colour_gradient_hdx_error()
+  )
 
   # 2 gradient scale
   expect_equal_scale(
     scale_color_gradient2_hdx(),
     scale_colour_gradient2_hdx()
   )
+})
+
+test_that("scale_..._hdx_discrete() design is not bound positionally", {
+  # design sits after ... in the signature, so a second positional argument
+  # must bind to ... (e.g. name), not to design
+  scale <- scale_color_hdx_discrete("red", "Legend name")
+  expect_identical(scale$name, "Legend name")
+
+  scale <- scale_fill_hdx_discrete("red", "Legend name")
+  expect_identical(scale$name, "Legend name")
 })

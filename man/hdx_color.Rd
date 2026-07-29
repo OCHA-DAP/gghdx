@@ -20,7 +20,9 @@ hdx_colour_names()
 }
 \arguments{
 \item{colors}{Specified color ramps to return. Some set of "sapphire",
-"mint", "tomato", and "gray. By default returns all colors.}
+"mint", "tomato", "gray", "primary", "brand", "neutral", "success",
+"warning", and "error". By default returns the original "sapphire",
+"mint", "tomato", and "gray" colors.}
 
 \item{color_names}{Vector of color names. Valid values are all available
 using \code{hdx_colors}}
@@ -40,11 +42,24 @@ know the name of the color you want, such as "sapphire-hdx", you can use
 \details{
 All valid color names are in the named vector returned by \code{hdx_colors()} or
 accessible in the convenient \code{hdx_color_names()}.
+
+As of the 2025 HDX website redesign, the "primary", "brand", "neutral",
+"success", "warning", and "error" scales are also available, following the
+step naming of the HDX design tokens (e.g. "primary-5" for the primary
+scale's base blue, "neutral-2" for a hairline gridline gray). These are not
+returned by default to avoid breaking existing uses of \code{hdx_colors()};
+request them explicitly, e.g. \code{hdx_colors("primary")}. The original
+"sapphire", "mint", and "tomato" scales are kept for backwards
+compatibility but are superseded by "primary"/"brand"/"error" going
+forward.
 }
 \examples{
 # get hex values
 hdx_colors()
 hdx_colors("sapphire")
+
+# 2025 redesign colors
+hdx_colors("primary")
 
 # get color names
 hdx_color_names()

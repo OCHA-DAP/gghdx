@@ -7,6 +7,15 @@
 #' Derived from the
 #' [ggthemr](https://github.com/Mikata-Project/ggthemr/) methods.
 #'
+#' As of the 2025 HDX website redesign, the defaults use the new primary blue
+#' and institutional data-grid blue. Pass `design = "legacy"` to instead get
+#' the original pre-2025 defaults (HDX sapphire and mint) for reports that
+#' aren't ready to move to the new look.
+#'
+#' @param design Either `"2025"` (default), the current HDX visual design, or
+#'     `"legacy"`, the original pre-2025 defaults kept for backwards
+#'     compatibility.
+#'
 #' @returns A list of geometry defaults.
 #'
 #' @examples
@@ -27,7 +36,7 @@
 #'     )
 #'   )
 #'
-#' # see the points are automatically in HDX sapphire
+#' # see the points are automatically in HDX primary blue
 #' p
 #'
 #' # need to reset back to the default geometries
@@ -45,7 +54,61 @@
 #' * [ggplot2_geom_defaults()] for the ggplot2 default aesthetics.
 #'
 #' @export
-hdx_geom_defaults <- function() {
+hdx_geom_defaults <- function(design = c("2025", "legacy")) {
+  design <- rlang::arg_match(design)
+
+  if (design == "legacy") {
+    return(hdx_geom_defaults_legacy())
+  }
+
+  colors <- hdx_colors(c("primary", "neutral"))
+
+  list(
+    # geoms where we just need default color
+    # primary-5 is the 2025 redesign's primary blue
+    list(geom = "abline", new = list(color = colors["primary-5"])),
+    list(geom = "point", new = list(
+      color = colors["primary-5"],
+      size = rel(2)
+    )),
+    list(geom = "density", new = list(color = colors["primary-5"])),
+    list(geom = "errorbar", new = list(color = colors["primary-5"])),
+    list(geom = "hline", new = list(color = colors["primary-5"])),
+    list(geom = "vline", new = list(color = colors["primary-5"])),
+    list(geom = "line", new = list(color = colors["primary-5"])),
+
+    # using dark grey for text
+    list(geom = "text", new = list(color = colors["neutral-8"])),
+
+    # geoms where we just need default fill
+    # using primary-4, the institutional data-grid blue, so fills contrast
+    # with the primary-5 line/point color
+    list(geom = "area", new = list(fill = colors["primary-4"])),
+    list(geom = "ribbon", new = list(fill = colors["primary-4"])),
+    list(geom = "bar", new = list(fill = colors["primary-4"])),
+    list(geom = "col", new = list(fill = colors["primary-4"])),
+
+    # special geometries
+    list(geom = "boxplot", new = list(
+      color = colors["primary-5"],
+      fill = colors["primary-4"]
+    )),
+    list(geom = "smooth", new = list(
+      color = colors["primary-5"],
+      fill = colors["primary-4"]
+    )),
+    list(geom = "dotplot", new = list(
+      color = colors["primary-5"],
+      fill = colors["primary-4"],
+      size = rel(2)
+    ))
+  )
+}
+
+#' Pre-2025 HDX geometry aesthetics, kept for backwards compatibility
+#'
+#' @noRd
+hdx_geom_defaults_legacy <- function() {
   colors <- hdx_colors()
 
   list(

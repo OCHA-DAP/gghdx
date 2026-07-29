@@ -3,14 +3,23 @@
 \name{hdx_pal_discrete}
 \alias{hdx_pal_discrete}
 \alias{hdx_pal_sapphire}
+\alias{hdx_pal_primary}
+\alias{hdx_pal_brand}
+\alias{hdx_pal_error}
 \alias{hdx_pal_tomato}
 \alias{hdx_pal_mint}
 \alias{hdx_pal_gray}
 \title{HDX color palette (discrete)}
 \usage{
-hdx_pal_discrete()
+hdx_pal_discrete(design = c("2025", "legacy"))
 
 hdx_pal_sapphire()
+
+hdx_pal_primary()
+
+hdx_pal_brand()
+
+hdx_pal_error()
 
 hdx_pal_tomato()
 
@@ -18,18 +27,29 @@ hdx_pal_mint()
 
 hdx_pal_gray()
 }
+\arguments{
+\item{design}{Either \code{"2025"} (default), the current HDX visual design, or
+\code{"legacy"}, the original pre-2025 12 element scale kept for backwards
+compatibility. Only used by \code{hdx_pal_discrete()}.}
+}
 \value{
 A palette function.
 }
 \description{
-The hues in the HDX palette are sapphire, mint, and tomato.
+As of the 2025 HDX website redesign, \code{hdx_pal_discrete()} utilizes the
+primary, brand, and error hues for up to a 12 element discrete scale. These
+supersede the original sapphire, mint, and tomato hues, kept available
+individually via \code{hdx_pal_sapphire()}, \code{hdx_pal_mint()}, and
+\code{hdx_pal_tomato()} for backwards compatibility. Pass \code{design = "legacy"} to
+instead get the original sapphire/mint/tomato 12 element scale for reports
+that aren't ready to move to the new look.
 }
 \details{
-\code{hdx_pal_discrete()} utilizes all hues for up to a 12 element discrete scale.
-
-\code{hdx_pal_mint()}, \code{hdx_pal_tomato()}, and \code{hdx_pal_sapphire()} allow for a
+\code{hdx_pal_primary()}, \code{hdx_pal_brand()}, and \code{hdx_pal_error()} allow for a
 4 element discrete scale using only the specified color. These are color
-ramps with a range from dark, normal (HDX standard), light, and ultra light.
+ramps with a range from dark, normal (HDX standard), light, and ultra
+light. \code{hdx_pal_mint()}, \code{hdx_pal_tomato()}, and \code{hdx_pal_sapphire()}
+provide the same 4 element ramps for the original palette.
 }
 \examples{
 hist(mtcars$mpg, col = hdx_pal_discrete()(5))

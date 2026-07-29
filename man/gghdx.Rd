@@ -8,22 +8,36 @@
 gghdx(
   showtext = TRUE,
   base_size = 10,
-  base_family = "Source Sans 3",
-  horizontal = TRUE
+  base_family = NULL,
+  horizontal = TRUE,
+  title_family = NULL,
+  design = c("2025", "legacy")
 )
 
 gghdx_reset()
 }
 \arguments{
 \item{showtext}{\code{logical} If \code{TRUE}, uses the showtext package to add
-the Source Sans 3 font and runs \code{showtext_auto()} so all future plots
-in this session will use the font.}
+the Roboto and Merriweather fonts (or, when \code{design = "legacy"},
+Source Sans 3) and runs \code{showtext_auto()} so all future plots in this
+session will use them.}
 
 \item{base_size}{base font size, given in pts.}
 
-\item{base_family}{base font family}
+\item{base_family}{Base font family for body text, such as axis text and
+legend text. Defaults to \code{"Roboto"} when \code{design = "2025"}, or
+\code{"Source Sans 3"} when \code{design = "legacy"}.}
 
 \item{horizontal}{\code{logical} Horizontal axis lines?}
+
+\item{title_family}{Font family for titles, subtitles, and strip text when
+\code{design = "2025"}. Defaults to \code{"Merriweather"}, unless \code{base_family}
+is also supplied, in which case it defaults to \code{base_family}. Ignored
+when \code{design = "legacy"}, which always uses a single font family.}
+
+\item{design}{Either \code{"2025"} (default), the current HDX visual design, or
+\code{"legacy"}, the original pre-2025 theme kept for backwards
+compatibility.}
 }
 \value{
 No return value, run for the side effects described in Details.
@@ -47,8 +61,13 @@ setting global options to scale color and fill for ggplot2:
 }
 
 The default discrete scale is \code{scale_..._hdx()} for both \code{fill} and \code{color}.
-For continuous scales, the default is \code{scale_fill_gradient_hdx_mint()} for
-fill and \code{scale_color_gradient_hdx_sapphire()} for color.
+For continuous scales, the default is \code{scale_fill_gradient_hdx_primary()}
+for fill and \code{scale_color_gradient_hdx_primary()} for color. Passing
+\code{design = "legacy"} uses the pre-2025 equivalents instead
+(\code{scale_fill_gradient_hdx_mint()} and \code{scale_color_gradient_hdx_sapphire()}
+for continuous scales), so a report that isn't ready to move to the new
+look can call \code{gghdx(design = "legacy")} to keep rendering as it did in
+gghdx 0.1.4.
 
 Once \code{gghdx()} is run, the easiest way to return to the default ggplot2
 settings is to run \code{gghdx_reset()}. This will make changes by running:
@@ -91,12 +110,17 @@ p
 gghdx_reset()
 p
 
+# keep the pre-2025 look instead
+gghdx(design = "legacy")
+p
+gghdx_reset()
+
 }
 \seealso{
 \code{gghdx()} relies on the following functions:
 \itemize{
 \item \code{\link[=theme_hdx]{theme_hdx()}} as the default theme.
-\item \code{\link[=load_source_sans_3]{load_source_sans_3()}} to load the font and activate showtext.
+\item \code{\link[=load_hdx_fonts]{load_hdx_fonts()}} to load the fonts and activate showtext.
 \item \code{\link[=hdx_geom_defaults]{hdx_geom_defaults()}} as the default geometries to set with
 \code{ggplot2::update_geom_defaults()}.
 \item \code{\link[=scale_color_hdx_discrete]{scale_color_hdx_discrete()}} and other family of functions to set standard

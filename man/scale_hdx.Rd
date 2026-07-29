@@ -11,6 +11,12 @@
 \alias{scale_colour_hdx_mint}
 \alias{scale_color_hdx_sapphire}
 \alias{scale_colour_hdx_sapphire}
+\alias{scale_color_hdx_primary}
+\alias{scale_colour_hdx_primary}
+\alias{scale_color_hdx_brand}
+\alias{scale_colour_hdx_brand}
+\alias{scale_color_hdx_error}
+\alias{scale_colour_hdx_error}
 \alias{scale_color_hdx_tomato}
 \alias{scale_colour_hdx_tomato}
 \alias{scale_fill_hdx_discrete}
@@ -18,11 +24,17 @@
 \alias{scale_fill_hdx_grey}
 \alias{scale_fill_hdx_mint}
 \alias{scale_fill_hdx_sapphire}
+\alias{scale_fill_hdx_primary}
+\alias{scale_fill_hdx_brand}
+\alias{scale_fill_hdx_error}
 \alias{scale_fill_hdx_tomato}
 \alias{scale_fill_gradient_hdx}
 \alias{scale_fill_gradient_hdx_sapphire}
 \alias{scale_fill_gradient_hdx_mint}
 \alias{scale_fill_gradient_hdx_tomato}
+\alias{scale_fill_gradient_hdx_primary}
+\alias{scale_fill_gradient_hdx_brand}
+\alias{scale_fill_gradient_hdx_error}
 \alias{scale_color_gradient_hdx}
 \alias{scale_colour_gradient_hdx}
 \alias{scale_color_gradient_hdx_sapphire}
@@ -31,14 +43,20 @@
 \alias{scale_colour_gradient_hdx_mint}
 \alias{scale_color_gradient_hdx_tomato}
 \alias{scale_colour_gradient_hdx_tomato}
+\alias{scale_color_gradient_hdx_primary}
+\alias{scale_colour_gradient_hdx_primary}
+\alias{scale_color_gradient_hdx_brand}
+\alias{scale_colour_gradient_hdx_brand}
+\alias{scale_color_gradient_hdx_error}
+\alias{scale_colour_gradient_hdx_error}
 \alias{scale_color_gradient2_hdx}
 \alias{scale_colour_gradient2_hdx}
 \alias{scale_fill_gradient2_hdx}
 \title{HDX color scales}
 \usage{
-scale_color_hdx_discrete(na.value = hdx_hex("gray-light"), ...)
+scale_color_hdx_discrete(na.value = NULL, ..., design = c("2025", "legacy"))
 
-scale_colour_hdx_discrete(na.value = hdx_hex("gray-light"), ...)
+scale_colour_hdx_discrete(na.value = NULL, ..., design = c("2025", "legacy"))
 
 scale_color_hdx_gray(na.value = hdx_hex("tomato-hdx"), ...)
 
@@ -56,11 +74,23 @@ scale_color_hdx_sapphire(na.value = hdx_hex("gray-light"), ...)
 
 scale_colour_hdx_sapphire(na.value = hdx_hex("gray-light"), ...)
 
+scale_color_hdx_primary(na.value = hdx_hex("neutral-2"), ...)
+
+scale_colour_hdx_primary(na.value = hdx_hex("neutral-2"), ...)
+
+scale_color_hdx_brand(na.value = hdx_hex("neutral-2"), ...)
+
+scale_colour_hdx_brand(na.value = hdx_hex("neutral-2"), ...)
+
+scale_color_hdx_error(na.value = hdx_hex("neutral-2"), ...)
+
+scale_colour_hdx_error(na.value = hdx_hex("neutral-2"), ...)
+
 scale_color_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
 scale_colour_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
-scale_fill_hdx_discrete(na.value = hdx_hex("gray-light"), ...)
+scale_fill_hdx_discrete(na.value = NULL, ..., design = c("2025", "legacy"))
 
 scale_fill_hdx_gray(na.value = hdx_hex("tomato-hdx"), ...)
 
@@ -69,6 +99,12 @@ scale_fill_hdx_grey(na.value = hdx_hex("tomato-hdx"), ...)
 scale_fill_hdx_mint(na.value = hdx_hex("gray-light"), ...)
 
 scale_fill_hdx_sapphire(na.value = hdx_hex("gray-light"), ...)
+
+scale_fill_hdx_primary(na.value = hdx_hex("neutral-2"), ...)
+
+scale_fill_hdx_brand(na.value = hdx_hex("neutral-2"), ...)
+
+scale_fill_hdx_error(na.value = hdx_hex("neutral-2"), ...)
 
 scale_fill_hdx_tomato(na.value = hdx_hex("gray-light"), ...)
 
@@ -79,6 +115,12 @@ scale_fill_gradient_hdx_sapphire(na.value = "transparent", ...)
 scale_fill_gradient_hdx_mint(na.value = "transparent", ...)
 
 scale_fill_gradient_hdx_tomato(na.value = "transparent", ...)
+
+scale_fill_gradient_hdx_primary(na.value = "transparent", ...)
+
+scale_fill_gradient_hdx_brand(na.value = "transparent", ...)
+
+scale_fill_gradient_hdx_error(na.value = "transparent", ...)
 
 scale_color_gradient_hdx(na.value = "transparent", ...)
 
@@ -95,6 +137,18 @@ scale_colour_gradient_hdx_mint(na.value = "transparent", ...)
 scale_color_gradient_hdx_tomato(na.value = "transparent", ...)
 
 scale_colour_gradient_hdx_tomato(na.value = "transparent", ...)
+
+scale_color_gradient_hdx_primary(na.value = "transparent", ...)
+
+scale_colour_gradient_hdx_primary(na.value = "transparent", ...)
+
+scale_color_gradient_hdx_brand(na.value = "transparent", ...)
+
+scale_colour_gradient_hdx_brand(na.value = "transparent", ...)
+
+scale_color_gradient_hdx_error(na.value = "transparent", ...)
+
+scale_colour_gradient_hdx_error(na.value = "transparent", ...)
 
 scale_color_gradient2_hdx(na.value = "transparent", ...)
 
@@ -152,6 +206,11 @@ notation.
     \item{\code{call}}{The \code{call} used to construct the scale for reporting messages.}
     \item{\code{super}}{The super class to use for the constructed scale}
   }}
+
+\item{design}{Either \code{"2025"} (default), the current HDX visual design, or
+\code{"legacy"}, the original pre-2025 discrete scale kept for backwards
+compatibility. Only used by \code{scale_color_hdx_discrete()} and
+\code{scale_fill_hdx_discrete()}; see \code{\link[=hdx_pal_discrete]{hdx_pal_discrete()}}.}
 }
 \value{
 Relevant ggplot2 scale object to add to a \code{ggplot2::ggplot()} plot,

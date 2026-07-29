@@ -16,7 +16,10 @@
 #' @export
 hdx_display_pal <- function(
     n = NULL,
-    palette = c("discrete", "gray", "mint", "sapphire", "tomato")
+    palette = c(
+      "discrete", "primary", "brand", "error",
+      "gray", "mint", "sapphire", "tomato"
+    )
 ) {
   # check the palette argument is correct
   palette <- rlang::arg_match(
@@ -26,17 +29,28 @@ hdx_display_pal <- function(
 
   pal_funs <- list(
     discrete = hdx_pal_discrete(),
+    primary = hdx_pal_primary(),
+    brand = hdx_pal_brand(),
+    error = hdx_pal_error(),
     gray = hdx_pal_gray(),
     mint = hdx_pal_mint(),
     sapphire = hdx_pal_sapphire(),
     tomato = hdx_pal_tomato()
   )
 
-  # check source sans 3 is laoded, and if so, use that font, otherwise use sans
-  if (!("Source Sans 3" %in% sysfonts::font_families())) {
-    base_family <- "sans"
+  # use Roboto/Merriweather if loaded, falling back to Source Sans 3, then sans
+  loaded_fonts <- sysfonts::font_families()
+  base_family <- if ("Roboto" %in% loaded_fonts) {
+    "Roboto"
+  } else if ("Source Sans 3" %in% loaded_fonts) {
+    "Source Sans 3"
   } else {
-    base_family <- "Source Sans 3"
+    "sans"
+  }
+  title_family <- if ("Merriweather" %in% loaded_fonts) {
+    "Merriweather"
+  } else {
+    base_family
   }
 
   purrr::map(
@@ -67,7 +81,8 @@ hdx_display_pal <- function(
       linewidth = 1
     ) +
     theme_hdx(
-      base_family = base_family
+      base_family = base_family,
+      title_family = title_family
     ) +
     ggplot2::theme(
       panel.grid = ggplot2::element_blank(),
