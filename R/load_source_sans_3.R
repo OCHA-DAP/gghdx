@@ -38,9 +38,9 @@
 #' # font not loaded so error will be generated
 #' try(p + geom_label_hdx())
 #'
-#' load_source_sans_3()
+#' try(load_source_sans_3())
 #'
-#' p + geom_label_hdx()
+#' try(p + geom_label_hdx())
 #'
 #' @return Nothing, run for side effect of loading the font and activating
 #'     showtext.

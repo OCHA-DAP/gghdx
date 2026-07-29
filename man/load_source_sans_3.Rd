@@ -51,9 +51,9 @@ p <- ggplot(
 # font not loaded so error will be generated
 try(p + geom_label_hdx())
 
-load_source_sans_3()
+try(load_source_sans_3())
 
-p + geom_label_hdx()
+try(p + geom_label_hdx())
 
 }
 \seealso{

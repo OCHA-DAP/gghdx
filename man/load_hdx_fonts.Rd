@@ -75,9 +75,9 @@ p <- ggplot(mtcars) +
 # font not loaded so an error will be generated
 try(p + theme_hdx())
 
-load_hdx_fonts()
+try(load_hdx_fonts())
 
-p + theme_hdx()
+try(p + theme_hdx())
 
 }
 \seealso{

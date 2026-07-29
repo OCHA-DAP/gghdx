@@ -37,8 +37,9 @@ Imports:
 Depends: 
     R (>= 3.5)
 LazyData: true
-Suggests: 
+Suggests:
     covr,
+    curl,
     here,
     knitr,
     rmarkdown,

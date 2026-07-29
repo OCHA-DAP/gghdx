@@ -64,7 +64,7 @@
 #' p
 #'
 #' # automatically use the gghdx theme and visuals
-#' gghdx()
+#' try(gghdx())
 #' p
 #'
 #' # get rid of the changes of gghdx
@@ -72,7 +72,7 @@
 #' p
 #'
 #' # keep the pre-2025 look instead
-#' gghdx(design = "legacy")
+#' try(gghdx(design = "legacy"))
 #' p
 #' gghdx_reset()
 #'

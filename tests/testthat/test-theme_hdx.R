@@ -15,7 +15,7 @@ test_that("theme_hdx font error explains the 0.2.0 default font change", {
 })
 
 test_that("theme_hdx base_family and title_family", {
-  load_hdx_fonts()
+  skip_if_font_unavailable(load_hdx_fonts())
   thm_base <- theme_hdx()
   thm_sans <- theme_hdx(base_family = "sans", title_family = "sans")
 
@@ -26,7 +26,7 @@ test_that("theme_hdx base_family and title_family", {
 })
 
 test_that("theme_hdx horizontal", {
-  load_hdx_fonts()
+  skip_if_font_unavailable(load_hdx_fonts())
   thm_base <- theme_hdx()
   thm_vert <- theme_hdx(horizontal = FALSE)
 
@@ -35,7 +35,7 @@ test_that("theme_hdx horizontal", {
 })
 
 test_that("theme_hdx title_family follows base_family if title_family unset", {
-  load_source_sans_3()
+  skip_if_font_unavailable(load_source_sans_3())
   thm <- theme_hdx(base_family = "Source Sans 3")
 
   expect_identical(thm$text$family, "Source Sans 3")
@@ -43,7 +43,7 @@ test_that("theme_hdx title_family follows base_family if title_family unset", {
 })
 
 test_that("theme_hdx positional arguments keep their original order", {
-  load_hdx_fonts()
+  skip_if_font_unavailable(load_hdx_fonts())
   thm <- theme_hdx(10, "sans", FALSE)
 
   expect_identical(thm$text$family, "sans")
@@ -51,7 +51,7 @@ test_that("theme_hdx positional arguments keep their original order", {
 })
 
 test_that("theme_hdx design = 'legacy' reproduces the pre-2025 theme", {
-  load_source_sans_3()
+  skip_if_font_unavailable(load_source_sans_3())
   thm <- theme_hdx(design = "legacy")
 
   expect_identical(thm$text$family, "Source Sans 3")
