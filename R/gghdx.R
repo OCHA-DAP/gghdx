@@ -63,6 +63,9 @@
 #' # see the plot using base aesthetics
 #' p
 #'
+#' # downloading the HDX fonts is slow, so it's wrapped in \donttest{} rather
+#' # than run on every check
+#' \donttest{
 #' # automatically use the gghdx theme and visuals
 #' try(gghdx())
 #' p
@@ -75,6 +78,7 @@
 #' try(gghdx(design = "legacy"))
 #' p
 #' gghdx_reset()
+#' }
 #'
 #' @seealso `gghdx()` relies on the following functions:
 #' * [theme_hdx()] as the default theme.

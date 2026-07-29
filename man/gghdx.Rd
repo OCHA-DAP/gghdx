@@ -102,6 +102,9 @@ p <- ggplot(mtcars) +
 # see the plot using base aesthetics
 p
 
+# downloading the HDX fonts is slow, so it's wrapped in \donttest{} rather
+# than run on every check
+\donttest{
 # automatically use the gghdx theme and visuals
 try(gghdx())
 p
@@ -114,6 +117,7 @@ p
 try(gghdx(design = "legacy"))
 p
 gghdx_reset()
+}
 
 }
 \seealso{
