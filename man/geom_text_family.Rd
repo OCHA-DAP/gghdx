@@ -194,7 +194,6 @@ package.
 }
 \examples{
 library(ggplot2)
-try(load_hdx_fonts())
 
 p <- ggplot(
   data = mtcars,
@@ -205,11 +204,16 @@ p <- ggplot(
   )
 )
 
+# downloading and rendering with the HDX fonts is slow, so it's wrapped in
+# \donttest{} rather than run on every check
+\donttest{
+try(load_hdx_fonts())
 try(p + geom_text_hdx())
 try(p + geom_label_hdx())
 
 # match the pre-2025 legacy theme instead
 try(load_source_sans_3())
 try(p + geom_text_hdx(design = "legacy"))
+}
 
 }
