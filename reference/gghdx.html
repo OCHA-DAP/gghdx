@@ -21,7 +21,7 @@ all of these values back to the defaults."><meta property="og:image" content="/l
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gghdx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -51,7 +51,7 @@ all of these values back to the defaults."><meta property="og:image" content="/l
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Set HDX theme and aesthetics</h1>
-    <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/0.1.4/R/gghdx.R" class="external-link"><code>R/gghdx.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/main/R/gghdx.R" class="external-link"><code>R/gghdx.R</code></a></small>
     <div class="hidden name"><code>gghdx.Rd</code></div>
     </div>
 
@@ -67,8 +67,10 @@ all of these values back to the defaults.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">gghdx</span><span class="op">(</span></span>
 <span>  showtext <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  base_size <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>  base_family <span class="op">=</span> <span class="st">"Source Sans 3"</span>,</span>
-<span>  horizontal <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  base_family <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  title_family <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  design <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2025"</span>, <span class="st">"legacy"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">gghdx_reset</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -80,8 +82,9 @@ all of these values back to the defaults.</p>
 
 <dl><dt id="arg-showtext">showtext<a class="anchor" aria-label="anchor" href="#arg-showtext"></a></dt>
 <dd><p><code>logical</code> If <code>TRUE</code>, uses the showtext package to add
-the Source Sans 3 font and runs <code><a href="https://rdrr.io/pkg/showtext/man/showtext_auto.html" class="external-link">showtext_auto()</a></code> so all future plots
-in this session will use the font.</p></dd>
+the Roboto and Merriweather fonts (or, when <code>design = "legacy"</code>,
+Source Sans 3) and runs <code><a href="https://rdrr.io/pkg/showtext/man/showtext_auto.html" class="external-link">showtext_auto()</a></code> so all future plots in this
+session will use them.</p></dd>
 
 
 <dt id="arg-base-size">base_size<a class="anchor" aria-label="anchor" href="#arg-base-size"></a></dt>
@@ -89,11 +92,26 @@ in this session will use the font.</p></dd>
 
 
 <dt id="arg-base-family">base_family<a class="anchor" aria-label="anchor" href="#arg-base-family"></a></dt>
-<dd><p>base font family</p></dd>
+<dd><p>Base font family for body text, such as axis text and
+legend text. Defaults to <code>"Roboto"</code> when <code>design = "2025"</code>, or
+<code>"Source Sans 3"</code> when <code>design = "legacy"</code>.</p></dd>
 
 
 <dt id="arg-horizontal">horizontal<a class="anchor" aria-label="anchor" href="#arg-horizontal"></a></dt>
 <dd><p><code>logical</code> Horizontal axis lines?</p></dd>
+
+
+<dt id="arg-title-family">title_family<a class="anchor" aria-label="anchor" href="#arg-title-family"></a></dt>
+<dd><p>Font family for titles, subtitles, and strip text when
+<code>design = "2025"</code>. Defaults to <code>"Merriweather"</code>, unless <code>base_family</code>
+is also supplied, in which case it defaults to <code>base_family</code>. Ignored
+when <code>design = "legacy"</code>, which always uses a single font family.</p></dd>
+
+
+<dt id="arg-design">design<a class="anchor" aria-label="anchor" href="#arg-design"></a></dt>
+<dd><p>Either <code>"2025"</code> (default), the current HDX visual design, or
+<code>"legacy"</code>, the original pre-2025 theme kept for backwards
+compatibility.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -109,8 +127,13 @@ setting global options to scale color and fill for ggplot2:</p><ul><li><p><code>
 <li><p><code>options("ggplot2.continuous.fill")</code></p></li>
 <li><p><code>options("ggplot2.continous.colour")</code></p></li>
 </ul><p>The default discrete scale is <code>scale_..._hdx()</code> for both <code>fill</code> and <code>color</code>.
-For continuous scales, the default is <code><a href="scale_hdx.html">scale_fill_gradient_hdx_mint()</a></code> for
-fill and <code><a href="scale_hdx.html">scale_color_gradient_hdx_sapphire()</a></code> for color.</p>
+For continuous scales, the default is <code><a href="scale_hdx.html">scale_fill_gradient_hdx_primary()</a></code>
+for fill and <code><a href="scale_hdx.html">scale_color_gradient_hdx_primary()</a></code> for color. Passing
+<code>design = "legacy"</code> uses the pre-2025 equivalents instead
+(<code><a href="scale_hdx.html">scale_fill_gradient_hdx_mint()</a></code> and <code><a href="scale_hdx.html">scale_color_gradient_hdx_sapphire()</a></code>
+for continuous scales), so a report that isn't ready to move to the new
+look can call <code>gghdx(design = "legacy")</code> to keep rendering as it did in
+gghdx 0.1.4.</p>
 <p>Once <code>gghdx()</code> is run, the easiest way to return to the default ggplot2
 settings is to run <code>gghdx_reset()</code>. This will make changes by running:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/register_theme_elements.html" class="external-link">ggplot2::reset_theme_settings()</a></code>: resets the global theme to default.</p></li>
 <li><p>For all of the options listed above, run <code>options("option") &lt;- NULL</code>.</p></li>
@@ -123,7 +146,7 @@ activated.</p></li>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code>gghdx()</code> relies on the following functions:</p><ul><li><p><code><a href="theme_hdx.html">theme_hdx()</a></code> as the default theme.</p></li>
-<li><p><code><a href="load_source_sans_3.html">load_source_sans_3()</a></code> to load the font and activate showtext.</p></li>
+<li><p><code><a href="load_hdx_fonts.html">load_hdx_fonts()</a></code> to load the fonts and activate showtext.</p></li>
 <li><p><code><a href="hdx_geom_defaults.html">hdx_geom_defaults()</a></code> as the default geometries to set with
 <code><a href="https://ggplot2.tidyverse.org/reference/update_defaults.html" class="external-link">ggplot2::update_geom_defaults()</a></code>.</p></li>
 <li><p><code><a href="scale_hdx.html">scale_color_hdx_discrete()</a></code> and other family of functions to set standard
@@ -163,6 +186,12 @@ fill and color scales.</p></li>
 <span class="r-in"><span><span class="va">p</span></span></span>
 <span class="r-plt img"><img src="gghdx-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># keep the pre-2025 look instead</span></span></span>
+<span class="r-in"><span><span class="fu">gghdx</span><span class="op">(</span>design <span class="op">=</span> <span class="st">"legacy"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">p</span></span></span>
+<span class="r-plt img"><img src="gghdx-4.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu">gghdx_reset</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -173,11 +202,11 @@ fill and color scales.</p></li>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Seth Caldwell.</p>
+  <p></p><p>Developed by Giulia Martini, Seth Caldwell.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer></div>

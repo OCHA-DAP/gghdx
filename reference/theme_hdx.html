@@ -18,7 +18,7 @@ Humanitarian Data Exchange (HDX)."><meta property="og:image" content="/logo.svg"
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gghdx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -48,7 +48,7 @@ Humanitarian Data Exchange (HDX)."><meta property="og:image" content="/logo.svg"
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>ggplot color theme based on HDX visual design guide</h1>
-    <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/0.1.4/R/theme_hdx.R" class="external-link"><code>R/theme_hdx.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/main/R/theme_hdx.R" class="external-link"><code>R/theme_hdx.R</code></a></small>
     <div class="hidden name"><code>theme_hdx.Rd</code></div>
     </div>
 
@@ -58,7 +58,13 @@ Humanitarian Data Exchange (HDX)."><meta property="og:image" content="/logo.svg"
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">theme_hdx</span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">10</span>, base_family <span class="op">=</span> <span class="st">"Source Sans 3"</span>, horizontal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">theme_hdx</span><span class="op">(</span></span>
+<span>  base_size <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  base_family <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  horizontal <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  title_family <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  design <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2025"</span>, <span class="st">"legacy"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -70,16 +76,31 @@ Humanitarian Data Exchange (HDX)."><meta property="og:image" content="/logo.svg"
 
 
 <dt id="arg-base-family">base_family<a class="anchor" aria-label="anchor" href="#arg-base-family"></a></dt>
-<dd><p>base font family</p></dd>
+<dd><p>Base font family for body text, such as axis text and
+legend text. Defaults to <code>"Roboto"</code> when <code>design = "2025"</code>, or
+<code>"Source Sans 3"</code> when <code>design = "legacy"</code>.</p></dd>
 
 
 <dt id="arg-horizontal">horizontal<a class="anchor" aria-label="anchor" href="#arg-horizontal"></a></dt>
 <dd><p><code>logical</code> Horizontal axis lines?</p></dd>
 
+
+<dt id="arg-title-family">title_family<a class="anchor" aria-label="anchor" href="#arg-title-family"></a></dt>
+<dd><p>Font family for titles, subtitles, and strip text when
+<code>design = "2025"</code>. Defaults to <code>"Merriweather"</code>, unless <code>base_family</code>
+is also supplied, in which case it defaults to <code>base_family</code>. Ignored
+when <code>design = "legacy"</code>, which always uses a single font family.</p></dd>
+
+
+<dt id="arg-design">design<a class="anchor" aria-label="anchor" href="#arg-design"></a></dt>
+<dd><p>Either <code>"2025"</code> (default), the current HDX visual design, or
+<code>"legacy"</code>, the original pre-2025 theme kept for backwards
+compatibility.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a>()</code> to stylize a <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>
+    <p>A <code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme()</a></code> to stylize a <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>
 plot.</p>
     </div>
     <div id="details">
@@ -88,15 +109,27 @@ plot.</p>
 visual guide of the HDX platform, as defined in the
 <a href="https://data.humdata.org/dataviz-guide/" class="external-link">dataviz-guide</a>.</p>
 <p>Use <code><a href="scale_hdx.html">scale_color_hdx_discrete()</a></code> with this theme.</p>
-<p><em>HDX</em> uses two fonts in its official typography, with the free Google
-font Source Sans 3 being easily available in R. Use the
-<span class="pkg">sysfonts</span> package to add the Google font easily.</p>
+<p>As of the 2025 HDX website redesign, <code>theme_hdx()</code> defaults to the new
+typography: the free Google font Merriweather for titles and other display
+text (<code>title_family</code>), and the free Google font Roboto for body text
+(<code>base_family</code>). Use the <span class="pkg">sysfonts</span> package to add the Google fonts
+easily, or use <code><a href="load_hdx_fonts.html">load_hdx_fonts()</a></code> to load both at once. Pass
+<code>design = "legacy"</code> to instead get the pre-2025 theme (single Source Sans 3
+font, original gray palette, no axis ticks) for reports that aren't ready
+to move to the new look.</p>
+<p>If you supply <code>base_family</code> but not <code>title_family</code>, <code>title_family</code> is set
+to match <code>base_family</code> rather than defaulting to <code>"Merriweather"</code>. This
+means code written for the pre-2025 single-font theme, such as
+<code>theme_hdx(base_family = "Source Sans 3")</code>, continues to work without
+requiring Merriweather to also be loaded.</p>
     </div>
     <div id="references">
     <h2>References</h2>
 
 <ul><li><p><a href="https://data.humdata.org" class="external-link">Humanitarian Data Exchange</a></p></li>
-<li><p><a href="https://fonts.google.com/specimen/Source+Sans+3" class="external-link">Google Fonts, Source Sans 3</a></p></li>
+<li><p><a href="https://fonts.google.com/specimen/Merriweather" class="external-link">Google Fonts,
+Merriweather</a></p></li>
+<li><p><a href="https://fonts.google.com/specimen/Roboto" class="external-link">Google Fonts, Roboto</a></p></li>
 <li><p><a href="https://data.humdata.org/dataviz-guide/" class="external-link">HDX Dataviz Guide</a></p></li>
 </ul></div>
     <div id="see-also">
@@ -122,23 +155,32 @@ current R session, along with other styling.</p></div>
 <span class="r-in"><span>    title <span class="op">=</span> <span class="st">"Horsepower relative to miles per gallon"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># the default font is source sans 3</span></span></span>
+<span class="r-in"><span><span class="co"># the default fonts are Roboto (body) and Merriweather (titles)</span></span></span>
 <span class="r-in"><span><span class="co"># an error will occur if not loaded before using theme_hdx()</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="theme_hdx-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># you can change the base family</span></span></span>
-<span class="r-in"><span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># you can change the base and title families</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span>, title_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="theme_hdx-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># or load Source Sans 3 using gghdx() or load_source_sans_3()</span></span></span>
+<span class="r-in"><span><span class="co"># supplying only base_family carries it over to title_family too</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="load_source_sans_3.html">load_source_sans_3</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"Source Sans 3"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="theme_hdx-3.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># or load Roboto and Merriweather using gghdx() or load_hdx_fonts()</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="load_hdx_fonts.html">load_hdx_fonts</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="theme_hdx-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># we can change the axis line direction depending on the plot</span></span></span>
 <span class="r-in"><span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span>horizontal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="theme_hdx-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="theme_hdx-5.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># use the pre-2025 theme instead</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">+</span> <span class="fu">theme_hdx</span><span class="op">(</span>design <span class="op">=</span> <span class="st">"legacy"</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="theme_hdx-6.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -150,11 +192,11 @@ current R session, along with other styling.</p></div>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Seth Caldwell.</p>
+  <p></p><p>Developed by Giulia Martini, Seth Caldwell.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer></div>

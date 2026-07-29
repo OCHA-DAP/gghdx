@@ -19,7 +19,7 @@ using just theme_hdx()."><meta property="og:image" content="/logo.svg"><!-- math
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gghdx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -49,7 +49,7 @@ using just theme_hdx()."><meta property="og:image" content="/logo.svg"><!-- math
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Default HDX geometry aesthetics</h1>
-    <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/0.1.4/R/hdx_geom_defaults.R" class="external-link"><code>R/hdx_geom_defaults.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/main/R/hdx_geom_defaults.R" class="external-link"><code>R/hdx_geom_defaults.R</code></a></small>
     <div class="hidden name"><code>hdx_geom_defaults.Rd</code></div>
     </div>
 
@@ -60,9 +60,19 @@ using just <code><a href="theme_hdx.html">theme_hdx()</a></code>.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hdx_geom_defaults</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hdx_geom_defaults</span><span class="op">(</span>design <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2025"</span>, <span class="st">"legacy"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div id="arguments">
+    <h2>Arguments</h2>
+
+
+<dl><dt id="arg-design">design<a class="anchor" aria-label="anchor" href="#arg-design"></a></dt>
+<dd><p>Either <code>"2025"</code> (default), the current HDX visual design, or
+<code>"legacy"</code>, the original pre-2025 defaults kept for backwards
+compatibility.</p></dd>
+
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>A list of geometry defaults.</p>
@@ -71,6 +81,10 @@ using just <code><a href="theme_hdx.html">theme_hdx()</a></code>.</p>
     <h2>Details</h2>
     <p>Derived from the
 <a href="https://github.com/Mikata-Project/ggthemr/" class="external-link">ggthemr</a> methods.</p>
+<p>As of the 2025 HDX website redesign, the defaults use the new primary blue
+and institutional data-grid blue. Pass <code>design = "legacy"</code> to instead get
+the original pre-2025 defaults (HDX sapphire and mint) for reports that
+aren't ready to move to the new look.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -100,7 +114,7 @@ along with other styling.</p></li>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># see the points are automatically in HDX sapphire</span></span></span>
+<span class="r-in"><span><span class="co"># see the points are automatically in HDX primary blue</span></span></span>
 <span class="r-in"><span><span class="va">p</span></span></span>
 <span class="r-plt img"><img src="hdx_geom_defaults-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
@@ -124,11 +138,11 @@ along with other styling.</p></li>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Seth Caldwell.</p>
+  <p></p><p>Developed by Giulia Martini, Seth Caldwell.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer></div>

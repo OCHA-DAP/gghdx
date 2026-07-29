@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gghdx</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -71,7 +71,7 @@
       <h1 data-toc-skip>gghdx</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/0.1.4/vignettes/gghdx.Rmd" class="external-link"><code>vignettes/gghdx.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/OCHA-DAP/gghdx/blob/main/vignettes/gghdx.Rmd" class="external-link"><code>vignettes/gghdx.Rmd</code></a></small>
       <div class="hidden name"><code>gghdx.Rmd</code></div>
 
     </div>
@@ -110,15 +110,15 @@ dataset included in base R.</p>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span></span></code></pre></div>
-<p><img src="gghdx_files/figure-html/intro-plot-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
+<p><img src="gghdx_files/figure-html/intro-plot-1.png" class="r-plt" alt="" width="90%" height="10%" style="display: block; margin: auto;"></p>
 <p>This output using the base ggplot style doesn’t look particularly
 bad, but we can use <code><a href="../reference/theme_hdx.html">theme_hdx()</a></code> to quickly adjust some of
 the styling to fit the style guide.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/OCHA-DAP/gghdx" class="external-link">gghdx</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="gghdx_files/figure-html/intro-hdx-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
+<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span>, title_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="gghdx_files/figure-html/intro-hdx-1.png" class="r-plt" alt="" width="90%" height="10%" style="display: block; margin: auto;"></p>
 <p>Now, axis lines have been cleaned up and the plot better resembles
 recommendations from the visual guide with just that single line of
 code.</p>
@@ -129,40 +129,52 @@ code.</p>
 <p>However, the color palette for the points is still using the base R
 palette. We can use one of the many <code>scale_...hdx()</code>
 functions to use HDX colors. Let’s just use the primary discrete color
-scale that will align each species with one of the 3 non-gray colorramps
-(sapphire, mint, and tomato).</p>
+scale that will align each species with one of the 3 non-neutral
+colorramps from the 2025 HDX redesign (primary blue, brand teal, and
+error red).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="../reference/scale_hdx.html">scale_color_hdx_discrete</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="gghdx_files/figure-html/intro-ramp-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
+<code class="sourceCode R"><span><span class="va">p</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"sans"</span>, title_family <span class="op">=</span> <span class="st">"sans"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_hdx.html">scale_color_hdx_discrete</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="gghdx_files/figure-html/intro-ramp-1.png" class="r-plt" alt="" width="90%" height="10%" style="display: block; margin: auto;"></p>
 <p>You can check the documentation of any of the
 <code>scale_...hdx()</code> functions to see all available scales, or
 directly access the colors using <code><a href="../reference/hdx_color.html">hdx_colors()</a></code> or the raw
 list in <code>hdx_color_list</code>. The available palettes can be
-easily visualized using <code><a href="../reference/hdx_display_pal.html">hdx_display_pal()</a></code>.</p>
+easily visualized using <code><a href="../reference/hdx_display_pal.html">hdx_display_pal()</a></code>. The original
+sapphire, mint, and tomato colorramps are still available
+(e.g. <code><a href="../reference/scale_hdx.html">scale_color_hdx_sapphire()</a></code>) for backwards
+compatibility.</p>
 </div>
 <div class="section level3">
 <h3 id="adding-fonts">Adding fonts<a class="anchor" aria-label="anchor" href="#adding-fonts"></a>
 </h3>
-<p>We also would like to use the HDX font family. Since Source Sans 3 is
-a free Google font, it makes it relatively easy to access in R. gghdx
-uses the <a href="https://CRAN.R-project.org/package=sysfonts" class="external-link">sysfonts</a> package
-to load the Google font and then <a href="https://CRAN.R-project.org/package=showtext" class="external-link">showtext</a> to
+<p>We also would like to use the HDX font families. As of the 2025
+redesign, HDX uses Merriweather for titles and other display text, and
+Roboto for body text. Since both are free Google fonts, they’re
+relatively easy to access in R. gghdx uses the <a href="https://CRAN.R-project.org/package=sysfonts" class="external-link">sysfonts</a> package
+to load the Google fonts and then <a href="https://CRAN.R-project.org/package=showtext" class="external-link">showtext</a> to
 include them in our plot. You can also use the <a href="https://CRAN.R-project.org/package=extrafont" class="external-link">extrafont</a>
-package as an alternative if you have the font installed locally. This
+package as an alternative if you have the fonts installed locally. This
 requires ghostscript to be installed locally and can run into other
 issues, such as <a href="https://github.com/wch/extrafont/issues/32" class="external-link">font names</a> not
 being found.</p>
-<p>Below, I use the showtext package because it’s simpler.</p>
+<p>Below, I use the showtext package because it’s simpler.
+<code><a href="../reference/load_hdx_fonts.html">load_hdx_fonts()</a></code> wraps exactly this for both fonts at
+once.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/yixuan/showtext" class="external-link">showtext</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: sysfonts</span></span>
 <span><span class="co">#&gt; Loading required package: showtextdb</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sysfonts/man/font_add_google.html" class="external-link">font_add_google</a></span><span class="op">(</span><span class="st">"Source Sans 3"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/sysfonts/man/font_add_google.html" class="external-link">font_add_google</a></span><span class="op">(</span><span class="st">"Merriweather"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/sysfonts/man/font_add_google.html" class="external-link">font_add_google</a></span><span class="op">(</span><span class="st">"Roboto"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/showtext/man/showtext_auto.html" class="external-link">showtext_auto</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">p</span> <span class="op">+</span> <span class="fu"><a href="../reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"Source Sans 3"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="../reference/scale_hdx.html">scale_color_hdx_discrete</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="gghdx_files/figure-html/extrafont-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
+<span><span class="va">p</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"Roboto"</span>, title_family <span class="op">=</span> <span class="st">"Merriweather"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_hdx.html">scale_color_hdx_discrete</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="gghdx_files/figure-html/extrafont-1.png" class="r-plt" alt="" width="90%" height="10%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="streamlined-plotting">Streamlined plotting<a class="anchor" aria-label="anchor" href="#streamlined-plotting"></a>
@@ -174,23 +186,23 @@ simpler, <code><a href="../reference/gghdx.html">gghdx()</a></code> is provided 
 sets ggplot to:</p>
 <ul>
 <li>automatically use the HDX theme by default;</li>
-<li>use default HDX sapphire for point and line colors and and HDX mint
-for fill when not an aesthetic;</li>
+<li>use default HDX primary blue for point and line colors, and HDX
+data-grid blue for fill when not an aesthetic;</li>
 <li>use <code><a href="../reference/scale_hdx.html">scale_fill_hdx_discrete()</a></code> and
 <code><a href="../reference/scale_hdx.html">scale_color_hdx_discrete()</a></code> as the default discrete fill and
 color respectively;</li>
-<li>use <code><a href="../reference/scale_hdx.html">scale_fill_gradient_hdx_mint()</a></code> and
-<code><a href="../reference/scale_hdx.html">scale_color_gradient_hdx_sapphire()</a></code> as the default
+<li>use <code><a href="../reference/scale_hdx.html">scale_fill_gradient_hdx_primary()</a></code> and
+<code><a href="../reference/scale_hdx.html">scale_color_gradient_hdx_primary()</a></code> as the default
 continuous fill and color;</li>
-<li>loads the Source Sans 3 font from Google and activates its usage for
-the current session.</li>
+<li>loads the Roboto and Merriweather fonts from Google and activates
+their usage for the current session.</li>
 </ul>
 <p>You just have to run <code><a href="../reference/gghdx.html">gghdx()</a></code> once a session, and then
 our plots will already be where we would like!</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/gghdx.html">gghdx</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">p</span></span></code></pre></div>
-<p><img src="gghdx_files/figure-html/gghdx-1.png" width="90%" height="10%" style="display: block; margin: auto;"></p>
+<p><img src="gghdx_files/figure-html/gghdx-1.png" class="r-plt" alt="" width="90%" height="10%" style="display: block; margin: auto;"></p>
 <p>And voíla, we have our graph without specifying the theme or color
 scale.</p>
 </div>
@@ -198,15 +210,27 @@ scale.</p>
 <h3 id="covid-plots">COVID plots<a class="anchor" aria-label="anchor" href="#covid-plots"></a>
 </h3>
 <p>As a final example, we can closely match the COVID plots referenced
-in the visual guide using the theme and color scales in the package.</p>
-<p><img src="..%2Fman%2Ffigures%2Fcovid_blue.png" width="45%" height="20%"><img src="..%2Fman%2Ffigures%2Fcovid_red.png" width="45%" height="20%"></p>
+in the original visual guide using the theme and color scales in the
+package. These reference plots predate the 2025 redesign, so this
+example intentionally uses the legacy
+<code>sapphire</code>/<code>tomato</code> colorramps (kept for backwards
+compatibility) rather than the new
+<code>primary</code>/<code>error</code> scales, to match the published
+images.</p>
+<p><img src="../reference/figures/covid_blue.png" class="r-plt" alt="" width="45%" height="20%"><img src="../reference/figures/covid_red.png" class="r-plt" alt="" width="45%" height="20%"></p>
 <p>The inbuilt data <code><a href="../reference/df_covid.html">gghdx::df_covid</a></code> has aggregated COVID
 data we can use to mirror this plot. To make the data start at the
 y-axis, we can use <code><a href="../reference/scale_y_hdx.html">scale_y_continuous_hdx()</a></code> which sets
 <code>expand = c(0, 0)</code> by default, and the
-<code><a href="../reference/number_hdx.html">label_number_hdx()</a></code> function to create custom labels.</p>
+<code><a href="../reference/number_hdx.html">label_number_hdx()</a></code> function to create custom labels. Since
+<code><a href="../reference/gghdx.html">gghdx()</a></code> set the 2025 theme globally above, we explicitly
+add <code>theme_hdx(design = "legacy")</code> to each plot so it matches
+the pre-2025 reference images instead of inheriting the ambient 2025
+look.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">p_blue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/load_source_sans_3.html">load_source_sans_3</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p_blue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
 <span>  <span class="va">df_covid</span>,</span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="va">date</span>,</span>
@@ -225,6 +249,7 @@ y-axis, we can use <code><a href="../reference/scale_y_hdx.html">scale_y_continu
 <span>    date_breaks <span class="op">=</span> <span class="st">"1 month"</span>,</span>
 <span>    labels <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">toupper</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strptime.html" class="external-link">strftime</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"%b"</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_hdx.html">theme_hdx</a></span><span class="op">(</span>design <span class="op">=</span> <span class="st">"legacy"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Monthly global COVID-19 confirmed cases in 2020"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"DATA | JUL 2022 | World Health Organization"</span>,</span>
@@ -250,7 +275,7 @@ y-axis, we can use <code><a href="../reference/scale_y_hdx.html">scale_y_continu
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Monthly COVID-19 # of cases surpasses 8 million"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="gghdx_files/figure-html/covid-match-1.png" width="45%"><img src="gghdx_files/figure-html/covid-match-2.png" width="45%"></p>
+<p><img src="gghdx_files/figure-html/covid-match-1.png" class="r-plt" alt="" width="45%"><img src="gghdx_files/figure-html/covid-match-2.png" class="r-plt" alt="" width="45%"></p>
 <p>We’ve used relatively few lines of code to match fairly closely these
 examples plots!</p>
 </div>
@@ -267,12 +292,12 @@ examples plots!</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Seth Caldwell.</p>
+<p>Developed by Giulia Martini, Seth Caldwell.</p>
 </div>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer>
